@@ -1,0 +1,269 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --cream: #C4B898;
+  --cream-dim: rgba(196, 184, 152, 0.6);
+  --cream-faint: rgba(196, 184, 152, 0.28);
+  --gold: #B5A478;
+  --gold-dim: rgba(181, 164, 120, 0.65);
+  --rule: rgba(196, 184, 152, 0.22);
+
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  background: #0a0a0a;
+  color: var(--cream);
+  font-family: var(--sans);
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+}
+
+/* Scroll architecture */
+.app {
+  position: relative;
+}
+
+.scroll-runway {
+  height: 1800vh;
+  pointer-events: none;
+}
+
+.fixed-layer {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Canvas layer */
+.canvas-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Cards layer */
+.cards-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Header layer */
+.header-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Typography */
+.label {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.headline-large {
+  font-family: var(--serif);
+  font-size: clamp(52px, 7vw, 96px);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+}
+
+.headline-medium {
+  font-family: var(--serif);
+  font-size: clamp(36px, 4.5vw, 64px);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+}
+
+.subheadline {
+  font-family: var(--serif);
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--cream-dim);
+}
+
+.body-text {
+  font-family: var(--sans);
+  font-size: clamp(12px, 1.1vw, 14px);
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--cream-dim);
+  letter-spacing: 0.02em;
+}
+
+.detail-text {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+
+/* Horizontal rule */
+.editorial-rule {
+  width: 40px;
+  height: 1px;
+  background: var(--rule);
+  margin: 20px 0;
+}
+
+.editorial-rule.right {
+  margin-left: auto;
+}
+
+.editorial-rule.center {
+  margin: 20px auto;
+}
+
+/* CTA Button */
+.cta-button {
+  display: inline-block;
+  margin-top: 32px;
+  padding: 14px 40px;
+  border: 1px solid rgba(196, 184, 152, 0.35);
+  color: var(--cream);
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.4s ease, border-color 0.4s ease;
+  pointer-events: auto;
+  text-decoration: none;
+}
+
+.cta-button:hover {
+  background: rgba(196, 184, 152, 0.06);
+  border-color: rgba(196, 184, 152, 0.6);
+}
+
+/* Scroll hint */
+.scroll-hint {
+  position: absolute;
+  bottom: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.scroll-hint__text {
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 300;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--cream-faint);
+}
+
+.scroll-hint__line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, var(--cream-faint), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(1); }
+  50% { opacity: 0.8; transform: scaleY(1.1); }
+}
+
+/* ─── Tablet (768px – 1023px) ─────────────────────────────────────── */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .headline-large {
+    font-size: clamp(44px, 8vw, 72px);
+  }
+
+  .headline-medium {
+    font-size: clamp(30px, 5.5vw, 52px);
+  }
+}
+
+/* ─── Mobile (≤ 767px) ─────────────────────────────────────────────── */
+@media (max-width: 767px) {
+
+  /* Header — hide nav text links, keep the Inquire CTA */
+  .header-nav-link {
+    display: none !important;
+  }
+
+  /* Touch target — give the Inquire button a slightly larger tap area */
+  .header-inquire-btn {
+    padding: 12px 20px !important;
+  }
+
+  /* Typography */
+  .headline-large {
+    font-size: clamp(36px, 10vw, 48px);
+  }
+
+  .headline-medium {
+    font-size: clamp(26px, 7.5vw, 36px);
+  }
+
+  .subheadline {
+    font-size: clamp(13px, 3.8vw, 16px);
+  }
+
+  .body-text {
+    font-size: clamp(11px, 3vw, 13px);
+    line-height: 1.65;
+  }
+
+  .detail-text {
+    font-size: 10px;
+  }
+
+  /* Prevent any card overflow from creating horizontal scroll */
+  .cards-layer {
+    overflow: hidden;
+  }
+
+  /* Scroll hint — smaller on mobile */
+  .scroll-hint {
+    bottom: 32px;
+  }
+
+  .scroll-hint__line {
+    height: 36px;
+  }
+}
