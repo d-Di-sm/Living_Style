@@ -1,3 +1,10 @@
+import {
+  PHP_INTRO,
+  PHLC_01, PHLC_02, PHLC_03,
+  SR_01, SR_02, SR_03, SR_04,
+  LOGO_PHP, LOGO_PHLC, LOGO_SOHO,
+} from '../config/media'
+
 // scroll 0     → 0.333 : hero.mp4   — Park Hyatt Polanco Residences
 // scroll 0.333 → 0.667 : hero2.mp4  — PHLC Residences
 // scroll 0.667 → 1.0   : hero3.mp4  — Soho Residences
@@ -22,7 +29,7 @@ export const cards = [
     align: 'center',
     start: 0.05,
     end: 0.10,
-    src: '/logos/PHP_Residences_Logo.png',
+    src: LOGO_PHP,
     alt: 'Park Hyatt Mexico City Polanco Residences',
   },
   {
@@ -69,7 +76,7 @@ export const cards = [
     end: 0.33,
     label: 'Private Previews Now Open',
     headline: 'Begin Your\nEnquiry',
-    src: '/video/videoPHP/PHP_Intro.mp4',
+    src: PHP_INTRO,
   },
 
   // ─── PHLC SECTION (hero2.mp4, 0.333 → 0.667) ────────────────────────
@@ -80,7 +87,7 @@ export const cards = [
     align: 'center',
     start: 0.35,
     end: 0.39,
-    src: '/logos/PHLC_Residences_Logo.png',
+    src: LOGO_PHLC,
     alt: 'PHLC Residences',
     invert: true,
   },
@@ -127,11 +134,7 @@ export const cards = [
     end: 0.67,
     label: 'Private Previews Now Open',
     headline: 'Begin Your\nEnquiry',
-    srcs: [
-      '/video/videoPHLC/PHLC_01.mp4',
-      '/video/videoPHLC/PHLC_02.mp4',
-      '/video/videoPHLC/PHLC_03.mp4',
-    ],
+    srcs: [PHLC_01, PHLC_02, PHLC_03],
   },
 
   // ─── SOHO RESIDENCES SECTION (hero3.mp4, 0.667 → 1.0) ───────────────
@@ -142,7 +145,7 @@ export const cards = [
     align: 'center',
     start: 0.68,
     end: 0.72,
-    src: '/logos/Soho_Residences_Logo.png',
+    src: LOGO_SOHO,
     alt: 'Soho Residences',
     invert: true,
   },
@@ -189,11 +192,6 @@ export const cards = [
     end: 1.00,
     label: 'Private Previews Now Open',
     headline: 'Begin Your\nEnquiry',
-    srcs: [
-      '/video/videoSohoResidences/SR_01.mp4',
-      '/video/videoSohoResidences/SR_02.mp4',
-      '/video/videoSohoResidences/SR_03.mp4',
-      '/video/videoSohoResidences/SR_04.mp4',
-    ],
+    srcs: [SR_01, SR_02, SR_03, SR_04],
   },
 ]

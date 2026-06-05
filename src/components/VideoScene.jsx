@@ -1,5 +1,6 @@
 import { useRef, useEffect, useMemo, memo } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import { HERO_1, HERO_2, HERO_3 } from '../config/media'
 
 const vertexShader = /* glsl */ `
   varying vec2 vUv;
@@ -125,9 +126,9 @@ export default memo(function VideoScene({ scrollProgress }) {
 
   return (
     <>
-      <video ref={video1Ref} src="/video/hero.mp4"  muted playsInline preload="auto" style={{ ...videoStyle, opacity: 1 }} />
-      <video ref={video2Ref} src="/video/hero2.mp4" muted playsInline preload="auto" style={{ ...videoStyle, opacity: 0 }} />
-      <video ref={video3Ref} src="/video/hero3.mp4" muted playsInline preload="auto" style={{ ...videoStyle, opacity: 0 }} />
+      <video ref={video1Ref} src={HERO_1} muted playsInline preload="auto" style={{ ...videoStyle, opacity: 1 }} />
+      <video ref={video2Ref} src={HERO_2} muted playsInline preload="auto" style={{ ...videoStyle, opacity: 0 }} />
+      <video ref={video3Ref} src={HERO_3} muted playsInline preload="auto" style={{ ...videoStyle, opacity: 0 }} />
 
       <Canvas
         orthographic
