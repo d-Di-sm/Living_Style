@@ -126,9 +126,9 @@ export default memo(function VideoScene({ scrollProgress }) {
 
   return (
     <>
-      <video ref={video1Ref} src={HERO_1} muted playsInline preload="auto" style={{ ...videoStyle, opacity: 1 }} />
-      <video ref={video2Ref} src={HERO_2} muted playsInline preload="auto" style={{ ...videoStyle, opacity: 0 }} />
-      <video ref={video3Ref} src={HERO_3} muted playsInline preload="auto" style={{ ...videoStyle, opacity: 0 }} />
+      <video ref={video1Ref} src={HERO_1} muted playsInline autoPlay preload="auto" style={{ ...videoStyle, opacity: 1 }} />
+      <video ref={video2Ref} src={HERO_2} muted playsInline autoPlay preload="auto" style={{ ...videoStyle, opacity: 0 }} />
+      <video ref={video3Ref} src={HERO_3} muted playsInline autoPlay preload="auto" style={{ ...videoStyle, opacity: 0 }} />
 
       <Canvas
         orthographic
