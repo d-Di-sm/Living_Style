@@ -1,61 +1,69 @@
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Header from './components/Header'
-import VideoScene from './components/VideoScene'
-import ScrollCards from './components/ScrollCards'
-import './index.css'
+import ProjectCard from './components/ProjectCard'
+import DetailView from './components/DetailView'
+import BottomNav from './components/BottomNav'
+import Experience from './components/Experience'
+import { projects } from './data/projects'
+
+const TRANSITION = { duration: 0.45, ease: [0.4, 0, 0.2, 1] }
 
 export default function App() {
-  const [scrollProgress, setScrollProgress] = useState(0)
-  // Ref keeps the raw value accessible to R3F's useFrame without stale closure
-  const scrollRef = useRef(0)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight
-      const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0
-      scrollRef.current = progress
-      setScrollProgress(progress)
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll()
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  const showScrollHint = scrollProgress < 0.04
+  const [selectedProject, setSelectedProject] = useState(null)
+  const isOpen = !!selectedProject
 
   return (
-    <div className="app">
-      {/* The tall runway that creates scroll space */}
-      <div className="scroll-runway" aria-hidden="true" />
+    <div className="relative w-screen h-screen overflow-hidden" style={{ background: '#090909' }}>
 
-      {/* Everything fixed to viewport */}
-      <div className="fixed-layer">
-        {/* Video + grain + vignette shader */}
-        <div className="canvas-layer">
-          <VideoScene scrollProgress={scrollRef} />
-        </div>
+      {/* ── Three.js subtle background ─────────────── */}
+      <Experience />
 
-        {/* Editorial card overlays */}
-        <ScrollCards scrollProgress={scrollProgress} />
+      {/* ── MAIN VIEW ──────────────────────────────── */}
+      <motion.div
+        className="absolute inset-0 flex flex-col z-10"
+        style={{ background: '#090909', paddingBottom: 50 }}
+        animate={{ opacity: isOpen ? 0 : 1 }}
+        transition={TRANSITION}
+        aria-hidden={isOpen}
+        {...(isOpen ? { style: { pointerEvents: 'none', background: '#090909', paddingBottom: 50 } } : {})}
+      >
+        <Header />
 
-        {/* Header — always on top */}
-        <div className="header-layer">
-          <Header scrollProgress={scrollProgress} />
-        </div>
-
-        {/* Scroll hint — fades out as user begins scrolling */}
-        <motion.div
-          className="scroll-hint"
-          animate={{ opacity: showScrollHint ? 1 : 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-          aria-hidden="true"
+        {/* Cards stage */}
+        <div
+          className="flex-1 flex items-end"
+          style={{ gap: 16, padding: '16px 20px 0' }}
         >
-          <span className="scroll-hint__text">Scroll</span>
-          <div className="scroll-hint__line" />
-        </motion.div>
-      </div>
+          {projects.map((project) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              onSelect={setSelectedProject}
+            />
+          ))}
+        </div>
+      </motion.div>
+
+      {/* ── DETAIL VIEW ────────────────────────────── */}
+      <motion.div
+        className="absolute inset-0 z-20"
+        style={{
+          background: '#090909',
+          pointerEvents: isOpen ? 'auto' : 'none',
+        }}
+        initial={false}
+        animate={{ opacity: isOpen ? 1 : 0, y: isOpen ? 0 : 24 }}
+        transition={TRANSITION}
+      >
+        <DetailView
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      </motion.div>
+
+      {/* ── BOTTOM NAV ─────────────────────────────── */}
+      <BottomNav detailOpen={isOpen} />
     </div>
   )
 }
