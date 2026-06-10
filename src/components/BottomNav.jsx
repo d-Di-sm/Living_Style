@@ -9,8 +9,15 @@ const textStyle = { fontSize: 8, letterSpacing: '1.5px', color: '#555', textTran
 export default function BottomNav({ detailOpen }) {
   return (
     <nav
-      className="fixed bottom-0 left-0 right-0 flex items-center z-[1000]"
-      style={{ height: 50, background: '#000', padding: detailOpen ? '0 40px' : '0 20px' }}
+      className={`fixed bottom-0 left-0 right-0 flex items-center z-[1000]${detailOpen ? ' detail-footer' : ''}`}
+      style={{
+        height: 'calc(50px + env(safe-area-inset-bottom, 0px))',
+        background: '#000',
+        paddingLeft:   detailOpen ? 'clamp(16px, 5vw, 40px)' : 'clamp(12px, 3vw, 20px)',
+        paddingRight:  detailOpen ? 'clamp(16px, 5vw, 40px)' : 'clamp(12px, 3vw, 20px)',
+        paddingBottom: 'env(safe-area-inset-bottom, 0px)',
+        alignItems: 'center',
+      }}
     >
       {detailOpen ? (
         <>

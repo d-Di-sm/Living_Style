@@ -91,9 +91,9 @@ export default function ProjectCard({ project, onSelect }) {
       onClick={() => onSelect(project)}
     >
       <CardContent project={project} />
-      <div style={{
-        position: 'absolute', bottom: 16, right: 12,
-        display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10,
+      <div className="card-icons" style={{
+        position: 'absolute', bottom: 'clamp(10px, 3vw, 16px)', right: 'clamp(8px, 2vw, 12px)',
+        display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'clamp(8px, 2vw, 10px)',
         zIndex: 10,
       }}>
         {[

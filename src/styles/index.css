@@ -6,10 +6,18 @@
 @layer base {
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html, body {
-    width: 100vw; height: 100vh;
+    width: 100%; height: 100%;
+    max-width: 100vw;
     overflow: hidden;
     font-family: 'Inter', sans-serif;
     background: #090909;
+    /* Prevent text size adjustment on iOS rotation */
+    -webkit-text-size-adjust: 100%;
+  }
+  #root {
+    width: 100%;
+    height: 100%;
+    height: 100dvh;
   }
 }
 
@@ -172,4 +180,231 @@
   font-family: 'Funnel Sans', 'Inter', sans-serif;
   font-size: 96px; font-weight: 300; letter-spacing: -3px;
   line-height: 0.88; color: #fff; text-align: right;
+}
+
+/* ── Mobile Responsive (≤ 768px) ───────────────────── */
+@media (max-width: 768px) {
+
+  /* ── Card icons spacing ── */
+  .card-icons { gap: 23px !important; }
+
+  /* ── Header mobile ── */
+  .partner-logo   { display: none !important; }
+  .hamburger-btn  { display: flex !important; }
+  .hamburger-menu { display: flex !important; }
+
+  .soma-logo { height: 28px !important; }
+  .living-text {
+    font-size: 11px !important;
+    letter-spacing: 3px !important;
+    margin-left: 10px !important;
+  }
+
+  /* ── Cards stage: vertical stack with scroll snap ── */
+  .cards-stage {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: y mandatory;
+    gap: 10px !important;
+    padding: 10px 10px 10px !important;
+  }
+
+  /* Each card: full width, fills the viewport (one card per screen) */
+  .cards-stage > * {
+    flex: none !important;
+    width: 100% !important;
+    height: calc(100dvh - 120px) !important;
+    border-radius: 6px;
+    scroll-snap-align: start;
+  }
+
+  /* ── Card 1 internals ── */
+  .c1-photos { height: 120px; }
+  .c1-heading { font-size: clamp(28px, 9vw, 44px); line-height: 0.9; }
+  .c1-bottom { padding: 6px 16px 10px; }
+
+  /* ── Card 2 internals ── */
+  .c2-ghost {
+    font-size: clamp(100px, 35vw, 200px);
+    bottom: 60px;
+  }
+  .c2-caption {
+    font-size: clamp(22px, 7vw, 34px);
+    bottom: 20px;
+    left: 20px;
+  }
+  .c2-label { top: 12px; left: 14px; }
+
+  /* ── Card 3 internals ── */
+  .c3-header { padding: 14px 16px 8px; }
+  .c3-title { font-size: clamp(22px, 7vw, 38px); margin-bottom: 4px; }
+  .c3-desc { font-size: 9px; line-height: 1.4; }
+  .c3-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    padding: 0 10px;
+  }
+  .c3-phase-img { height: 60px; }
+  .c3-phase-num,
+  .c3-phase-date { font-size: 7px; }
+  .c3-phase-name { font-size: 8px; }
+  .c3-fullimg { height: 60px; }
+
+  /* ── Detail outer wrapper: reduce offset on mobile ── */
+  .detail-outer {
+    padding: 0 !important;
+  }
+  .detail-inner {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0 !important;
+  }
+
+  /* ── Detail nav ── */
+  .d-nav {
+    height: 48px;
+    padding: 0 14px;
+  }
+  .d-nav-left { gap: 10px; }
+  .d-nav-left a { font-size: 9px; }
+  .d-nav-center img { height: 44px !important; }
+  .btn-back { padding: 5px 10px; font-size: 8px; }
+
+  /* ── Detail top: convert absolute children to flow layout ── */
+  .d-top {
+    height: auto !important;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 18px 16px 16px;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  .d-big-title {
+    position: static !important;
+    font-size: clamp(24px, 7.5vw, 44px);
+    letter-spacing: -1.5px;
+    line-height: 0.95;
+  }
+  .d-collection {
+    position: static !important;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+  }
+  .d-star { font-size: 11px; }
+  .d-label { font-size: 8px; letter-spacing: 1.5px; }
+
+  /* d-desc: stack the two columns vertically, description first */
+  .d-desc {
+    position: static !important;
+    display: flex !important;
+    flex-direction: column-reverse !important;
+    gap: 12px !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    right: auto !important;
+    bottom: auto !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+    margin-top: calc(20dvh - 10px) !important;
+  }
+
+  /* Info column: remove fixed minWidth and translateX */
+  .d-desc > div:first-child {
+    min-width: 0 !important;
+    width: 100% !important;
+    transform: none !important;
+    flex-shrink: 1 !important;
+    gap: 4px !important;
+  }
+
+  /* Info rows: tighter layout */
+  .d-desc > div:first-child > div {
+    font-size: 11px !important;
+    line-height: 1.5 !important;
+    gap: 6px !important;
+  }
+
+  /* Description paragraph */
+  .d-desc > div:last-child {
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+    color: #1A1A1A;
+    width: 100%;
+    transform: translateY(-20px);
+  }
+
+  /* ── Detail photo: let height be natural ── */
+  .d-photo {
+    height: clamp(200px, 50vw, 320px) !important;
+  }
+  .d-coords { top: 12px; left: 14px; font-size: 9px; }
+  .d-location { top: 12px; font-size: 8px; letter-spacing: 1px; }
+  .d-villa {
+    font-size: clamp(36px, 12vw, 72px) !important;
+    right: 14px;
+    bottom: 14px;
+    letter-spacing: -2px;
+  }
+
+  /* ── Gallery grids: 2 columns on mobile ── */
+  .gallery-grid-videos,
+  .gallery-grid-tipologias {
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-rows: auto !important;
+  }
+
+  /* ── Social icons below videos ── */
+  .section-social-icons {
+    width: 100% !important;
+    margin-left: 0 !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    margin-top: 40px !important;
+    padding-bottom: 80px !important;
+  }
+  .section-social-icons svg {
+    width: 32px !important;
+    height: 32px !important;
+  }
+}
+
+/* ── Small phones (≤ 430px) ─────────────────────────── */
+@media (max-width: 430px) {
+  .cards-stage > * {
+    height: calc(100dvh - 120px) !important;
+  }
+  .c2-ghost { font-size: clamp(80px, 28vw, 160px); bottom: 50px; }
+  .c2-caption { font-size: clamp(18px, 6.5vw, 28px); }
+
+  /* DetailView small phone adjustments */
+  .d-big-title { font-size: clamp(20px, 6.5vw, 32px) !important; }
+  .d-villa { font-size: clamp(28px, 10vw, 52px) !important; }
+  .d-photo { height: clamp(160px, 45vw, 260px) !important; }
+  .gallery-grid-videos,
+  .gallery-grid-tipologias {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+  /* ── Detail footer logos: equidistant on mobile ── */
+  .detail-footer {
+    justify-content: space-evenly !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  .detail-footer a {
+    flex: none !important;
+    justify-content: center !important;
+  }
+
+/* ── Safe area insets (notch / home indicator) ──────── */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .safe-top    { padding-top:    env(safe-area-inset-top); }
+  .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
 }

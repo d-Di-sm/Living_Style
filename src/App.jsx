@@ -14,7 +14,7 @@ export default function App() {
   const isOpen = !!selectedProject
 
   return (
-    <div className="relative w-screen h-screen overflow-hidden" style={{ background: '#090909' }}>
+    <div className="relative w-full overflow-hidden" style={{ background: '#090909', height: '100dvh' }}>
 
       {/* ── Three.js subtle background ─────────────── */}
       <Experience />
@@ -22,18 +22,18 @@ export default function App() {
       {/* ── MAIN VIEW ──────────────────────────────── */}
       <motion.div
         className="absolute inset-0 flex flex-col z-10"
-        style={{ background: '#090909', paddingBottom: 50 }}
+        style={{ background: '#090909', paddingBottom: 'calc(50px + env(safe-area-inset-bottom, 0px))' }}
         animate={{ opacity: isOpen ? 0 : 1 }}
         transition={TRANSITION}
         aria-hidden={isOpen}
-        {...(isOpen ? { style: { pointerEvents: 'none', background: '#090909', paddingBottom: 50 } } : {})}
+        {...(isOpen ? { style: { pointerEvents: 'none', background: '#090909', paddingBottom: 'calc(50px + env(safe-area-inset-bottom, 0px))' } } : {})}
       >
         <Header />
 
         {/* Cards stage */}
         <div
-          className="flex-1 flex items-end"
-          style={{ gap: 16, padding: '16px 20px 0' }}
+          className="flex-1 flex items-end cards-stage"
+          style={{ gap: 'clamp(6px, 2vw, 16px)', padding: 'clamp(8px, 2vw, 16px) clamp(10px, 2.5vw, 20px) 0' }}
         >
           {projects.map((project) => (
             <ProjectCard

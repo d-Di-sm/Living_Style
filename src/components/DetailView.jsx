@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { blobVideos } from '../data/blobVideos'
 
 const SECTION_CONFIG = {
   1: {
@@ -13,10 +14,10 @@ const SECTION_CONFIG = {
       ['Diseño',      'Sordo Madaleno'],
     ],
     videos:     [
-      { label: 'Intro',      image: '/images_detail_view/SR/intro.png',      video: '/video/videoSohoResidences/SR_04.mp4' },
-      { label: 'Amenidades', image: '/images_detail_view/SR/amenities.png',  video: '/video/videoSohoResidences/SR_02.mp4' },
-      { label: 'The Casita', image: '/images_detail_view/SR/thecasitas.png', video: '/video/videoSohoResidences/SR_03.mp4' },
-      { label: 'Buildings',  image: '/images_detail_view/SR/arch.png',       video: '/video/videoSohoResidences/SR_01.mp4' },
+      { label: 'Intro',      image: '/images_detail_view/SR/intro.png',      video: blobVideos.SR_04 },
+      { label: 'Amenidades', image: '/images_detail_view/SR/amenities.png',  video: blobVideos.SR_02 },
+      { label: 'The Casita', image: '/images_detail_view/SR/thecasitas.png', video: blobVideos.SR_03 },
+      { label: 'Buildings',  image: '/images_detail_view/SR/arch.png',       video: blobVideos.SR_01 },
     ],
     tipologias: [
       { label: '2 Bedrooms',  image: '/tipologias/PHP/T01.png' },
@@ -38,8 +39,8 @@ const SECTION_CONFIG = {
       ['Diseño',      'Sordo Madaleno'],
     ],
     videos:     [
-      { label: 'Intro',      image: '/images_detail_view/PHLC/intro.png',     video: '/video/videoPHLC/PHLC_01.mp4' },
-      { label: 'Amenidades', image: '/images_detail_view/PHLC/amenities.png', video: '/video/videoPHLC/PHLC_02.mp4' },
+      { label: 'Intro',      image: '/images_detail_view/PHLC/intro.png',     video: blobVideos.PHLC_01 },
+      { label: 'Amenidades', image: '/images_detail_view/PHLC/amenities.png', video: blobVideos.PHLC_02 },
     ],
     tipologias: [
       { label: 'Type 01', image: '/tipologias/PHLC/T01.png' },
@@ -60,7 +61,7 @@ const SECTION_CONFIG = {
     ],
     heroImage:  '/images/phase4.png',
     videos:     [
-      { label: 'Intro', image: '/images_detail_view/PHP/intro.png', video: '/video/videoPHP/PHP_Intro.mp4' },
+      { label: 'Intro', image: '/images_detail_view/PHP/intro.png', video: blobVideos.PHP_Intro },
     ],
     tipologias: [
       { label: '2 Bedrooms',       image: '/tipologias/PHP/T01.png' },
@@ -163,7 +164,7 @@ function VideoPanel({ cards, initialIndex, onClose, shareUrl }) {
     >
       <div
         onClick={e => e.stopPropagation()}
-        style={{ background: '#1A1A1A', borderRadius: 12, overflow: 'hidden', width: '72vw', maxWidth: 900, boxShadow: '0 32px 80px rgba(0,0,0,0.6)' }}
+        style={{ background: '#1A1A1A', borderRadius: 12, overflow: 'hidden', width: 'clamp(300px, 92vw, 900px)', maxHeight: '90dvh', display: 'flex', flexDirection: 'column', boxShadow: '0 32px 80px rgba(0,0,0,0.6)' }}
       >
         {/* Video */}
         <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', background: '#000' }}>
@@ -172,7 +173,7 @@ function VideoPanel({ cards, initialIndex, onClose, shareUrl }) {
             ref={videoRef}
             src={current.video}
             style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-            autoPlay muted loop playsInline
+            autoPlay muted loop playsInline preload="metadata"
             onTimeUpdate={e => { setCurrentTime(e.target.currentTime); setProgress(e.target.currentTime / (e.target.duration || 1)) }}
             onLoadedMetadata={e => setDuration(e.target.duration)}
             onPlay={() => setPlaying(true)}
@@ -298,7 +299,7 @@ function GalleryCard({ label, image, video, showMeta, onClick, shareUrl }) {
           overflow: 'hidden',
           borderRadius: 8,
           background: '#2A2A2A',
-          height: 350,
+          height: 'clamp(200px, 40vw, 350px)',
           boxShadow: '0 8px 32px rgba(0,0,0,0.18)',
           cursor: 'pointer',
           transition: 'transform 0.3s ease, box-shadow 0.3s ease',
@@ -313,7 +314,7 @@ function GalleryCard({ label, image, video, showMeta, onClick, shareUrl }) {
         }}
       >
         {video
-          ? <video src={video} autoPlay muted loop playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', pointerEvents: 'none' }} />
+          ? <video src={video} autoPlay muted loop playsInline preload="metadata" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', pointerEvents: 'none' }} />
           : <img src={image} alt={label} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
         }
         <div style={{
@@ -365,13 +366,13 @@ function SectionGrid({ title, cards, image, showMeta, links, onCardClick }) {
   const cols = Math.min(cards.length, 4)
   const rows = Math.ceil(cards.length / cols)
   return (
-    <div style={{ background: '#EDE8DC', padding: '40px 32px 40px', minHeight: '100vh' }}>
+    <div style={{ background: '#EDE8DC', padding: 'clamp(20px, 5vw, 40px) clamp(12px, 4vw, 32px)', minHeight: '100dvh' }}>
       <p style={{
         fontFamily: "'Funnel Sans', 'Inter', sans-serif",
         fontSize: 22, fontWeight: 300, letterSpacing: '2px',
         textTransform: 'uppercase', color: '#888', marginBottom: 20,
       }}>{title}</p>
-      <div style={{
+      <div className={showMeta ? 'gallery-grid-tipologias' : 'gallery-grid-videos'} style={{
         display: 'grid',
         gridTemplateColumns: showMeta ? `repeat(${cards.length}, 1fr)` : `repeat(${cols}, 1fr)`,
         gridTemplateRows: showMeta ? '350px' : `repeat(${rows}, 350px)`,
@@ -385,7 +386,7 @@ function SectionGrid({ title, cards, image, showMeta, links, onCardClick }) {
         })}
       </div>
       {links && (
-        <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: 140, width: '100vw', marginLeft: 'calc(-32px)', paddingLeft: 32, paddingRight: 32 }}>
+        <div className="section-social-icons" style={{ display: 'flex', justifyContent: 'space-around', marginTop: 140, width: '100vw', marginLeft: 'calc(-32px)', paddingLeft: 32, paddingRight: 32 }}>
           {[
             { href: links.web,
               path: <><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"/></>,
@@ -421,11 +422,11 @@ export default function DetailView({ project, onClose }) {
 
   return (<>
     <div
-      className="w-full h-full flex items-end justify-end"
+      className="w-full h-full flex items-end justify-end detail-outer"
       style={{ padding: '24px 0 0 24px' }}
     >
       <div
-        className="flex flex-col"
+        className="flex flex-col detail-inner"
         style={{
           width: 'calc(100% - 24px)',
           height: 'calc(100% - 24px)',
@@ -455,7 +456,7 @@ export default function DetailView({ project, onClose }) {
 
         {/* Scrollable body */}
         <div style={{ flex: 1, overflowY: 'scroll', height: 0 }}>
-          <div style={{ height: '200vh' }}>
+          <div style={{ minHeight: '200vh' }}>
 
             {/* Top */}
             <div className="d-top">
@@ -478,7 +479,7 @@ export default function DetailView({ project, onClose }) {
             </div>
 
             {/* Photo */}
-            <div className="d-photo" style={{ height: 'calc(100vh - 340px - 56px)' }}>
+            <div className="d-photo" style={{ height: 'calc(100dvh - 340px - 56px)' }}>
               <img src={config.heroImage ?? project.image} alt="" />
               <div className="d-photo-overlay" />
               <div className="d-coords">
