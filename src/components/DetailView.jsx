@@ -258,38 +258,27 @@ function VideoPanel({ cards, initialIndex, onClose, shareUrl }) {
 }
 
 function GalleryCard({ label, image, video, showMeta, onClick, shareUrl }) {
-  const [copied, setCopied] = useState(false)
+  const [blobReady, setBlobReady] = useState(false)
   const blobRef = useRef(null)
 
-  // Pre-fetch video blob in background so it's ready when user taps share
+  // Pre-fetch blob in background — button activates when ready
   useEffect(() => {
     if (!video) return
+    setBlobReady(false)
     fetch(video)
       .then(r => r.blob())
-      .then(blob => { blobRef.current = blob })
+      .then(blob => { blobRef.current = blob; setBlobReady(true) })
       .catch(() => {})
   }, [video])
 
   const handleShare = async (e) => {
     e.stopPropagation()
-    const url = shareUrl ?? window.location.href
+    if (!blobRef.current) return
     try {
-      const blob = blobRef.current
-      if (blob && navigator.canShare) {
-        const fileName = video.split('/').pop()
-        const file = new File([blob], fileName, { type: blob.type || 'video/mp4' })
-        if (navigator.canShare({ files: [file] })) {
-          await navigator.share({ files: [file], title: 'SOMA Living', text: label })
-          return
-        }
-      }
-      // Fallback: share URL or copy to clipboard
-      if (navigator.share) {
-        await navigator.share({ title: 'SOMA Living', text: label, url })
-      } else {
-        await navigator.clipboard.writeText(url)
-        setCopied(true)
-        setTimeout(() => setCopied(false), 2000)
+      const fileName = video.split('/').pop()
+      const file = new File([blobRef.current], fileName, { type: blobRef.current.type || 'video/mp4' })
+      if (navigator.canShare?.({ files: [file] })) {
+        await navigator.share({ files: [file], title: 'SOMA Living', text: label })
       }
     } catch (err) {
       if (err.name !== 'AbortError') console.error('Share failed:', err)
@@ -336,19 +325,20 @@ function GalleryCard({ label, image, video, showMeta, onClick, shareUrl }) {
           textTransform: 'uppercase', color: '#fff',
         }}>{label}</span>
 
-        {/* Share button */}
+        {/* Share button — spinner while pre-fetching, icon when ready */}
         {shareUrl && (
           <button
             onClick={handleShare}
-            style={{ position: 'absolute', bottom: 12, right: 12, zIndex: 10, background: 'rgba(255,255,255,0.12)', border: 'none', borderRadius: '50%', width: 32, height: 32, cursor: 'pointer', color: 'rgba(255,255,255,0.7)', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background 0.2s' }}
-            onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.25)'}
+            disabled={!blobReady}
+            style={{ position: 'absolute', bottom: 12, right: 12, zIndex: 10, background: 'rgba(255,255,255,0.12)', border: 'none', borderRadius: '50%', width: 32, height: 32, cursor: blobReady ? 'pointer' : 'wait', color: 'rgba(255,255,255,0.7)', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background 0.2s' }}
+            onMouseEnter={e => { if (blobReady) e.currentTarget.style.background = 'rgba(255,255,255,0.25)' }}
             onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.12)'}
           >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            {blobReady
+              ? <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              : <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" style={{ animation: 'spin 1s linear infinite' }}><path d="M12 2a10 10 0 0 1 10 10"/></svg>
+            }
           </button>
-        )}
-        {copied && (
-          <span style={{ position: 'absolute', bottom: 50, right: 8, background: 'rgba(0,0,0,0.75)', color: '#fff', fontSize: 9, letterSpacing: '1px', padding: '4px 8px', borderRadius: 4, whiteSpace: 'nowrap' }}>Link copiado</span>
         )}
       </div>
       {showMeta && (
