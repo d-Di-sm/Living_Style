@@ -161,14 +161,16 @@ function VideoPanel({ cards, initialIndex, onClose, shareUrl }) {
   return (
     <div
       onClick={onClose}
+      className="vp-backdrop"
       style={{ position: 'fixed', inset: 0, zIndex: 200, background: 'rgba(0,0,0,0.75)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
     >
       <div
         onClick={e => e.stopPropagation()}
+        className="vp-modal"
         style={{ background: '#1A1A1A', borderRadius: 12, overflow: 'hidden', width: 'clamp(300px, 92vw, 900px)', maxHeight: '90dvh', display: 'flex', flexDirection: 'column', boxShadow: '0 32px 80px rgba(0,0,0,0.6)' }}
       >
         {/* Video */}
-        <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', background: '#000' }}>
+        <div className="vp-video-wrap" style={{ position: 'relative', width: '100%', aspectRatio: '16/9', background: '#000' }}>
           <video
             key={index}
             ref={videoRef}

@@ -189,6 +189,23 @@
 /* ── Mobile Responsive (≤ 768px) ───────────────────── */
 @media (max-width: 768px) {
 
+  /* ── VideoPanel: portrait 9:16, clears BottomNav ── */
+  .vp-backdrop {
+    align-items: flex-end !important;
+    padding-bottom: calc(50px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+  .vp-modal {
+    width: 92vw !important;
+    height: calc(100dvh - 66px - env(safe-area-inset-bottom, 0px)) !important;
+    max-height: none !important;
+    border-radius: 12px !important;
+  }
+  .vp-video-wrap {
+    flex: 1 1 0 !important;
+    min-height: 0 !important;
+    aspect-ratio: unset !important;
+  }
+
   /* ── Card icons spacing ── */
   .card-icons { gap: 23px !important; }
 
