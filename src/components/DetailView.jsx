@@ -1,6 +1,9 @@
 import { useState, useEffect, useRef } from 'react'
 import { blobVideos } from '../data/blobVideos'
 
+// Module-level cache shared by DetailView, GalleryCard and VideoPanel
+const videoCache = new Map()
+
 const SECTION_CONFIG = {
   1: {
     bigTitle:     'Soho Residences\nLos Cabos',
@@ -95,11 +98,17 @@ function VideoPanel({ cards, initialIndex, onClose, shareUrl }) {
     setCurrentTime(0)
   }, [index])
 
-  // Pre-fetch current video in background so blob is ready when user taps share
+  // Use shared cache; populate it if missing
   useEffect(() => {
     const src = current.video
-    if (!src || blobCache.current[src]) return
-    fetch(src).then(r => r.blob()).then(blob => { blobCache.current[src] = blob }).catch(() => {})
+    if (!src) return
+    const cached = videoCache.get(src)
+    if (cached) { blobCache.current[src] = cached; return }
+    if (blobCache.current[src]) return
+    fetch(src, { priority: 'high' })
+      .then(r => r.blob())
+      .then(blob => { videoCache.set(src, blob); blobCache.current[src] = blob })
+      .catch(() => {})
   }, [index])
 
   const fmt = s => `${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`
@@ -261,13 +270,19 @@ function GalleryCard({ label, image, video, showMeta, onClick, shareUrl }) {
   const [blobReady, setBlobReady] = useState(false)
   const blobRef = useRef(null)
 
-  // Pre-fetch blob in background — button activates when ready
+  // Use shared cache if available, otherwise fetch and populate it
   useEffect(() => {
     if (!video) return
+    const cached = videoCache.get(video)
+    if (cached) {
+      blobRef.current = cached
+      setBlobReady(true)
+      return
+    }
     setBlobReady(false)
-    fetch(video)
+    fetch(video, { priority: 'high' })
       .then(r => r.blob())
-      .then(blob => { blobRef.current = blob; setBlobReady(true) })
+      .then(blob => { videoCache.set(video, blob); blobRef.current = blob; setBlobReady(true) })
       .catch(() => {})
   }, [video])
 
@@ -411,6 +426,17 @@ export default function DetailView({ project, onClose }) {
   const [videoPanel, setVideoPanel] = useState(null)
   const villaLines = project.detailLines
   const config = SECTION_CONFIG[project.id] ?? { videos: [], tipologias: [] }
+
+  // Kick off parallel pre-fetch for all project videos as soon as DetailView opens
+  useEffect(() => {
+    config.videos.forEach(({ video }) => {
+      if (!video || videoCache.has(video)) return
+      fetch(video, { priority: 'high' })
+        .then(r => r.blob())
+        .then(blob => videoCache.set(video, blob))
+        .catch(() => {})
+    })
+  }, [project.id])
 
   return (<>
     <div
