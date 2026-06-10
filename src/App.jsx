@@ -14,7 +14,7 @@ export default function App() {
   const isOpen = !!selectedProject
 
   return (
-    <div className="relative w-full overflow-hidden" style={{ background: '#090909', height: '100dvh' }}>
+    <div className="relative w-full" style={{ background: '#090909', height: '100dvh', overflow: 'clip' }}>
 
       {/* ── Three.js subtle background ─────────────── */}
       <Experience />
