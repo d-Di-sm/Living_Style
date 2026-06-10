@@ -30,7 +30,7 @@ const SECTION_CONFIG = {
   },
   2: {
     bigTitle:     'Park Hyatt Cabo Del Sol\nResidences',
-    logo:         '/logos/PHLC_Residences_Logo.png',
+    logo:         '/logos/PHP_Residences_Logo_W.png',
     description:  'Set within the coastal landscape of Cabo del Sol, these private residences express contemporary architecture, seamless indoor-outdoor living, and the signature hospitality of Park Hyatt.',
     info: [
       ['Tipologías',  '3 tipos'],
