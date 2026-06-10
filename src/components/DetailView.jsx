@@ -258,27 +258,12 @@ function VideoPanel({ cards, initialIndex, onClose, shareUrl }) {
 }
 
 function GalleryCard({ label, image, video, showMeta, onClick, shareUrl }) {
-  const [copied, setCopied]   = useState(false)
-  const [loading, setLoading] = useState(false)
+  const [copied, setCopied] = useState(false)
 
   const handleShare = async (e) => {
     e.stopPropagation()
     const url = shareUrl ?? window.location.href
     try {
-      // If card has a video, fetch and share the actual file
-      if (video && navigator.canShare) {
-        setLoading(true)
-        const res      = await fetch(video)
-        const blob     = await res.blob()
-        const fileName = video.split('/').pop()
-        const file     = new File([blob], fileName, { type: blob.type || 'video/mp4' })
-        setLoading(false)
-        if (navigator.canShare({ files: [file] })) {
-          await navigator.share({ files: [file], title: 'SOMA Living', text: label })
-          return
-        }
-      }
-      // Fallback: share URL or copy to clipboard
       if (navigator.share) {
         await navigator.share({ title: 'SOMA Living', text: label, url })
       } else {
@@ -287,7 +272,6 @@ function GalleryCard({ label, image, video, showMeta, onClick, shareUrl }) {
         setTimeout(() => setCopied(false), 2000)
       }
     } catch (err) {
-      setLoading(false)
       if (err.name !== 'AbortError') console.error('Share failed:', err)
     }
   }
@@ -336,15 +320,11 @@ function GalleryCard({ label, image, video, showMeta, onClick, shareUrl }) {
         {shareUrl && (
           <button
             onClick={handleShare}
-            disabled={loading}
-            style={{ position: 'absolute', bottom: 12, right: 12, zIndex: 10, background: 'rgba(255,255,255,0.12)', border: 'none', borderRadius: '50%', width: 32, height: 32, cursor: loading ? 'wait' : 'pointer', color: 'rgba(255,255,255,0.7)', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background 0.2s' }}
+            style={{ position: 'absolute', bottom: 12, right: 12, zIndex: 10, background: 'rgba(255,255,255,0.12)', border: 'none', borderRadius: '50%', width: 32, height: 32, cursor: 'pointer', color: 'rgba(255,255,255,0.7)', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background 0.2s' }}
             onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.25)'}
             onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.12)'}
           >
-            {loading
-              ? <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" style={{ animation: 'spin 1s linear infinite' }}><path d="M12 2a10 10 0 0 1 10 10"/></svg>
-              : <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-            }
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
           </button>
         )}
         {copied && (
