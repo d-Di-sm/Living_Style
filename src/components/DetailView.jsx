@@ -4,7 +4,8 @@ import { blobVideos } from '../data/blobVideos'
 const SECTION_CONFIG = {
   1: {
     bigTitle:     'Soho Residences\nLos Cabos',
-    villa:        'SR',
+    logo:         '/logos/Soho_Residences_Logo.png',
+    logoClass:    'logo-sr',
     description:  'The first residential offering by Soho House, combining contemporary architecture, seamless indoor-outdoor living, and curated hospitality within the coastal landscape of Cabo del Sol.',
     info: [
       ['Tipologías',  '5 tipos'],
@@ -29,7 +30,7 @@ const SECTION_CONFIG = {
   },
   2: {
     bigTitle:     'Park Hyatt Cabo Del Sol\nResidences',
-    villa:        'PHLC',
+    logo:         '/logos/PHLC_Residences_Logo.png',
     description:  'Set within the coastal landscape of Cabo del Sol, these private residences express contemporary architecture, seamless indoor-outdoor living, and the signature hospitality of Park Hyatt.',
     info: [
       ['Tipologías',  '3 tipos'],
@@ -50,7 +51,7 @@ const SECTION_CONFIG = {
   },
   3: {
     bigTitle:     'Park Hyatt Mexico City\nPolanco Residences',
-    villa:        'PHP',
+    logo:         '/logos/PHP_Residences_Logo.png',
     description:  'In the heart of Polanco, Park Hyatt Residences blends contemporary architecture, personalized service, and renowned hospitality—crafted by SOMA and Sordo Madaleno to elevate everyday living.',
     info: [
       ['Tipologías',  '6 tipos'],
@@ -417,7 +418,6 @@ export default function DetailView({ project, onClose }) {
 
   const [videoPanel, setVideoPanel] = useState(null)
   const villaLines = project.detailLines
-  const coordsFormatted = project.coords.replace(',', ',\n').split('\n')
   const config = SECTION_CONFIG[project.id] ?? { videos: [], tipologias: [] }
 
   return (<>
@@ -462,7 +462,6 @@ export default function DetailView({ project, onClose }) {
             <div className="d-top">
               <div className="d-big-title">{config.bigTitle}</div>
               <div className="d-collection">
-                <span className="d-star">✳</span>
                 <span className="d-label">RESIDENCES — SOMA</span>
               </div>
               <div className="d-desc" style={{ display: 'flex', gap: 24 }}>
@@ -482,11 +481,7 @@ export default function DetailView({ project, onClose }) {
             <div className="d-photo" style={{ height: 'calc(100dvh - 340px - 56px)' }}>
               <img src={config.heroImage ?? project.image} alt="" />
               <div className="d-photo-overlay" />
-              <div className="d-coords">
-                {coordsFormatted[0]}<br />{coordsFormatted[1]}
-              </div>
-              <div className="d-location">{project.location.replace(/,?\s*\d{4}$/, '')}</div>
-              <div className="d-villa">{config.villa}</div>
+              <img className={['d-villa-logo', config.logoClass].filter(Boolean).join(' ')} src={config.logo} alt="" />
             </div>
 
             <SectionGrid title="Videos" cards={config.videos} image={project.image} showMeta={false} links={project.links} onCardClick={i => setVideoPanel({ cards: config.videos, index: i })} />
