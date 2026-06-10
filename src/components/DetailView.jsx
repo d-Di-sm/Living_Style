@@ -259,11 +259,31 @@ function VideoPanel({ cards, initialIndex, onClose, shareUrl }) {
 
 function GalleryCard({ label, image, video, showMeta, onClick, shareUrl }) {
   const [copied, setCopied] = useState(false)
+  const blobRef = useRef(null)
+
+  // Pre-fetch video blob in background so it's ready when user taps share
+  useEffect(() => {
+    if (!video) return
+    fetch(video)
+      .then(r => r.blob())
+      .then(blob => { blobRef.current = blob })
+      .catch(() => {})
+  }, [video])
 
   const handleShare = async (e) => {
     e.stopPropagation()
     const url = shareUrl ?? window.location.href
     try {
+      const blob = blobRef.current
+      if (blob && navigator.canShare) {
+        const fileName = video.split('/').pop()
+        const file = new File([blob], fileName, { type: blob.type || 'video/mp4' })
+        if (navigator.canShare({ files: [file] })) {
+          await navigator.share({ files: [file], title: 'SOMA Living', text: label })
+          return
+        }
+      }
+      // Fallback: share URL or copy to clipboard
       if (navigator.share) {
         await navigator.share({ title: 'SOMA Living', text: label, url })
       } else {
