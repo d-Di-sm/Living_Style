@@ -30,7 +30,7 @@ const SECTION_CONFIG = {
   },
   2: {
     bigTitle:     'Park Hyatt Cabo Del Sol\nResidences',
-    logo:         '/logos/PHP_Residences_Logo_W.png',
+    logo:         '/logos/PHLC_Residences_Logo.png',
     description:  'Set within the coastal landscape of Cabo del Sol, these private residences express contemporary architecture, seamless indoor-outdoor living, and the signature hospitality of Park Hyatt.',
     info: [
       ['Tipologías',  '3 tipos'],
@@ -51,7 +51,7 @@ const SECTION_CONFIG = {
   },
   3: {
     bigTitle:     'Park Hyatt Mexico City\nPolanco Residences',
-    logo:         '/logos/PHP_Residences_Logo.png',
+    logo:         '/logos/PHP_Residences_Logo_W.png',
     description:  'In the heart of Polanco, Park Hyatt Residences blends contemporary architecture, personalized service, and renowned hospitality—crafted by SOMA and Sordo Madaleno to elevate everyday living.',
     info: [
       ['Tipologías',  '6 tipos'],
