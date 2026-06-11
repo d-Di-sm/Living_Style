@@ -8,9 +8,7 @@ function Card1({ project }) {
     <div className="c2-wrap" style={{ background: '#111' }}>
       <img src="/images_project_cards/SR.png" alt="" />
       <div className="c2-overlay" />
-      <div className="c2-ghost" style={{ bottom: 'auto', top: -40 }}>sr</div>
-      <div style={{ position: 'absolute', bottom: 36, left: 32, display: 'flex', flexDirection: 'column', gap: 8 }}>
-        <span className="c2-label" style={{ position: 'static' }}>{cardLabel}</span>
+      <div style={{ position: 'absolute', bottom: 36, left: 32 }}>
         <div className="c2-caption" style={{ position: 'static' }}>
           {title.split('\n').map((line, i, arr) => (
             <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
@@ -28,8 +26,6 @@ function Card2({ project }) {
     <div className="c2-wrap" style={{ background: '#111' }}>
       <img src={image} alt="" />
       <div className="c2-overlay" />
-      <span className="c2-label">{project.cardLabel}</span>
-      <div className="c2-ghost">{ghost}</div>
       <div className="c2-caption">
         {caption.map((line, i) => <span key={i}>{line}{i < caption.length - 1 && <br />}</span>)}
       </div>
@@ -44,9 +40,7 @@ function Card3({ project }) {
     <div className="c2-wrap" style={{ background: '#111' }}>
       <img src="/images_project_cards/PHP.png" alt="" />
       <div className="c2-overlay" />
-      <div className="c2-ghost" style={{ bottom: 'auto', top: -40 }}>php</div>
-      <div style={{ position: 'absolute', bottom: 36, left: 32, display: 'flex', flexDirection: 'column', gap: 8 }}>
-        <span className="c2-label" style={{ position: 'static' }}>{cardLabel}</span>
+      <div style={{ position: 'absolute', bottom: 36, left: 32 }}>
         <div className="c2-caption" style={{ position: 'static' }}>
           {title.split('\n').map((line, i, arr) => (
             <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
