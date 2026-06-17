@@ -41,7 +41,7 @@ export const projects = [
     label: 'RUE — CRAFTING THE FUTURE OF FASHION',
     cardLabel: 'PHLC — Los Cabos, Baja California Sur',
     ghost: 'lc',
-    caption: ['Park Hyatt', 'Cabo Del Sol', 'Villas'],
+    caption: ['Park Hyatt', 'Cabo Del Sol', 'Residences'],
     shareIcons: [0, 1, 2],
     links: {
       web:       'https://www.parkhyattloscabosresidences.com/',

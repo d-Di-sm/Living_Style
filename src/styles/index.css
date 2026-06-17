@@ -181,7 +181,8 @@
 }
 
 /* ── Detail footer logo size (desktop) ─────────────── */
-.detail-footer-logo { height: 11px; }
+.detail-footer-logo { height: 33px; }
+.detail-footer-logo-sm { height: 11px; }
 
 /* ── Project-specific logo overrides ───────────────── */
 .logo-sr { width: 203px !important; }
@@ -393,6 +394,15 @@
     width: 32px !important;
     height: 32px !important;
   }
+
+  /* ── Detail footer logos: mobile size ── */
+  .detail-footer-logo { height: 21px !important; }
+  .detail-footer-logo-sm { height: 7px !important; }
+  .detail-footer {
+    justify-content: space-evenly !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
 }
 
 /* ── Small phones (≤ 430px) ─────────────────────────── */
@@ -413,14 +423,6 @@
     grid-template-columns: 1fr !important;
   }
 }
-
-  /* ── Detail footer logos: mobile size ── */
-  .detail-footer-logo { height: 7px !important; }
-  .detail-footer {
-    justify-content: space-evenly !important;
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-  }
 
 /* ── Safe area insets (notch / home indicator) ──────── */
 @supports (padding: env(safe-area-inset-bottom)) {

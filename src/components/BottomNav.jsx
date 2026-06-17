@@ -1,10 +1,8 @@
 const NAV_ITEMS = [
-  { label: 'Anima',  href: 'https://www.animavillage.com/' },
-  { label: 'Antara', href: 'https://antara.com.mx/' },
-  { label: 'Artz',   href: 'https://artzpedregal.mx/' },
+  { src: '/logos/Soho_Residences_Logo.png',  href: 'https://www.sohoresidencesloscabos.com' },
+  { src: '/logos/PHLC_Residences_Logo.png',  href: 'https://www.parkhyattloscabosresidences.com',      scale: 1.5 },
+  { src: '/logos/PHP_Residences_Logo_W.png', href: 'https://www.parkhyattmexicocityresidences.com',    scale: 1.5 },
 ]
-
-const textStyle = { fontSize: 8, letterSpacing: '1.5px', color: 'rgba(255,255,255,0.35)', textTransform: 'uppercase' }
 
 export default function BottomNav({ detailOpen }) {
   return (
@@ -29,13 +27,15 @@ export default function BottomNav({ detailOpen }) {
             { src: '/logos/sordomadaleno_logoW.png',  href: 'https://sordomadaleno.com/' },
           ].map(({ src, href }) => (
             <a key={src} href={href} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center' }}>
-              <img src={src} alt="" className="detail-footer-logo" style={{ width: 'auto', display: 'block', mixBlendMode: 'screen', objectFit: 'contain' }} />
+              <img src={src} alt="" className="detail-footer-logo-sm" style={{ width: 'auto', display: 'block', mixBlendMode: 'screen', objectFit: 'contain' }} />
             </a>
           ))}
         </>
       ) : (
-        NAV_ITEMS.map(({ label, href }) => (
-          <a key={label} href={href} target="_blank" rel="noopener noreferrer" style={{ ...textStyle, flex: 1, textAlign: 'center', textDecoration: 'none' }}>{label}</a>
+        NAV_ITEMS.map(({ src, href, scale }) => (
+          <a key={src} href={href} target="_blank" rel="noopener noreferrer" style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <img src={src} alt="" className="detail-footer-logo" style={{ width: 'auto', display: 'block', mixBlendMode: 'screen', objectFit: 'contain', ...(scale && { transform: `scale(${scale})` }) }} />
+          </a>
         ))
       )}
     </nav>

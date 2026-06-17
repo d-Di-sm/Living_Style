@@ -9,7 +9,7 @@ const SECTION_CONFIG = {
     bigTitle:     'Soho Residences\nLos Cabos',
     logo:         '/logos/Soho_Residences_Logo.png',
     logoClass:    'logo-sr',
-    description:  'The first residential offering by Soho House, combining contemporary architecture, seamless indoor-outdoor living, and curated hospitality within the coastal landscape of Cabo del Sol.',
+    description:  'The first residential offering by Soho House, featuring 2, 3, and 4-bedroom, the Casitas and Casonas that combine contemporary architecture, seamless indoor-outdoor living, and curated hospitality within the coastal landscape of Cabo del Sol.',
     info: [
       ['Unit Types',  '5 types'],
       ['Units',       '42 units'],
@@ -34,6 +34,7 @@ const SECTION_CONFIG = {
   2: {
     bigTitle:     'Park Hyatt Cabo Del Sol\nResidences',
     logo:         '/logos/PHLC_Residences_Logo.png',
+    pricingUrl:   'https://ad6urnxirdpnnnkw.public.blob.vercel-storage.com/PHLC/PHLC%20Availability%20%26%20Pricing%20May.26.pdf',
     description:  'Set within the coastal landscape of Cabo del Sol, these private residences express contemporary architecture, seamless indoor-outdoor living, and the signature hospitality of Park Hyatt.',
     info: [
       ['Unit Types',  '3 types'],
@@ -55,7 +56,8 @@ const SECTION_CONFIG = {
   3: {
     bigTitle:     'Park Hyatt Mexico City\nPolanco Residences',
     logo:         '/logos/PHP_Residences_Logo_W.png',
-    description:  'In the heart of Polanco, Park Hyatt Residences blends contemporary architecture, personalized service, and renowned hospitality—crafted by SOMA and Sordo Madaleno to elevate everyday living.',
+    pricingUrl:   'https://ad6urnxirdpnnnkw.public.blob.vercel-storage.com/PHP/PHMC%20Pricing%2010.06.26.pdf',
+    description:  'In the heart of Polanco, Park Hyatt Residences blends contemporary architecture, personalized service, and renowned hospitality—crafted by SOMA and Sordo Madaleno to elevate everyday living, from refined residences to expansive 440 sqm penthouses.',
     info: [
       ['Unit Types',  '6 types'],
       ['Units',       '27 units'],
@@ -266,40 +268,7 @@ function VideoPanel({ cards, initialIndex, onClose, shareUrl }) {
   )
 }
 
-function GalleryCard({ label, image, video, showMeta, onClick, shareUrl }) {
-  const [blobReady, setBlobReady] = useState(false)
-  const blobRef = useRef(null)
-
-  // Use shared cache if available, otherwise fetch and populate it
-  useEffect(() => {
-    if (!video) return
-    const cached = videoCache.get(video)
-    if (cached) {
-      blobRef.current = cached
-      setBlobReady(true)
-      return
-    }
-    setBlobReady(false)
-    fetch(video, { priority: 'high' })
-      .then(r => r.blob())
-      .then(blob => { videoCache.set(video, blob); blobRef.current = blob; setBlobReady(true) })
-      .catch(() => {})
-  }, [video])
-
-  const handleShare = async (e) => {
-    e.stopPropagation()
-    if (!blobRef.current) return
-    try {
-      const fileName = video.split('/').pop()
-      const file = new File([blobRef.current], fileName, { type: blobRef.current.type || 'video/mp4' })
-      if (navigator.canShare?.({ files: [file] })) {
-        await navigator.share({ files: [file], title: 'SOMA Living', text: label })
-      }
-    } catch (err) {
-      if (err.name !== 'AbortError') console.error('Share failed:', err)
-    }
-  }
-
+function GalleryCard({ label, image, onClick, showMeta }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
       <div
@@ -324,10 +293,7 @@ function GalleryCard({ label, image, video, showMeta, onClick, shareUrl }) {
           e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,0,0,0.18)'
         }}
       >
-        {video
-          ? <video src={video} autoPlay muted loop playsInline preload="metadata" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', pointerEvents: 'none' }} />
-          : <img src={image} alt={label} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-        }
+        <img src={image} alt={label} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
         <div style={{
           position: 'absolute', inset: 0,
           background: 'linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.55) 100%)',
@@ -339,22 +305,6 @@ function GalleryCard({ label, image, video, showMeta, onClick, shareUrl }) {
           fontSize: 11, fontWeight: 300, letterSpacing: '1.5px',
           textTransform: 'uppercase', color: '#fff',
         }}>{label}</span>
-
-        {/* Share button — spinner while pre-fetching, icon when ready */}
-        {shareUrl && (
-          <button
-            onClick={handleShare}
-            disabled={!blobReady}
-            style={{ position: 'absolute', bottom: 12, right: 12, zIndex: 10, background: 'rgba(255,255,255,0.12)', border: 'none', borderRadius: '50%', width: 32, height: 32, cursor: blobReady ? 'pointer' : 'wait', color: 'rgba(255,255,255,0.7)', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background 0.2s' }}
-            onMouseEnter={e => { if (blobReady) e.currentTarget.style.background = 'rgba(255,255,255,0.25)' }}
-            onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.12)'}
-          >
-            {blobReady
-              ? <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-              : <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" style={{ animation: 'spin 1s linear infinite' }}><path d="M12 2a10 10 0 0 1 10 10"/></svg>
-            }
-          </button>
-        )}
       </div>
       {showMeta && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 4, padding: '0 24px' }}>
@@ -394,7 +344,7 @@ function SectionGrid({ title, cards, image, showMeta, links, onCardClick }) {
         })}
       </div>
       {links && (
-        <div className="section-social-icons" style={{ display: 'flex', justifyContent: 'space-around', marginTop: 140, width: '100vw', marginLeft: 'calc(-32px)', paddingLeft: 32, paddingRight: 32 }}>
+        <div className="section-social-icons" style={{ display: 'flex', justifyContent: 'space-evenly', marginTop: 140, width: '100vw', marginLeft: 'calc(-32px)', paddingLeft: 32, paddingRight: 32 }}>
           {[
             { href: links.web,
               path: <><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"/></>,
@@ -405,6 +355,9 @@ function SectionGrid({ title, cards, image, showMeta, links, onCardClick }) {
             { href: links.instagram,
               path: <><rect x="2" y="2" width="20" height="20" rx="6"/><circle cx="12" cy="12" r="5"/><path d="M17.5 6.5h.01" strokeLinecap="round"/></>,
             },
+            ...(links.pricing ? [{ href: links.pricing,
+              path: <><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></>,
+            }] : []),
           ].map(({ href, path }, i) => (
             <a key={i} href={href} target="_blank" rel="noopener noreferrer"
               style={{ color: 'rgba(0,0,0,0.3)', transition: 'color 0.25s', display: 'flex' }}
@@ -427,16 +380,7 @@ export default function DetailView({ project, onClose }) {
   const villaLines = project.detailLines
   const config = SECTION_CONFIG[project.id] ?? { videos: [], tipologias: [] }
 
-  // Kick off parallel pre-fetch for all project videos as soon as DetailView opens
-  useEffect(() => {
-    config.videos.forEach(({ video }) => {
-      if (!video || videoCache.has(video)) return
-      fetch(video, { priority: 'high' })
-        .then(r => r.blob())
-        .then(blob => videoCache.set(video, blob))
-        .catch(() => {})
-    })
-  }, [project.id])
+
 
   return (<>
     <div
@@ -498,11 +442,16 @@ export default function DetailView({ project, onClose }) {
             {/* Photo */}
             <div className="d-photo" style={{ height: 'calc(100dvh - 340px - 56px)' }}>
               <img src={config.heroImage ?? project.image} alt="" />
-              <div className="d-photo-overlay" />
+              {project.id === 1
+                ? <img src="/images/res3.jpg" alt="" className="d-photo-overlay" />
+                : project.id === 3
+                  ? <img src="/images/phase2.png" alt="" className="d-photo-overlay" />
+                  : <div className="d-photo-overlay" />
+              }
               <img className={['d-villa-logo', config.logoClass].filter(Boolean).join(' ')} src={config.logo} alt="" />
             </div>
 
-            <SectionGrid title="Videos" cards={config.videos} image={project.image} showMeta={false} links={project.links} onCardClick={i => setVideoPanel({ cards: config.videos, index: i })} />
+            <SectionGrid title="Videos" cards={config.videos} image={project.image} showMeta={false} links={{ ...project.links, pricing: config.pricingUrl }} onCardClick={i => setVideoPanel({ cards: config.videos, index: i })} />
 
           </div>
         </div>
