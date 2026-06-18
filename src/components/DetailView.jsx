@@ -55,7 +55,7 @@ const SECTION_CONFIG = {
   },
   3: {
     bigTitle:     'Park Hyatt Mexico City\nPolanco Residences',
-    logo:         '/logos/PHP_Residences_Logo_W.png',
+    logo:         '/logos/PHP_Residences_Logo_B.png',
     pricingUrl:   'https://ad6urnxirdpnnnkw.public.blob.vercel-storage.com/PHP/PHMC%20Pricing%2010.06.26.pdf',
     description:  'In the heart of Polanco, Park Hyatt Mexico City Residences blends contemporary architecture, personalized service, and renowned hospitality—crafted by SOMA and Sordo Madaleno to elevate everyday living. Residences range from 260 - 440 sqm, with an 850 sqm Penthouse.',
     info: [
