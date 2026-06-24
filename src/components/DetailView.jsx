@@ -9,6 +9,7 @@ const SECTION_CONFIG = {
     bigTitle:     'Soho Residences\nLos Cabos',
     logo:         '/logos/Soho_Residences_Logo.png',
     logoClass:    'logo-sr',
+    brochureUrl:  'https://ad6urnxirdpnnnkw.public.blob.vercel-storage.com/SR/SHRLC_Mobile_Brochure_16Jun.pdf',
     description:  'The first residential offering by Soho House, featuring 2, 3, and 4-bedroom, the Casitas and Casonas that combine contemporary architecture, seamless indoor-outdoor living, and curated hospitality within the coastal landscape of Cabo del Sol.',
     info: [
       ['Unit Types',  '5 types'],
@@ -18,10 +19,10 @@ const SECTION_CONFIG = {
       ['Design',      'Sordo Madaleno'],
     ],
     videos:     [
-      { label: 'INTRO',      image: '/images_detail_view/SR/intro.png',      video: blobVideos.SR_04 },
-      { label: 'AMENITIES', image: '/images_detail_view/SR/amenities.png',  video: blobVideos.SR_02 },
+      { label: 'INTRO',      image: '/images_detail_view/SR/amenities.png',  video: blobVideos.SR_04 },
+      { label: 'AMENITIES', image: '/images_detail_view/SR/amenities_2.png', video: blobVideos.SR_02 },
       { label: 'THE CASITA', image: '/images_detail_view/SR/thecasitas.png', video: blobVideos.SR_03 },
-      { label: 'BUILDINGS',  image: '/images_detail_view/SR/arch.png',       video: blobVideos.SR_01 },
+      { label: 'BUILDINGS',  image: '/images_detail_view/SR/arch_2.png',     video: blobVideos.SR_01 },
     ],
     tipologias: [
       { label: '2 Bedrooms',  image: '/tipologias/PHP/T01.png' },
@@ -34,7 +35,8 @@ const SECTION_CONFIG = {
   2: {
     bigTitle:     'Park Hyatt Cabo Del Sol\nResidences',
     logo:         '/logos/PHLC_Residences_Logo.png',
-    pricingUrl:   'https://ad6urnxirdpnnnkw.public.blob.vercel-storage.com/PHLC/PHLC%20Availability%20%26%20Pricing%20May.26.pdf',
+    pricingUrl:   'https://ad6urnxirdpnnnkw.public.blob.vercel-storage.com/PHLC/PHLC%20Availability%20%26%20Pricing_23062026.pdf',
+    brochureUrl:  'https://ad6urnxirdpnnnkw.public.blob.vercel-storage.com/PHLC/PHLC%20mobile%20brochure%20lr.pdf',
     description:  'Set within the coastal landscape of Cabo del Sol, these private residences express contemporary architecture, seamless indoor-outdoor living, and the signature hospitality of Park Hyatt.',
     info: [
       ['Unit Types',  '3 types'],
@@ -44,7 +46,7 @@ const SECTION_CONFIG = {
       ['Design',      'Sordo Madaleno'],
     ],
     videos:     [
-      { label: 'INTRO',      image: '/images_detail_view/PHLC/intro.png',     video: blobVideos.PHLC_01 },
+      { label: 'INTRO',      image: '/images_detail_view/PHLC/intro_2.png',   video: blobVideos.PHLC_01 },
       { label: 'AMENITIES', image: '/images_detail_view/PHLC/amenities.png', video: blobVideos.PHLC_02 },
     ],
     tipologias: [
@@ -57,6 +59,7 @@ const SECTION_CONFIG = {
     bigTitle:     'Park Hyatt Mexico City\nPolanco Residences',
     logo:         '/logos/PHP_Residences_Logo_B.png',
     pricingUrl:   'https://ad6urnxirdpnnnkw.public.blob.vercel-storage.com/PHP/PHMC%20Pricing%2010.06.26.pdf',
+    brochureUrl:  'https://ad6urnxirdpnnnkw.public.blob.vercel-storage.com/PHP/Mobile_Brochure_PHMC.pdf',
     description:  'In the heart of Polanco, Park Hyatt Mexico City Residences blends contemporary architecture, personalized service, and renowned hospitality—crafted by SOMA and Sordo Madaleno to elevate everyday living. Residences range from 260 - 440 sqm, with an 850 sqm Penthouse.',
     info: [
       ['Unit Types',  '6 types'],
@@ -358,6 +361,9 @@ function SectionGrid({ title, cards, image, showMeta, links, onCardClick }) {
             ...(links.pricing ? [{ href: links.pricing,
               path: <><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></>,
             }] : []),
+            ...(links.brochure ? [{ href: links.brochure,
+              path: <><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></>,
+            }] : []),
           ].map(({ href, path }, i) => (
             <a key={i} href={href} target="_blank" rel="noopener noreferrer"
               style={{ color: 'rgba(0,0,0,0.3)', transition: 'color 0.25s', display: 'flex' }}
@@ -451,7 +457,7 @@ export default function DetailView({ project, onClose }) {
               <img className={['d-villa-logo', config.logoClass].filter(Boolean).join(' ')} src={config.logo} alt="" />
             </div>
 
-            <SectionGrid title="Videos" cards={config.videos} image={project.image} showMeta={false} links={{ ...project.links, pricing: config.pricingUrl }} onCardClick={i => setVideoPanel({ cards: config.videos, index: i })} />
+            <SectionGrid title="Videos" cards={config.videos} image={project.image} showMeta={false} links={{ ...project.links, pricing: config.pricingUrl, brochure: config.brochureUrl }} onCardClick={i => setVideoPanel({ cards: config.videos, index: i })} />
 
           </div>
         </div>
