@@ -89,6 +89,7 @@ function VideoPanel({ cards, initialIndex, onClose, shareUrl }) {
   const [currentTime, setCurrentTime] = useState(0)
   const [duration,    setDuration]    = useState(0)
   const [copied,      setCopied]      = useState(false)
+  const [portrait,    setPortrait]    = useState(false)
   const videoRef  = useRef(null)
   const blobCache = useRef({})
   const current   = cards[index]
@@ -181,10 +182,10 @@ function VideoPanel({ cards, initialIndex, onClose, shareUrl }) {
       <div
         onClick={e => e.stopPropagation()}
         className="vp-modal"
-        style={{ background: '#1A1A1A', borderRadius: 12, overflow: 'hidden', width: 'clamp(300px, 92vw, 900px)', maxHeight: '90dvh', display: 'flex', flexDirection: 'column', boxShadow: '0 32px 80px rgba(0,0,0,0.6)' }}
+        style={{ background: '#1A1A1A', borderRadius: 12, overflow: 'hidden', width: portrait ? 'max(300px, min(92vw, calc((90dvh - 96px) * 9 / 16)))' : 'clamp(300px, 92vw, 900px)', maxHeight: '90dvh', display: 'flex', flexDirection: 'column', boxShadow: '0 32px 80px rgba(0,0,0,0.6)' }}
       >
         {/* Video */}
-        <div className="vp-video-wrap" style={{ position: 'relative', width: '100%', aspectRatio: '16/9', background: '#000' }}>
+        <div className="vp-video-wrap" style={{ position: 'relative', width: '100%', aspectRatio: portrait ? '9/16' : '16/9', background: '#000' }}>
           <video
             key={index}
             ref={videoRef}
@@ -192,7 +193,7 @@ function VideoPanel({ cards, initialIndex, onClose, shareUrl }) {
             style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
             autoPlay muted loop playsInline preload="metadata"
             onTimeUpdate={e => { setCurrentTime(e.target.currentTime); setProgress(e.target.currentTime / (e.target.duration || 1)) }}
-            onLoadedMetadata={e => setDuration(e.target.duration)}
+            onLoadedMetadata={e => { setDuration(e.target.duration); setPortrait(e.target.videoHeight > e.target.videoWidth) }}
             onPlay={() => setPlaying(true)}
             onPause={() => setPlaying(false)}
           />
