@@ -1,9 +1,3 @@
-const NAV_ITEMS = [
-  { src: '/logos/Soho_Residences_Logo.png',  href: 'https://www.sohoresidencesloscabos.com' },
-  { src: '/logos/PHLC_Residences_Logo.png',  href: 'https://www.parkhyattloscabosresidences.com',      scale: 1.5 },
-  { src: '/logos/PHP_Residences_Logo_W.png', href: 'https://www.parkhyattmexicocityresidences.com',    scale: 1.5 },
-]
-
 export default function BottomNav({ detailOpen }) {
   return (
     <nav
@@ -31,13 +25,7 @@ export default function BottomNav({ detailOpen }) {
             </a>
           ))}
         </>
-      ) : (
-        NAV_ITEMS.map(({ src, href, scale }) => (
-          <a key={src} href={href} target="_blank" rel="noopener noreferrer" style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img src={src} alt="" className="detail-footer-logo" style={{ width: 'auto', display: 'block', mixBlendMode: 'screen', objectFit: 'contain', ...(scale && { transform: `scale(${scale})` }) }} />
-          </a>
-        ))
-      )}
+      ) : null}
     </nav>
   )
 }
