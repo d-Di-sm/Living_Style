@@ -20,7 +20,7 @@ export default function JournalPage() {
 
       <header className="ed-container" style={{ paddingTop: 'clamp(70px, 10vw, 160px)', paddingBottom: 'clamp(50px, 8vw, 120px)' }}>
         <Reveal>
-          <p className="ed-kicker" style={{ marginBottom: 'clamp(24px, 3vw, 42px)' }}>Section — Journal</p>
+          <p className="ed-kicker" style={{ marginBottom: 'clamp(24px, 3vw, 42px)' }}>Section — Entries</p>
           <h1 className="ed-display" style={{ maxWidth: 1050 }}>
             Entries, observations, essays.
           </h1>

@@ -123,9 +123,9 @@ export default function HomePage() {
           </Reveal>
         </EditorialSection>
 
-        <SectionDivider number="II" label="Journal" />
+        <SectionDivider number="II" label="Entries" />
 
-        {/* ── Journal previews ── */}
+        {/* ── Entries previews ── */}
         <EditorialSection space="0">
           <div
             className="ed-container"
@@ -151,9 +151,9 @@ export default function HomePage() {
               <p className="ed-kicker ed-kicker--accent" style={{ marginBottom: 26 }}>Coming Soon</p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(28px, 4vw, 48px)', maxWidth: 950 }}>
                 {conversations.map(c => (
-                  <Link key={c.slug} to="/conversations" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <Link key={c.slug} to={`/conversations/${c.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                     <h3 className="ed-title-sm" style={{ marginBottom: 10 }}>{c.title}</h3>
-                    <span className="ed-meta">{c.role}</span>
+                    <span className="ed-meta">{c.guest} — {c.role}</span>
                   </Link>
                 ))}
               </div>

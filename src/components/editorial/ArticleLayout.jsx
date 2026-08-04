@@ -20,8 +20,11 @@ export default function ArticleLayout({ article }) {
       <header className="ed-container" style={{ paddingTop: 'clamp(70px, 10vw, 150px)', paddingBottom: 'clamp(50px, 7vw, 100px)' }}>
         <Reveal>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 18, marginBottom: 'clamp(28px, 4vw, 48px)' }}>
-            <Link to="/journal" className="ed-kicker" style={{ textDecoration: 'none' }}>Journal</Link>
-            <span className="ed-kicker ed-kicker--accent">{article.category}</span>
+            <Link to="/journal" className="ed-kicker" style={{ textDecoration: 'none' }}>Entries</Link>
+            {/* category chip only when it differs from the section name */}
+            {article.category !== 'Entries' && (
+              <span className="ed-kicker ed-kicker--accent">{article.category}</span>
+            )}
           </div>
           <h1 className="ed-display" style={{ maxWidth: 1050, marginBottom: 'clamp(30px, 4vw, 52px)' }}>
             {article.title}

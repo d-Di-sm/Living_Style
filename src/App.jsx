@@ -6,6 +6,7 @@ import ProjectPage from './pages/ProjectPage'
 import JournalPage from './pages/JournalPage'
 import ArticlePage from './pages/ArticlePage'
 import ConversationsPage from './pages/ConversationsPage'
+import ConversationPage from './pages/ConversationPage'
 
 // ─────────────────────────────────────────────────────────────────────────────
 // SOMA Living — Editorial Platform
@@ -16,7 +17,8 @@ import ConversationsPage from './pages/ConversationsPage'
 //   /work/:slug      → a project feature (DetailView machinery preserved)
 //   /journal         → entries, observations, essays
 //   /journal/:slug   → a full editorial entry
-//   /conversations   → interviews (forthcoming)
+//   /conversations   → interviews (questions live, answers forthcoming)
+//   /conversations/:slug → a single conversation, Interview-magazine style
 // ─────────────────────────────────────────────────────────────────────────────
 export default function App() {
   return (
@@ -30,6 +32,7 @@ export default function App() {
           <Route path="/journal" element={<JournalPage />} />
           <Route path="/journal/:slug" element={<ArticlePage />} />
           <Route path="/conversations" element={<ConversationsPage />} />
+          <Route path="/conversations/:slug" element={<ConversationPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>

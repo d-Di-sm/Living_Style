@@ -21,7 +21,7 @@ export default function NewsletterSignup() {
       <div className="ed-container" style={{ paddingTop: 'clamp(80px, 11vw, 150px)', paddingBottom: 'clamp(80px, 11vw, 150px)' }}>
         <Reveal>
           <div style={{ maxWidth: 560, margin: '0 auto', textAlign: 'center' }}>
-            <p className="ed-kicker" style={{ marginBottom: 26 }}>The Journal, occasionally</p>
+            <p className="ed-kicker" style={{ marginBottom: 26 }}>New entries, occasionally</p>
             <h2 className="ed-title-sm" style={{ marginBottom: 44 }}>
               Notes on architecture and living, a few times a year.
             </h2>

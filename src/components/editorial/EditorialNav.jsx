@@ -7,12 +7,12 @@ import { useScrollShell } from './scrollShell'
 const LINKS = [
   { to: '/living',        label: 'Living' },
   { to: '/work',          label: 'Work' },
-  { to: '/journal',       label: 'Journal' },
+  { to: '/journal',       label: 'Entries' },
   { to: '/conversations', label: 'Conversations' },
 ]
 
 // ─────────────────────────────────────────────────────────────────────────────
-// The masthead. Logo, four sections, newsletter. Nothing else.
+// The masthead. Logo and the four sections. Nothing else.
 // variant 'paper' → ink on cream (sticky) · 'dark' → white over photography
 // darkUntilVh: on pages that open with a dark cover, the nav stays white until
 // the reader has scrolled that many viewport-heights, then settles onto paper.
@@ -78,14 +78,6 @@ export default function EditorialNav({ variant = 'paper', darkUntilVh }) {
               {label}
             </NavLink>
           ))}
-          <a href="#newsletter" className="ed-nav-link" style={{ opacity: 0.85 }}
-            onClick={(e) => {
-              e.preventDefault()
-              document.getElementById('newsletter')?.scrollIntoView({ behavior: 'smooth' })
-            }}
-          >
-            Newsletter
-          </a>
         </div>
 
         {/* ── Mobile burger ── */}

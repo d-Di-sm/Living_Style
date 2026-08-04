@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom'
 import Reveal from './Reveal'
 import EditorialImage from './EditorialImage'
 import { pickAny } from '../../data/lifestyle'
 
 // ─────────────────────────────────────────────────────────────────────────────
-// A forthcoming conversation: large rectangular portrait (never circular),
-// role, an introduction, and a quiet "Coming Soon".
+// A conversation preview: large rectangular portrait (never circular), title,
+// guest, and an introduction. The whole composition links to the full page.
 // `invert` alternates portrait/text sides down the page.
 // ─────────────────────────────────────────────────────────────────────────────
 export default function ConversationPreview({ conversation, invert = false }) {
@@ -14,13 +15,16 @@ export default function ConversationPreview({ conversation, invert = false }) {
 
   return (
     <Reveal amount={0.15}>
-      <div
-        className="ed-container"
+      <Link
+        to={`/conversations/${conversation.slug}`}
+        className="ed-container ed-img-hover"
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 400px), 1fr))',
           gap: 'clamp(36px, 6vw, 110px)',
           alignItems: 'center',
+          textDecoration: 'none',
+          color: 'inherit',
         }}
       >
         <div style={{ order: invert ? 2 : 1 }}>
@@ -39,7 +43,7 @@ export default function ConversationPreview({ conversation, invert = false }) {
           </p>
           <p className="ed-body" style={{ color: 'var(--ed-ink-soft)' }}>{conversation.intro}</p>
         </div>
-      </div>
+      </Link>
     </Reveal>
   )
 }
