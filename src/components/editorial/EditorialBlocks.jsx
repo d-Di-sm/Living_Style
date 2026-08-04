@@ -1,0 +1,74 @@
+import Reveal from './Reveal'
+import EditorialImage from './EditorialImage'
+import QuoteBlock from './QuoteBlock'
+import { img, pickHorizontal, pickVertical } from '../../data/lifestyle'
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Shared block renderer — turns content blocks (paragraph / quote / image /
+// note) into magazine flow. Used by manifestos and journal articles.
+// Paragraphs alternate their horizontal position to create reading rhythm.
+// ─────────────────────────────────────────────────────────────────────────────
+export default function EditorialBlocks({ blocks }) {
+  let paragraphCount = 0
+
+  return (
+    <div>
+      {blocks.map((block, i) => {
+        switch (block.type) {
+          case 'paragraph': {
+            const alignRight = paragraphCount % 2 === 1
+            paragraphCount++
+            return (
+              <Reveal key={i} amount={0.3}>
+                <div className="ed-container" style={{ paddingTop: 'clamp(28px, 4vw, 56px)', paddingBottom: 'clamp(28px, 4vw, 56px)' }}>
+                  <p className="ed-body" style={{ marginLeft: alignRight ? 'auto' : 0, marginRight: alignRight ? 0 : 'auto' }}>
+                    {block.text}
+                  </p>
+                </div>
+              </Reveal>
+            )
+          }
+
+          case 'quote':
+            return <QuoteBlock key={i}>{block.text}</QuoteBlock>
+
+          case 'image': {
+            // Resolution order: curated name → explicit src → seeded pick
+            const image = block.name
+              ? img(block.name)
+              : block.src
+                ? { src: block.src, orientation: block.orientation ?? 'h' }
+                : block.orientation === 'v'
+                  ? pickVertical(block.seed ?? i)
+                  : pickHorizontal(block.seed ?? i)
+            const vertical = (block.orientation ?? image.orientation) === 'v'
+            return (
+              <div key={i} className="ed-container" style={{ paddingTop: 'clamp(36px, 6vw, 80px)', paddingBottom: 'clamp(36px, 6vw, 80px)' }}>
+                <EditorialImage
+                  image={image}
+                  caption={block.caption}
+                  style={vertical
+                    ? { maxWidth: 560, margin: i % 2 === 0 ? '0 auto 0 0' : '0 0 0 auto' }
+                    : undefined}
+                />
+              </div>
+            )
+          }
+
+          case 'note':
+            return (
+              <Reveal key={i} amount={0.5}>
+                <div className="ed-container" style={{ paddingTop: 'clamp(40px, 6vw, 90px)', paddingBottom: 'clamp(20px, 3vw, 40px)' }}>
+                  <hr className="ed-rule ed-rule--short" style={{ marginBottom: 24 }} />
+                  <p className="ed-note" style={{ maxWidth: 520 }}>{block.text}</p>
+                </div>
+              </Reveal>
+            )
+
+          default:
+            return null
+        }
+      })}
+    </div>
+  )
+}

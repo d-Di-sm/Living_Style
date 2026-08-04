@@ -4,7 +4,7 @@ import { blobVideos } from '../data/blobVideos'
 // Module-level cache shared by DetailView, GalleryCard and VideoPanel
 const videoCache = new Map()
 
-const SECTION_CONFIG = {
+export const SECTION_CONFIG = {
   1: {
     bigTitle:     'Soho Residences\nLos Cabos',
     logo:         '/logos/Soho_Residences_Logo.png',
@@ -81,7 +81,7 @@ const SECTION_CONFIG = {
   },
 }
 
-function VideoPanel({ cards, initialIndex, onClose, shareUrl }) {
+export function VideoPanel({ cards, initialIndex, onClose, shareUrl }) {
   const [index,       setIndex]       = useState(initialIndex)
   const [playing,     setPlaying]     = useState(true)
   const [muted,       setMuted]       = useState(true)
@@ -324,7 +324,7 @@ function GalleryCard({ label, image, onClick, showMeta }) {
   )
 }
 
-function SectionGrid({ title, cards, image, showMeta, links, onCardClick }) {
+export function SectionGrid({ title, cards, image, showMeta, links, onCardClick }) {
   const cols = Math.min(cards.length, 4)
   const rows = Math.ceil(cards.length / cols)
   return (

@@ -1,69 +1,38 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import Header from './components/Header'
-import ProjectCard from './components/ProjectCard'
-import DetailView from './components/DetailView'
-import BottomNav from './components/BottomNav'
-import Experience from './components/Experience'
-import { projects } from './data/projects'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import HomePage from './pages/HomePage'
+import LivingPage from './pages/LivingPage'
+import WorkPage from './pages/WorkPage'
+import ProjectPage from './pages/ProjectPage'
+import JournalPage from './pages/JournalPage'
+import ArticlePage from './pages/ArticlePage'
+import ConversationsPage from './pages/ConversationsPage'
 
-const TRANSITION = { duration: 0.45, ease: [0.4, 0, 0.2, 1] }
-
+// ─────────────────────────────────────────────────────────────────────────────
+// SOMA Living — Editorial Platform
+//
+//   /                → the cover
+//   /living          → philosophy & manifestos
+//   /work            → the residential portfolio (the evolved project viewer)
+//   /work/:slug      → a project feature (DetailView machinery preserved)
+//   /journal         → entries, observations, essays
+//   /journal/:slug   → a full editorial entry
+//   /conversations   → interviews (forthcoming)
+// ─────────────────────────────────────────────────────────────────────────────
 export default function App() {
-  const [selectedProject, setSelectedProject] = useState(null)
-  const isOpen = !!selectedProject
-
   return (
-    <div className="relative w-full" style={{ background: '#090909', height: '100dvh', overflow: 'clip' }}>
-
-      {/* ── Three.js subtle background ─────────────── */}
-      <Experience />
-
-      {/* ── MAIN VIEW ──────────────────────────────── */}
-      <motion.div
-        className="absolute inset-0 flex flex-col z-10"
-        style={{ background: '#090909', paddingBottom: 'calc(50px + env(safe-area-inset-bottom, 0px))' }}
-        animate={{ opacity: isOpen ? 0 : 1 }}
-        transition={TRANSITION}
-        aria-hidden={isOpen}
-        {...(isOpen ? { style: { pointerEvents: 'none', background: '#090909', paddingBottom: 'calc(50px + env(safe-area-inset-bottom, 0px))' } } : {})}
-      >
-        <Header />
-
-        {/* Cards stage */}
-        <div
-          className="flex-1 flex items-end cards-stage"
-          style={{ gap: 'clamp(6px, 2vw, 16px)', padding: 'clamp(8px, 2vw, 16px) clamp(10px, 2.5vw, 20px) 0' }}
-        >
-          {projects.map((project) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-              onSelect={setSelectedProject}
-            />
-          ))}
-        </div>
-      </motion.div>
-
-      {/* ── DETAIL VIEW ────────────────────────────── */}
-      <motion.div
-        className="absolute inset-0 z-20"
-        style={{
-          background: '#090909',
-          pointerEvents: isOpen ? 'auto' : 'none',
-        }}
-        initial={false}
-        animate={{ opacity: isOpen ? 1 : 0, y: isOpen ? 0 : 24 }}
-        transition={TRANSITION}
-      >
-        <DetailView
-          project={selectedProject}
-          onClose={() => setSelectedProject(null)}
-        />
-      </motion.div>
-
-      {/* ── BOTTOM NAV ─────────────────────────────── */}
-      <BottomNav detailOpen={isOpen} />
-    </div>
+    <BrowserRouter>
+      <div className="relative w-full" style={{ background: '#090909', height: '100dvh', overflow: 'clip' }}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/living" element={<LivingPage />} />
+          <Route path="/work" element={<WorkPage />} />
+          <Route path="/work/:slug" element={<ProjectPage />} />
+          <Route path="/journal" element={<JournalPage />} />
+          <Route path="/journal/:slug" element={<ArticlePage />} />
+          <Route path="/conversations" element={<ConversationsPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   )
 }
