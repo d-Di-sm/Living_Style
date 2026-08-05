@@ -22,7 +22,7 @@ export default function LivingPage() {
         <Reveal>
           <p className="ed-kicker" style={{ marginBottom: 'clamp(24px, 3vw, 42px)' }}>Section — Living</p>
           <h1 className="ed-display" style={{ maxWidth: 1000 }}>
-            How we live, before what we build.
+            Living comes first. The building follows.
           </h1>
         </Reveal>
       </header>

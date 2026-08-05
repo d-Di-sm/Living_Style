@@ -13,7 +13,7 @@ export const projectEditorial = {
     location: 'Cabo del Sol, Los Cabos',
     architecture: 'Architecture by SOMA',
     collaboration: 'In collaboration with Soho House',
-    heroImage: '/images_project_cards/SR.png',
+    heroImage: '/lifestyle/web/SR_Casita.jpg',
     standfirst:
       'The first residential offering by Soho House. A community conceived for people who carry their life with them — and expect the house to keep up.',
     paragraphs: [
@@ -47,7 +47,7 @@ export const projectEditorial = {
     location: 'Polanco, Mexico City',
     architecture: 'Architecture by SOMA',
     collaboration: 'In collaboration with Park Hyatt',
-    heroImage: '/images/c3full.png',
+    heroImage: '/lifestyle/web/PHMC_Renders02.jpg',
     standfirst:
       'In the heart of Polanco, a vertical neighborhood where the standards of Park Hyatt meet the daily life of the city.',
     paragraphs: [
