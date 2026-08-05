@@ -21,30 +21,32 @@ import { projects } from '../data/projects'
 import { projectEditorial } from '../data/projectEditorial'
 
 // ─────────────────────────────────────────────────────────────────────────────
-// The cover of the issue. Atmosphere first — projects appear only after the
-// reader has been given a reason to care about how we live.
+// The issue opens on paper: the editorial intro breathes first, then the
+// full-screen photographic cover, then the sections.
 // ─────────────────────────────────────────────────────────────────────────────
 export default function HomePage() {
   const [first, second] = manifestos
 
   return (
-    <PageShell dark>
-      {/* White over the cover; settles onto paper once the hero scrolls away
-          (hero wrapper = images × 100vh + 60vh → flip just before it ends) */}
-      <EditorialNav variant="dark" darkUntilVh={heroImages.length + 0.45} />
+    <PageShell>
+      <EditorialNav />
 
-      <EditorialHero images={heroImages}>
-        <Experience />
-      </EditorialHero>
-
-      {/* ── Paper begins ── */}
-      <div style={{ background: 'var(--ed-paper)', color: 'var(--ed-ink)' }}>
-
-        {/* ── Editorial intro — the manifesto, breathing ── */}
-        <EditorialSection>
+      {/* ── Editorial intro — the manifesto, breathing ── */}
+      <EditorialSection space="0">
+        {/* Typographic hero: kicker, title, and standfirst hold the entire
+            first window on their own (the sticky nav is ~82px tall). */}
+        <div style={{
+          minHeight: 'calc(100dvh - 82px)',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+        }}>
           <Reveal>
             <div className="ed-container" style={{ textAlign: 'center', marginBottom: 'clamp(40px, 6vw, 90px)' }}>
-              <span className="ed-kicker">SOMA Living — A Publication on How We Live</span>
+              {/* Same face as the standfirst (serif), kicker size untouched */}
+              <span className="ed-kicker" style={{ fontFamily: 'var(--ed-serif)' }}>
+                SOMA Living — A Publication on How We Live
+              </span>
             </div>
           </Reveal>
 
@@ -57,19 +59,28 @@ export default function HomePage() {
               </p>
             </div>
           </Reveal>
+        </div>
 
-          <div style={{ paddingTop: 'clamp(60px, 9vw, 140px)' }}>
-            <ImageReveal src={src('AG_IMG_9919')} height="min(72vh, 640px)" caption="Cabo del Sol, Baja California Sur" />
+        <div style={{ paddingTop: 'clamp(60px, 9vw, 140px)' }}>
+          <ImageReveal src={src('AG_IMG_9919')} height="min(72vh, 640px)" caption="Cabo del Sol, Baja California Sur" />
+        </div>
+
+        <QuoteBlock>{second.title}</QuoteBlock>
+
+        <Reveal amount={0.3}>
+          <div className="ed-container" style={{ display: 'flex', justifyContent: 'center' }}>
+            <Link to="/living" className="ed-link">Read the manifestos</Link>
           </div>
+        </Reveal>
+      </EditorialSection>
 
-          <QuoteBlock>{second.title}</QuoteBlock>
+      {/* ── The photographic cover ── */}
+      <EditorialHero images={heroImages}>
+        <Experience />
+      </EditorialHero>
 
-          <Reveal amount={0.3}>
-            <div className="ed-container" style={{ display: 'flex', justifyContent: 'center' }}>
-              <Link to="/living" className="ed-link">Read the manifestos</Link>
-            </div>
-          </Reveal>
-        </EditorialSection>
+      {/* ── Sections ── */}
+      <div style={{ background: 'var(--ed-paper)', color: 'var(--ed-ink)' }}>
 
         <SectionDivider number="I" label="Work" />
 

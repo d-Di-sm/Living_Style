@@ -26,6 +26,7 @@ const HORIZONTAL = [
   'AG_IMG_9708',                    // beam shadows, golden hour
   'AG_IMG_9756',                    // pool loungers, agave
   'AG_IMG_9599',                    // beach cove, rocks and sand
+  'VOYV8653',                       // desert bay, catamaran on turquoise water
   '2025_Park_Hyatt_CDMX_Drone_13',  // tower rising, city
   'AG_IMG_9820',                    // fluted wall, raking shadows
   'AG_IMG_9859',                    // chevron pergola vs sky

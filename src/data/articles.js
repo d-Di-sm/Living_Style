@@ -52,4 +52,62 @@ export const articles = [
       { type: 'note', text: 'Observations from SOMA’s residential work between Mexico City and Los Cabos.' },
     ],
   },
+
+  // ── Short-form field notes — one per project ───────────────────────────────
+  {
+    slug: 'how-to-use-a-firepit-correctly',
+    category: 'Soho Residences Los Cabos',
+    title: 'How to Use a Firepit Correctly',
+    date: 'August 2026',
+    readTime: '2 min read',
+    cover: 'AG_IMG_9708',
+    excerpt:
+      "Most people light a firepit at sunset and let it burn until they're tired. At Cabo del Sol, where the desert drops ten, sometimes fifteen degrees the moment the sun clears the ridge, the better instinct is to wait.",
+    blocks: [
+      { type: 'paragraph', text: "Most people light a firepit at sunset and let it burn until they're tired. At Cabo del Sol, where the desert drops ten, sometimes fifteen degrees the moment the sun clears the ridge, the better instinct is to wait." },
+      { type: 'paragraph', text: "Light it twenty minutes after the sky has gone dark, not before. The point isn't ambiance, it's timing, matching the fire to the moment the air actually turns, so the warmth means something instead of competing with a sun that's still doing the work for you." },
+      { type: 'image', orientation: 'h', name: 'AG_IMG_9713', caption: 'The desert, the moment the air turns' },
+      {
+        type: 'list',
+        title: 'A few rules worth keeping',
+        items: [
+          'Keep it low and wide rather than tall. A firepit built for conversation, not a bonfire.',
+          'Face the seating toward the course, not toward each other. The best conversations here happen looking at something, not just at one another.',
+          'Let it burn down to coals before anyone leaves. A firepit abandoned mid-blaze is a wasted evening.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'a-small-ritual-for-whale-season',
+    category: 'Park Hyatt Cabo del Sol Residences',
+    title: 'A Small Ritual for Whale Season',
+    date: 'August 2026',
+    readTime: '2 min read',
+    cover: 'AG_IMG_9570',
+    excerpt:
+      'Between December and April, gray and humpback whales move close enough to this coastline to be visible from a villa without binoculars, though most people never learn when or where to look.',
+    blocks: [
+      { type: 'paragraph', text: 'Between December and April, gray and humpback whales move close enough to this coastline to be visible from a villa without binoculars, though most people never learn when or where to look.' },
+      { type: 'paragraph', text: 'The best hour is early, just after sunrise, before the wind picks up and the water loses its stillness. Coffee on the terrace facing the water, not the pool, and patience measured in minutes, not seconds. A whale surfacing rarely announces itself twice in the same place.' },
+      { type: 'image', orientation: 'v', name: 'AG_IMG_9924', caption: 'The terrace facing the water' },
+      { type: 'paragraph', text: 'This is a small thing, but it is, in its way, the entire argument for the house. A property built around a duality of land and sea only earns that description if someone is actually outside, facing the water, often enough to notice when the sea does something worth noticing.' },
+    ],
+  },
+  {
+    slug: 'how-to-walk-polanco-in-the-morning',
+    category: 'Park Hyatt Mexico City',
+    title: 'How to Walk Polanco in the Morning, Not the Evening',
+    date: 'August 2026',
+    readTime: '2 min read',
+    cover: '2025_Park_Hyatt_CDMX_Drone_13',
+    excerpt:
+      'Most people experience this neighborhood at night, restaurant to restaurant, engineered for it. The morning version is a different city, quieter, better lit, and almost entirely overlooked.',
+    blocks: [
+      { type: 'paragraph', text: 'Most people experience this neighborhood at night, restaurant to restaurant, engineered for it. The morning version is a different city, quieter, better lit, and almost entirely overlooked.' },
+      { type: 'paragraph', text: "Leave before eight. The jacaranda trees along Avenida Presidente Masaryk hold their color best in early light, before the heat flattens it by midday. Walk without a destination for the first twenty minutes. A neighborhood built for evenings rewards anyone willing to see it before it's performing." },
+      { type: 'image', orientation: 'h', name: '2025_Park_Hyatt_CDMX_Drone_04', caption: 'Polanco, before eight' },
+      { type: 'paragraph', text: 'Coffee last, not first. Everything tastes better as a reward for having already walked somewhere, rather than as fuel to start.' },
+    ],
+  },
 ]

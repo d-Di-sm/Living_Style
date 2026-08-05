@@ -19,7 +19,7 @@ export const manifestos = [
     blocks: [
       { type: 'paragraph', text: 'For decades, SOMA has not simply developed residential projects. It has shaped the environments in which contemporary life in Mexico takes place.' },
       { type: 'paragraph', text: 'From the residential explorations of Juan Sordo Madaleno to the urban scale of Javier Sordo Madaleno Bringas, the work has consistently defined how architecture, city, and lifestyle intersect.' },
-      { type: 'image', orientation: 'h', name: 'AG_IMG_9599', caption: 'Cabo del Sol, Baja California Sur' },
+      { type: 'image', orientation: 'h', name: 'VOYV8653', caption: 'Cabo del Sol, Baja California Sur' },
       { type: 'paragraph', text: 'A home is not a product. It is the setting of a life. The proportions of a room, the temperature of light in the late afternoon, the distance between a kitchen and a garden — these are not features. They are decisions about how a day should feel.' },
       { type: 'quote', text: 'We are already shaping these environments. The question is whether we define how they are understood.' },
       { type: 'paragraph', text: 'To consider living thoughtfully is to begin with the day, not the floor plan. It is to ask what a morning requires. Where silence should live. How a family gathers, and how a person is alone.' },

@@ -55,6 +55,25 @@ export default function EditorialBlocks({ blocks }) {
             )
           }
 
+          case 'list':
+            // A short editorial list — numbered, hairline-ruled, never bullets
+            return (
+              <Reveal key={i} amount={0.3}>
+                <div className="ed-container" style={{ paddingTop: 'clamp(28px, 4vw, 56px)', paddingBottom: 'clamp(28px, 4vw, 56px)' }}>
+                  <div style={{ maxWidth: 620 }}>
+                    {block.title && <p className="ed-kicker" style={{ marginBottom: 20 }}>{block.title}</p>}
+                    {block.items.map((item, j) => (
+                      <div key={j} style={{ borderTop: '1px solid var(--ed-rule)', padding: 'clamp(16px, 2vw, 24px) 0', display: 'flex', gap: 20 }}>
+                        <span className="ed-number" style={{ flexShrink: 0 }}>{String(j + 1).padStart(2, '0')}</span>
+                        <p className="ed-body">{item}</p>
+                      </div>
+                    ))}
+                    <hr className="ed-rule" />
+                  </div>
+                </div>
+              </Reveal>
+            )
+
           case 'note':
             return (
               <Reveal key={i} amount={0.5}>
