@@ -25,7 +25,9 @@ import { projectEditorial } from '../data/projectEditorial'
 // full-screen photographic cover, then the sections.
 // ─────────────────────────────────────────────────────────────────────────────
 export default function HomePage() {
-  const [first, second] = manifestos
+  const [first] = manifestos
+  // The hospitality essay lives in Entries now — quoted here as a teaser
+  const hospitality = articles.find(a => a.slug === 'hospitality-taught-residential-design')
 
   return (
     <PageShell>
@@ -62,14 +64,14 @@ export default function HomePage() {
         </div>
 
         <div style={{ paddingTop: 'clamp(60px, 9vw, 140px)' }}>
-          <ImageReveal src={src('AG_IMG_9919')} height="min(72vh, 640px)" caption="Cabo del Sol, Baja California Sur" />
+          <ImageReveal src={src('Villa_Double_Bedroom')} height="min(72vh, 640px)" caption="Cabo del Sol, Baja California Sur" />
         </div>
 
-        <QuoteBlock>{second.title}</QuoteBlock>
+        <QuoteBlock>{hospitality.title}</QuoteBlock>
 
         <Reveal amount={0.3}>
           <div className="ed-container" style={{ display: 'flex', justifyContent: 'center' }}>
-            <Link to="/living" className="ed-link">Read the manifestos</Link>
+            <Link to="/living" className="ed-link">Read the manifesto</Link>
           </div>
         </Reveal>
       </EditorialSection>

@@ -28,6 +28,7 @@ const HORIZONTAL = [
   'AG_IMG_9599',                    // beach cove, rocks and sand
   'VOYV8653',                       // desert bay, catamaran on turquoise water
   'terrace2',                       // villa great room, sheers and beams (render)
+  'Villa_Double_Bedroom',           // villa bedroom in warm timber (render)
   '2025_Park_Hyatt_CDMX_Drone_13',  // tower rising, city
   'AG_IMG_9820',                    // fluted wall, raking shadows
   'AG_IMG_9859',                    // chevron pergola vs sky
@@ -44,6 +45,7 @@ const HORIZONTAL = [
 
 const VERTICAL = [
   'A_01',               // pebbles and coral, tide line
+  'PHMC_IMG_2945',      // jacaranda in bloom against the PHMC tower
   'A_02',               // Sordo Madaleno tote and coffee on sand
   'A_03',               // poolside daybed, raking shadow
   'AG_IMG_9716',        // pergola shadow, vertical
