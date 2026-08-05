@@ -55,6 +55,23 @@ export default function EditorialBlocks({ blocks }) {
             )
           }
 
+          case 'triptych': {
+            // Three photographs scattered across the column at staggered
+            // heights — an editorial pause between passages of text.
+            const cls = ['ed-triptych__a', 'ed-triptych__b', 'ed-triptych__c']
+            return (
+              <div key={i} className="ed-container" style={{ paddingTop: 'clamp(40px, 6vw, 90px)', paddingBottom: 'clamp(40px, 6vw, 90px)' }}>
+                <div className="ed-triptych">
+                  {block.names.slice(0, 3).map((name, j) => (
+                    <div key={name} className={cls[j]}>
+                      <EditorialImage image={img(name)} ratio="3 / 4" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )
+          }
+
           case 'list':
             // A short editorial list — numbered, hairline-ruled, never bullets
             return (

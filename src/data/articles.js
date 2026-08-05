@@ -60,7 +60,7 @@ export const articles = [
     title: 'How to Use a Firepit Correctly',
     date: 'August 2026',
     readTime: '2 min read',
-    cover: 'AG_IMG_9708',
+    cover: 'terrace2',
     excerpt:
       "Most people light a firepit at sunset and let it burn until they're tired. At Cabo del Sol, where the desert drops ten, sometimes fifteen degrees the moment the sun clears the ridge, the better instinct is to wait.",
     blocks: [

@@ -21,7 +21,7 @@ export const manifestos = [
       { type: 'paragraph', text: 'From the residential explorations of Juan Sordo Madaleno to the urban scale of Javier Sordo Madaleno Bringas, the work has consistently defined how architecture, city, and lifestyle intersect.' },
       { type: 'image', orientation: 'h', name: 'VOYV8653', caption: 'Cabo del Sol, Baja California Sur' },
       { type: 'paragraph', text: 'A home is not a product. It is the setting of a life. The proportions of a room, the temperature of light in the late afternoon, the distance between a kitchen and a garden — these are not features. They are decisions about how a day should feel.' },
-      { type: 'quote', text: 'We are already shaping these environments. The question is whether we define how they are understood.' },
+      { type: 'triptych', names: ['A_03', 'A_01', 'A_02'] },
       { type: 'paragraph', text: 'To consider living thoughtfully is to begin with the day, not the floor plan. It is to ask what a morning requires. Where silence should live. How a family gathers, and how a person is alone.' },
       { type: 'paragraph', text: 'The answers become architecture. But they begin as observations about life.' },
       { type: 'image', orientation: 'v', name: 'AG_IMG_9716', caption: 'Light, considered' },
