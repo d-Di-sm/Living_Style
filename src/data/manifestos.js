@@ -21,8 +21,6 @@ export const manifestos = [
     standfirst:
       'For decades, SOMA has not simply developed residential projects.\n\n' +
       'It has shaped the environments in which contemporary life in Mexico takes place.\n\n' +
-      'From the residential explorations of Juan Sordo Madaleno to the urban scale of Javier Sordo Madaleno Bringas,\n' +
-      'the work has consistently defined how architecture, city, and lifestyle intersect.\n\n' +
       'Today, that role continues through SOMA’s residential developments.',
     image: 'AG_IMG_9713',
     blocks: [
