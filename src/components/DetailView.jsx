@@ -18,6 +18,7 @@ export const SECTION_CONFIG = {
       ['Developer',   'SOMA'],
       ['Design',      'Sordo Madaleno'],
     ],
+    heroVideo:  blobVideos.SR_Amenities,
     videos:     [
       { label: 'INTRO',      image: '/images_detail_view/SR/amenities.png',  video: blobVideos.SR_04 },
       { label: 'AMENITIES', image: '/images_detail_view/SR/amenities_2.png', video: blobVideos.SR_02 },
@@ -35,6 +36,7 @@ export const SECTION_CONFIG = {
   2: {
     bigTitle:     'Park Hyatt Cabo Del Sol\nResidences',
     logo:         '/logos/PHLC_Residences_Logo.png',
+    logoClass:    'logo-phlc',
     pricingUrl:   'https://ad6urnxirdpnnnkw.public.blob.vercel-storage.com/PHLC/PHLC%20Availability%20%26%20Pricing_23062026.pdf',
     brochureUrl:  'https://ad6urnxirdpnnnkw.public.blob.vercel-storage.com/PHLC/PHLC%20mobile%20brochure%20lr.pdf',
     description:  'Set within the coastal landscape of Cabo del Sol, these private residences express contemporary architecture, seamless indoor-outdoor living, and the signature hospitality of Park Hyatt.',
@@ -45,6 +47,7 @@ export const SECTION_CONFIG = {
       ['Developer',   'SOMA'],
       ['Design',      'Sordo Madaleno'],
     ],
+    heroVideo:  blobVideos.PHLC_02,
     videos:     [
       { label: 'INTRO',      image: '/images_detail_view/PHLC/intro_2.png',   video: blobVideos.PHLC_01 },
       { label: 'AMENITIES', image: '/images_detail_view/PHLC/amenities.png', video: blobVideos.PHLC_02 },
@@ -57,7 +60,7 @@ export const SECTION_CONFIG = {
   },
   3: {
     bigTitle:     'Park Hyatt Mexico City\nPolanco Residences',
-    logo:         '/logos/PHP_Residences_Logo_B.png',
+    logo:         '/logos/PHP_Residences_Logo_W.png',
     pricingUrl:   'https://ad6urnxirdpnnnkw.public.blob.vercel-storage.com/PHP/PHMC%20Pricing%2010.06.26.pdf',
     brochureUrl:  'https://ad6urnxirdpnnnkw.public.blob.vercel-storage.com/PHP/Mobile_Brochure_PHMC.pdf',
     description:  'In the heart of Polanco, Park Hyatt Mexico City Residences blends contemporary architecture, personalized service, and renowned hospitality—crafted by SOMA and Sordo Madaleno to elevate everyday living. Residences range from 260 - 440 sqm, with an 850 sqm Penthouse.',
@@ -69,6 +72,7 @@ export const SECTION_CONFIG = {
       ['Design',      'Sordo Madaleno'],
     ],
     heroImage:  '/images/phase4.png',
+    heroVideo:  blobVideos.PHP_Video_Intro,
     videos:     [
       { label: 'Intro', image: '/images_detail_view/PHP/intro.png', video: blobVideos.PHP_Intro },
     ],
@@ -347,35 +351,46 @@ export function SectionGrid({ title, cards, image, showMeta, links, onCardClick 
           return <GalleryCard key={i} label={label} image={src} video={vid} showMeta={showMeta} onClick={onCardClick ? () => onCardClick(i) : undefined} shareUrl={!showMeta && links?.web ? links.web : undefined} />
         })}
       </div>
-      {links && (
-        <div className="section-social-icons" style={{ display: 'flex', justifyContent: 'space-evenly', marginTop: 140, width: '100vw', marginLeft: 'calc(-32px)', paddingLeft: 32, paddingRight: 32 }}>
-          {[
-            { href: links.web,
-              path: <><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"/></>,
-            },
-            { href: links.email,
-              path: <><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></>,
-            },
-            { href: links.instagram,
-              path: <><rect x="2" y="2" width="20" height="20" rx="6"/><circle cx="12" cy="12" r="5"/><path d="M17.5 6.5h.01" strokeLinecap="round"/></>,
-            },
-            ...(links.pricing ? [{ href: links.pricing,
-              path: <><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></>,
-            }] : []),
-            ...(links.brochure ? [{ href: links.brochure,
-              path: <><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></>,
-            }] : []),
-          ].map(({ href, path }, i) => (
-            <a key={i} href={href} target="_blank" rel="noopener noreferrer"
-              style={{ color: 'rgba(0,0,0,0.3)', transition: 'color 0.25s', display: 'flex' }}
-              onMouseEnter={e => e.currentTarget.style.color = 'rgba(0,0,0,0.75)'}
-              onMouseLeave={e => e.currentTarget.style.color = 'rgba(0,0,0,0.3)'}
-            >
-              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">{path}</svg>
-            </a>
-          ))}
-        </div>
-      )}
+      <SectionSocialIcons
+        links={links}
+        style={{ marginTop: 140, width: '100vw', marginLeft: 'calc(-32px)', paddingLeft: 32, paddingRight: 32 }}
+      />
+    </div>
+  )
+}
+
+// The web / email / instagram / pricing / brochure row. Extracted from
+// SectionGrid so a page can keep the icons without the gallery above them.
+export function SectionSocialIcons({ links, style }) {
+  if (!links) return null
+  return (
+    <div className="section-social-icons" style={{ display: 'flex', justifyContent: 'space-evenly', ...style }}>
+      {[
+        { href: links.web, label: 'Website',
+          path: <><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"/></>,
+        },
+        { href: links.email, label: 'Email',
+          path: <><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></>,
+        },
+        { href: links.instagram, label: 'Instagram',
+          path: <><rect x="2" y="2" width="20" height="20" rx="6"/><circle cx="12" cy="12" r="5"/><path d="M17.5 6.5h.01" strokeLinecap="round"/></>,
+        },
+        ...(links.pricing ? [{ href: links.pricing, label: 'Pricing',
+          path: <><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></>,
+        }] : []),
+        ...(links.brochure ? [{ href: links.brochure, label: 'Brochure',
+          path: <><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></>,
+        }] : []),
+      ].map(({ href, label, path }, i) => (
+        <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="ssi-link"
+          style={{ color: 'rgba(0,0,0,0.3)', transition: 'color 0.25s', display: 'flex', textDecoration: 'none' }}
+          onMouseEnter={e => e.currentTarget.style.color = 'rgba(0,0,0,0.75)'}
+          onMouseLeave={e => e.currentTarget.style.color = 'rgba(0,0,0,0.3)'}
+        >
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">{path}</svg>
+          <span className="ssi-label">{label}</span>
+        </a>
+      ))}
     </div>
   )
 }

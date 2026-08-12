@@ -34,12 +34,12 @@ export default function ConversationPage() {
         <Reveal>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 18, marginBottom: 'clamp(28px, 4vw, 48px)' }}>
             <Link to="/conversations" className="ed-kicker" style={{ textDecoration: 'none' }}>Conversations</Link>
-            {c.comingSoon && <span className="ed-kicker ed-kicker--accent">Coming Soon</span>}
+            {c.comingSoon && <span className="ed-kicker">Coming Soon</span>}
           </div>
           <h1 className="ed-display" style={{ maxWidth: 1050, marginBottom: 'clamp(28px, 4vw, 48px)' }}>
             {c.title}
           </h1>
-          <p className="ed-meta" style={{ marginBottom: 22 }}>{c.guest} — {c.role}</p>
+          <p className="ed-meta" style={{ marginBottom: 22, fontSize: '19.25px' }}>{c.guest} — {c.role}</p>
           <p className="ed-standfirst" style={{ maxWidth: 720 }}>{c.intro}</p>
         </Reveal>
       </header>
@@ -74,8 +74,9 @@ export default function ConversationPage() {
                 <Reveal amount={0.3}>
                   <div style={{ borderTop: '1px solid var(--ed-rule)', padding: 'clamp(32px, 5vw, 56px) 0' }}>
                     <div style={{ display: 'flex', alignItems: 'baseline', gap: 18, marginBottom: 20 }}>
-                      <span className="ed-number">{String(i + 1).padStart(2, '0')}</span>
-                      <span className="ed-kicker ed-kicker--accent">SOMA Living</span>
+                      {/* Number and label sit at the same weight as the note above */}
+                      <span className="ed-number" style={{ color: 'var(--ed-ink-faint)' }}>{String(i + 1).padStart(2, '0')}</span>
+                      <span className="ed-kicker">SOMA Living</span>
                     </div>
                     <p style={{
                       fontFamily: 'var(--ed-serif)',
@@ -90,8 +91,22 @@ export default function ConversationPage() {
                     {/* Answer slot — renders once answers[i] exists */}
                     {c.answers?.[i] && (
                       <div style={{ marginTop: 'clamp(24px, 3vw, 40px)' }}>
-                        <p className="ed-kicker" style={{ marginBottom: 16 }}>{c.guest}</p>
-                        <p className="ed-body">{c.answers[i]}</p>
+                        {/* The answer mark: an em dash, transcript convention.
+                            The guest is named once in the masthead, not on
+                            every reply. */}
+                        <p className="ed-kicker" aria-label={`${c.guest} answers`} style={{ marginBottom: 16 }}>
+                          —
+                        </p>
+                        {/* An answer is a string or an array of paragraphs */}
+                        {[].concat(c.answers[i]).map((para, k) => (
+                          <p
+                            key={k}
+                            className="ed-body"
+                            style={{ maxWidth: 720, ...(k > 0 ? { marginTop: '1.1em' } : null) }}
+                          >
+                            {para}
+                          </p>
+                        ))}
                       </div>
                     )}
                   </div>
@@ -138,7 +153,7 @@ function NextConversation({ currentSlug }) {
         <Link to={`/conversations/${next.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
           <p className="ed-kicker" style={{ marginBottom: 18 }}>Next Conversation</p>
           <h2 className="ed-headline" style={{ marginBottom: 14 }}>{next.title}</h2>
-          <p className="ed-meta">{next.guest} — {next.role}</p>
+          <p className="ed-meta" style={{ fontSize: '19.25px' }}>{next.guest} — {next.role}</p>
         </Link>
       </div>
     </Reveal>

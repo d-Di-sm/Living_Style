@@ -9,7 +9,7 @@ export const projectEditorial = {
   // Soho Residences Los Cabos
   1: {
     slug: 'soho-residences-los-cabos',
-    name: 'Soho Residences',
+    name: 'Soho Residences Los Cabos',
     location: 'Cabo del Sol, Los Cabos',
     architecture: 'Architecture by SOMA',
     collaboration: 'In collaboration with Soho House',
@@ -26,7 +26,7 @@ export const projectEditorial = {
   // Park Hyatt Cabo Del Sol Residences
   2: {
     slug: 'park-hyatt-cabo-del-sol',
-    name: 'Park Hyatt Cabo del Sol',
+    name: 'Park Hyatt Cabo Del Sol Residences',
     location: 'Cabo del Sol, Los Cabos',
     architecture: 'Architecture by SOMA',
     collaboration: 'In collaboration with Park Hyatt',
@@ -43,7 +43,7 @@ export const projectEditorial = {
   // Park Hyatt Mexico City Polanco Residences
   3: {
     slug: 'park-hyatt-polanco',
-    name: 'Park Hyatt Polanco',
+    name: 'Park Hyatt Mexico City Polanco Residences',
     location: 'Polanco, Mexico City',
     architecture: 'Architecture by SOMA',
     collaboration: 'In collaboration with Park Hyatt',

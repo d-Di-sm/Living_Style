@@ -4,7 +4,8 @@
 // Questions are final (from the CONVERSATIONS_*.pdf drafts, Aug 2026).
 // Answers are pending: when a conversation is recorded, fill the `answers`
 // array (same index as its question) and the page renders the full dialogue
-// automatically — Interview-magazine style.
+// automatically — Interview-magazine style. An answer is either a string or an
+// array of paragraphs. Set `comingSoon: false` once the answers land.
 //
 // `images` intersperses photography through the dialogue (Interview-magazine
 // rhythm): { after: N, name, caption, align? } inserts the curated image
@@ -18,6 +19,87 @@
 import { src } from './lifestyle'
 
 export const conversations = [
+  {
+    slug: 'when-art-leaves-the-plaza',
+    title: 'When Art Leaves the Plaza',
+    guest: 'Mónica de Haro',
+    role: 'Art & Curation — Arte Abierto',
+    intro:
+      'What happens to art when it moves from public space into a private home — and where the line sits between a work and decoration.',
+    portrait: src('AG_IMG_9718'),
+    comingSoon: false,
+    // Shown in place of the generic 'Conversation' label once published
+    date: 'August 2026',
+    questions: [
+      "You've said art is an engine of new thought, that artists rework reality and offer other visions. Does art do that same work when only one family will ever see it, inside their own home, or does it need an audience to function that way?",
+      "You've described Arte Abierto's spaces as each having a completely different relationship to art, Pedregal is a white cube, Baja is in dialogue with nature, Polanco is closer to a public plaza. If a home is its own kind of site, what's its relationship to art? Which of those three is it closest to, or is it something else entirely?",
+      "Your show at Pedregal turned a terrace into a meditation on a landscape's lost biodiversity, a place that used to be something very different than what it became. Can art in a home do that same thing, point back at something a family has forgotten about itself?",
+      "Public art comes with a program around it, talks, specialists, context that helps people read the work. A painting in someone's living room doesn't get that. Does art in a home lose something without that scaffolding, or does it gain something instead?",
+      "Curating for a white cube means starting with a blank room. Curating for a home means starting with a room that's already full, furniture, habits, a family's whole life already in progress. Which is harder, and which do you actually prefer?",
+      'Your outdoor spaces are designed to be in dialogue with nature. A lot of the homes in this series look out at the same coastline your Baja site does. Is there a version of that same dialogue that belongs inside someone\'s living room, facing the same ocean?',
+      'Arte Abierto has grown across several sites without losing its own identity. When a family starts collecting art in their home, is there a version of that same risk, growing a collection so much that it stops meaning anything specific to them?',
+      "You work at the intersection of the art world and real estate. What's the difference, to you, between a piece of art in a home and decoration? Where's the line, and who usually gets it wrong?",
+      "Is there a piece of art in your own home that means more to you than anything you've ever curated for public space? What is it, and why has it stayed with you?",
+    ],
+    // Transcribed from CONVERSATIONS _ Mónica de Haro (Arte Abierto), Aug 2026.
+    answers: [
+      [
+        'I think it can. Art doesn’t need an audience in the traditional sense to have an impact. At Arte Abierto, we think of art as a way of opening up new ways of seeing and thinking, and that can happen in a very intimate context as much as in a public one.',
+        'When a work lives in someone’s home, the relationship can become even more personal. You see it every day, but you never see it exactly the same way twice. It becomes part of your life, your memories, your conversations, even the way you experience the space around you.',
+        'The scale of the audience changes, but the potential of the artwork doesn’t necessarily diminish.',
+      ],
+      [
+        'A home is a much more intimate site. It already has a history, a personality, objects, memories, routines, and people living in it; all of those things can become part of the meaning of a work.',
+        'That’s actually what makes it interesting for art.',
+        'We don’t believe the artwork should simply be placed somewhere; we want the place to become part of the conversation.',
+        'I would say a home isn’t a smaller version of a gallery. It is its own kind of site.',
+      ],
+      [
+        'I think this is one of the most beautiful possibilities of having art at home.',
+        'A work can become a kind of memory trigger. It can change as your own life changes. What it meant to you five years ago may not be what it means to you today.',
+        'That’s something we think about at Arte Abierto as well: art can make us look again at something that has become invisible because we are so used to it.',
+      ],
+      [
+        'I think it gains something different. Public art often comes with a framework: conversations, texts, specialists, programs, a community around it. That’s important, and it’s something we deeply value at Arte Abierto.',
+        'But in a home, the context is your life.',
+        'You don’t necessarily need someone to explain the work because you encounter it through your own experiences. The interpretation becomes much more personal and less controlled.',
+        'So perhaps the question isn’t whether it loses something, but what kind of relationship it creates instead.',
+      ],
+      [
+        'A home is definitely harder.',
+        'In a white cube, you start with almost nothing. The space is intentionally neutral, so you can build a very specific relationship between the work, the architecture and the viewer.',
+        'A home is the opposite. It already has a story. There is furniture, architecture, family history, habits, personality, accumulated decisions.',
+        'The challenge is not to impose art, but to find works that can enter into a conversation with everything that is already there.',
+        'With our projects at Arte Abierto, the site is never a blank canvas. The artist has to listen and feel it first.',
+      ],
+      [
+        'I don’t think you need to physically be outdoors for art to create a relationship with nature. A work can change the way you perceive the landscape.',
+        'The artwork can create a dialogue between the interior and exterior, rather than simply being something placed inside.',
+        'In that sense, the home can become a threshold between architecture, art and nature.',
+      ],
+      [
+        'Collecting shouldn’t necessarily be about quantity. A meaningful collection tells you something about the person or family who built it; their curiosity, their obsessions, their memories.',
+        'There is a parallel with what we’ve tried to do with Arte Abierto. As we grow across different sites, the challenge is to keep each project deeply connected to its context while maintaining a clear identity.',
+        'I think a personal collection can work in the same way. It should have a point of view, even if that point of view evolves over time.',
+        // Source sentence ends without a period; kept as written.
+        'The most interesting collections, to me, don’t feel like a catalogue of valuable objects. They feel like something you fell in love with and want it to become part of you',
+      ],
+      [
+        'For me, the difference is intention and the relationship you establish with the work.',
+        // The closing sentence is a fragment in the source draft — verify with the guest.
+        'Decoration can certainly be beautiful, and there is nothing wrong with it. But art, at its best, asks something from you. It can challenge you, surprise you, make you uncomfortable, make you think, or simply make you see something differently. If it is chosen because it completes a room, or because it creates a relationship with the people and the place.',
+      ],
+      [
+        'Arte Abierto has taught me how to think about a space and about the relationships we build with artworks, as well as the artist’s mind and intention behind each piece.',
+        'I see art as something that can transform our relationship with a space. Every piece I own, regardless of its price or the artist’s career, has a strong personal meaning for me. Each one carries a story of its own, sometimes intertwined with the artist’s story. These connections are deeply meaningful to me, as they speak to my identity, my memories, and my relationships.',
+      ],
+    ],
+    images: [
+      { after: 2, name: 'AG_IMG_9651',   caption: 'A boulder, placed like a work' },
+      { after: 5, name: 'AG_IMG_9684',   caption: 'Surface as composition' },
+      { after: 7, name: 'AG_IMG_9915-2', caption: 'Light through shutters', align: 'right' },
+    ],
+  },
   {
     slug: 'carving-the-inhabitable-void',
     title: 'Carving the Inhabitable Void',
@@ -71,33 +153,6 @@ export const conversations = [
       { after: 2, name: '2025_Park_Hyatt_CDMX_Drone_04', caption: 'Park Hyatt Mexico City, rising over Polanco' },
       { after: 5, name: 'AnimaVillageA_0794',            caption: 'Ánima Village, Cabo del Sol' },
       { after: 7, name: 'AG_IMG_9628',                   caption: 'Volumes against the sky' },
-    ],
-  },
-  {
-    slug: 'when-art-leaves-the-plaza',
-    title: 'When Art Leaves the Plaza',
-    guest: 'Mónica de Haro',
-    role: 'Art & Curation — Arte Abierto',
-    intro:
-      'What happens to art when it moves from public space into a private home — and where the line sits between a work and decoration.',
-    portrait: src('AG_IMG_9718'),
-    comingSoon: true,
-    questions: [
-      "You've said art is an engine of new thought, that artists rework reality and offer other visions. Does art do that same work when only one family will ever see it, inside their own home, or does it need an audience to function that way?",
-      "You've described Arte Abierto's spaces as each having a completely different relationship to art, Pedregal is a white cube, Baja is in dialogue with nature, Polanco is closer to a public plaza. If a home is its own kind of site, what's its relationship to art? Which of those three is it closest to, or is it something else entirely?",
-      "Your show at Pedregal turned a terrace into a meditation on a landscape's lost biodiversity, a place that used to be something very different than what it became. Can art in a home do that same thing, point back at something a family has forgotten about itself?",
-      "Public art comes with a program around it, talks, specialists, context that helps people read the work. A painting in someone's living room doesn't get that. Does art in a home lose something without that scaffolding, or does it gain something instead?",
-      "Curating for a white cube means starting with a blank room. Curating for a home means starting with a room that's already full, furniture, habits, a family's whole life already in progress. Which is harder, and which do you actually prefer?",
-      'Your outdoor spaces are designed to be in dialogue with nature. A lot of the homes in this series look out at the same coastline your Baja site does. Is there a version of that same dialogue that belongs inside someone\'s living room, facing the same ocean?',
-      'Arte Abierto has grown across several sites without losing its own identity. When a family starts collecting art in their home, is there a version of that same risk, growing a collection so much that it stops meaning anything specific to them?',
-      "You work at the intersection of the art world and real estate. What's the difference, to you, between a piece of art in a home and decoration? Where's the line, and who usually gets it wrong?",
-      "Is there a piece of art in your own home that means more to you than anything you've ever curated for public space? What is it, and why has it stayed with you?",
-    ],
-    answers: [],
-    images: [
-      { after: 2, name: 'AG_IMG_9651',   caption: 'A boulder, placed like a work' },
-      { after: 5, name: 'AG_IMG_9684',   caption: 'Surface as composition' },
-      { after: 7, name: 'AG_IMG_9915-2', caption: 'Light through shutters', align: 'right' },
     ],
   },
   {

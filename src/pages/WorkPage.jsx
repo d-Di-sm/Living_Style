@@ -3,7 +3,6 @@ import PageShell from '../components/editorial/PageShell'
 import EditorialNav from '../components/editorial/EditorialNav'
 import Reveal from '../components/editorial/Reveal'
 import EditorialImage from '../components/editorial/EditorialImage'
-import SectionDivider from '../components/editorial/SectionDivider'
 import NewsletterSignup from '../components/editorial/NewsletterSignup'
 import EditorialFooter from '../components/editorial/EditorialFooter'
 import { projects } from '../data/projects'
@@ -20,7 +19,7 @@ export default function WorkPage() {
 
       <header className="ed-container" style={{ paddingTop: 'clamp(70px, 10vw, 160px)', paddingBottom: 'clamp(50px, 8vw, 120px)' }}>
         <Reveal>
-          <p className="ed-kicker" style={{ marginBottom: 'clamp(24px, 3vw, 42px)' }}>Section — Work</p>
+          <p className="ed-kicker" style={{ marginBottom: 'clamp(24px, 3vw, 42px)' }}>Section — Project</p>
           <h1 className="ed-display" style={{ maxWidth: 1050 }}>
             Evidence of a way of thinking.
           </h1>
@@ -32,38 +31,44 @@ export default function WorkPage() {
         </Reveal>
       </header>
 
-      {projects.map((project, i) => {
-        const ed = projectEditorial[project.id]
-        return (
-          <div key={project.id}>
-            {i > 0 && <SectionDivider />}
-            <Reveal amount={0.1}>
-              <Link to={`/work/${ed.slug}`} className="ed-img-hover" style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
-                <div className="ed-container">
-                  <EditorialImage src={ed.heroImage} ratio="21 / 10" priority={i === 0} />
-                  <div style={{
-                    display: 'flex', flexWrap: 'wrap', alignItems: 'baseline',
-                    justifyContent: 'space-between', gap: 20,
-                    paddingTop: 'clamp(24px, 3vw, 40px)',
-                  }}>
-                    <div>
-                      <span className="ed-number" style={{ display: 'block', marginBottom: 16 }}>
-                        {String(i + 1).padStart(2, '0')}
-                      </span>
-                      <h2 className="ed-headline" style={{ marginBottom: 14 }}>{ed.name}</h2>
-                      <p className="ed-kicker">{ed.location}</p>
-                    </div>
-                    <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', gap: 10 }}>
-                      <span className="ed-meta">{ed.architecture}</span>
-                      <span className="ed-meta" style={{ color: 'var(--ed-accent)' }}>{ed.collaboration}</span>
-                    </div>
+      {/* Three columns across, one per project — the portfolio read as a
+          spread rather than a scroll. Collapses to a single column below
+          ~900px, where each project regains full width. */}
+      <div
+        className="ed-container"
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+          gap: 'clamp(36px, 4vw, 72px)',
+          alignItems: 'start',
+        }}
+      >
+        {projects.map((project, i) => {
+          const ed = projectEditorial[project.id]
+          return (
+            <Reveal key={project.id} amount={0.1}>
+              <Link to={`/work/${ed.slug}`} className="ed-img-hover ed-img-mono" style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
+                {/* Portrait crop: three verticals sit better side by side
+                    than the full-width 21/10 band this replaced. */}
+                <EditorialImage src={ed.heroImage} ratio="4 / 5" priority={i === 0} />
+                <div style={{ paddingTop: 'clamp(20px, 2.4vw, 32px)' }}>
+                  <span className="ed-number" style={{ display: 'block', marginBottom: 14, color: 'var(--ed-ink-faint)' }}>
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  {/* Smaller than the old ed-headline — a three-column measure
+                      cannot carry display sizes without breaking every name. */}
+                  <h2 className="ed-title-sm" style={{ marginBottom: 12 }}>{ed.name}</h2>
+                  <p className="ed-kicker" style={{ marginBottom: 18 }}>{ed.location}</p>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                    <span className="ed-meta">{ed.architecture}</span>
+                    <span className="ed-meta">{ed.collaboration}</span>
                   </div>
                 </div>
               </Link>
             </Reveal>
-          </div>
-        )
-      })}
+          )
+        })}
+      </div>
 
       <div style={{ height: 'clamp(90px, 13vw, 200px)' }} />
 

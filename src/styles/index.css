@@ -186,7 +186,36 @@
 .detail-footer-logo-sm { height: 11px; }
 
 /* ── Project-specific logo overrides ───────────────── */
-.logo-sr { width: 203px !important; }
+/* Soho Residences: 20% smaller than the shared mark, lifted 30px */
+.logo-sr { width: 162.4px !important; bottom: 62px !important; }
+/* Park Hyatt Cabo del Sol: same size, lifted 10px */
+.logo-phlc { bottom: 42px !important; }
+
+/* ── Social icon labels ────────────────────────────── */
+/* Each icon stacks over its name; on hover the name settles into place
+   and a hairline draws itself out from the centre. */
+.ssi-link { flex-direction: column; align-items: center; gap: 10px; }
+.ssi-label {
+  font-family: 'Funnel Sans', 'Inter', sans-serif;
+  font-size: 10px; font-weight: 300;
+  letter-spacing: 2px; text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0.45;
+  transform: translateY(-4px);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.ssi-label::after {
+  content: ''; display: block; height: 1px; margin-top: 6px;
+  background: currentColor;
+  transform: scaleX(0); transform-origin: center;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.ssi-link:hover .ssi-label { opacity: 1; transform: translateY(0); }
+.ssi-link:hover .ssi-label::after { transform: scaleX(1); }
+
+@media (prefers-reduced-motion: reduce) {
+  .ssi-label, .ssi-label::after { transition: none; transform: none; }
+}
 
 /* ── Mobile Responsive (≤ 768px) ───────────────────── */
 @media (max-width: 768px) {

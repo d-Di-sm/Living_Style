@@ -23,7 +23,7 @@ export default function ArticleLayout({ article }) {
             <Link to="/journal" className="ed-kicker" style={{ textDecoration: 'none' }}>Entries</Link>
             {/* category chip only when it differs from the section name */}
             {article.category !== 'Entries' && (
-              <span className="ed-kicker ed-kicker--accent">{article.category}</span>
+              <span className="ed-kicker">{article.category}</span>
             )}
           </div>
           <h1 className="ed-display" style={{ maxWidth: 1050, marginBottom: 'clamp(30px, 4vw, 52px)' }}>

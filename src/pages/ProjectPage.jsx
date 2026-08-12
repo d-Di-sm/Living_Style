@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useParams, Navigate, Link } from 'react-router-dom'
 import PageShell from '../components/editorial/PageShell'
 import EditorialNav from '../components/editorial/EditorialNav'
@@ -7,14 +6,14 @@ import Reveal from '../components/editorial/Reveal'
 import SectionDivider from '../components/editorial/SectionDivider'
 import NewsletterSignup from '../components/editorial/NewsletterSignup'
 import EditorialFooter from '../components/editorial/EditorialFooter'
-import { SECTION_CONFIG, SectionGrid, VideoPanel } from '../components/DetailView'
+import { SECTION_CONFIG, SectionSocialIcons } from '../components/DetailView'
 import { projects } from '../data/projects'
 import { projectEditorial, projectSlugToId } from '../data/projectEditorial'
 
 // ─────────────────────────────────────────────────────────────────────────────
 // A project as a feature story. Narrative first, information second.
-// The existing DetailView machinery — video galleries, VideoPanel player,
-// brochures, pricing, share links — is preserved intact underneath.
+// The hero film carries the photo frame; brochure, pricing and contact icons
+// still come from the DetailView config underneath.
 // ─────────────────────────────────────────────────────────────────────────────
 export default function ProjectPage() {
   const { slug } = useParams()
@@ -22,8 +21,6 @@ export default function ProjectPage() {
   const project = projects.find(p => p.id === id)
   const editorial = projectEditorial[id]
   const config = SECTION_CONFIG[id] ?? { videos: [], tipologias: [] }
-
-  const [videoPanel, setVideoPanel] = useState(null)
 
   if (!project) return <Navigate to="/work" replace />
 
@@ -66,36 +63,32 @@ export default function ProjectPage() {
         </Reveal>
       </section>
 
-      {/* ── The photograph with the residence logo — preserved composition ── */}
+      {/* ── The film with the residence logo — the project's hero video fills
+             the frame the overlay image used to occupy, at the same size ── */}
       <div className="d-photo" style={{ height: 'min(72vh, 640px)' }}>
         <img src={config.heroImage ?? project.image} alt="" loading="lazy" />
-        {project.id === 1
-          ? <img src="/images/res3.jpg" alt="" className="d-photo-overlay" loading="lazy" />
-          : project.id === 3
-            ? <img src="/images/phase2.png" alt="" className="d-photo-overlay" loading="lazy" />
-            : <div className="d-photo-overlay" />
-        }
+        {config.heroVideo && (
+          <video
+            className="d-photo-overlay"
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            src={config.heroVideo}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          />
+        )}
+        {/* Gradient stays on top so the white logo keeps its contrast */}
+        <div className="d-photo-overlay" />
         <img className={['d-villa-logo', config.logoClass].filter(Boolean).join(' ')} src={config.logo} alt="" />
       </div>
 
-      {/* ── Videos, brochures, pricing, share — the existing machinery ── */}
-      <SectionGrid
-        title="Videos"
-        cards={config.videos}
-        image={project.image}
-        showMeta={false}
+      {/* Brochure, pricing and contact — kept after the Videos grid was removed */}
+      <SectionSocialIcons
         links={{ ...project.links, pricing: config.pricingUrl, brochure: config.brochureUrl }}
-        onCardClick={i => setVideoPanel({ cards: config.videos, index: i })}
+        style={{ padding: 'clamp(50px, 7vw, 90px) var(--ed-pad)' }}
       />
-
-      {videoPanel && (
-        <VideoPanel
-          cards={videoPanel.cards}
-          initialIndex={videoPanel.index}
-          onClose={() => setVideoPanel(null)}
-          shareUrl={project.links?.web}
-        />
-      )}
 
       {/* ── Next project ── */}
       <SectionDivider label="Continue Reading" />

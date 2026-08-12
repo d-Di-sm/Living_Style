@@ -5,6 +5,10 @@
 const dev = import.meta.env.DEV
 
 const local = {
+  // Hero films played inside the project's photo frame
+  SR_Amenities:    '/video/videoSohoResidences/Amenities.mp4',
+  PHP_Video_Intro: '/video/videoPHP/Video_Intro.mp4',
+
   PHP_Intro: '/video/videoPHP/PHP_Intro.mp4',
   PHLC_01:   '/video/videoPHLC/PHLC_01.mp4',
   PHLC_02:   '/video/videoPHLC/PHLC_02.mp4',
@@ -15,6 +19,12 @@ const local = {
 }
 
 const blob = {
+  // TODO: these two are not on Blob yet, so production serves them from
+  // /public — roughly 105 MB added to the deployment. Upload them and swap
+  // these paths for their Blob URLs.
+  SR_Amenities:    '/video/videoSohoResidences/Amenities.mp4',
+  PHP_Video_Intro: '/video/videoPHP/Video_Intro.mp4',
+
   PHP_Intro: 'https://ad6urnxirdpnnnkw.public.blob.vercel-storage.com/PHP/PHP_Intro.mp4',
   PHLC_01:   'https://ad6urnxirdpnnnkw.public.blob.vercel-storage.com/PHLC/PHLC_01.mp4',
   PHLC_02:   'https://ad6urnxirdpnnnkw.public.blob.vercel-storage.com/PHLC/PHLC_02.mp4',

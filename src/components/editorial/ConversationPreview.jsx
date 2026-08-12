@@ -32,8 +32,9 @@ export default function ConversationPreview({ conversation, invert = false }) {
         </div>
 
         <div style={{ order: invert ? 1 : 2 }}>
-          <p className="ed-kicker ed-kicker--accent" style={{ marginBottom: 24 }}>
-            {conversation.comingSoon ? 'Coming Soon' : 'Conversation'}
+          {/* Published conversations are dated; the rest carry the generic label */}
+          <p className="ed-kicker" style={{ marginBottom: 24 }}>
+            {conversation.comingSoon ? 'Coming Soon' : (conversation.date ?? 'Conversation')}
           </p>
           <h3 className="ed-headline" style={{ marginBottom: 'clamp(22px, 3vw, 36px)' }}>
             {conversation.title}

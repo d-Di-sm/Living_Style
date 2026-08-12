@@ -256,6 +256,21 @@
 .ed-img-hover img { transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1); }
 .ed-img-hover:hover img { transform: scale(1.03); }
 
+/* Project covers rest in black and white and take on colour on hover.
+   Declared after .ed-img-hover so the combined transition wins when an
+   element carries both classes. */
+.ed-img-mono img {
+  filter: grayscale(1);
+  transition: filter 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.ed-img-mono:hover img { filter: grayscale(0); }
+
+/* Touch devices never hover — they get the photographs in colour. */
+@media (hover: none) {
+  .ed-img-mono img { filter: none; }
+}
+
 /* ── Scroll indicator ──────────────────────────────── */
 .ed-scroll-line {
   width: 1px;
@@ -290,5 +305,6 @@
 /* Reduced motion — editorial should degrade gracefully */
 @media (prefers-reduced-motion: reduce) {
   .ed-img-hover img { transition: none; }
+  .ed-img-mono img { transition: none; }
   .ed-scroll-line { animation: none; }
 }

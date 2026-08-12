@@ -31,7 +31,7 @@ export default function ProjectEditorialHeader({ editorial }) {
           </h1>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'clamp(20px, 4vw, 56px)', alignItems: 'baseline' }}>
             <span className="ed-meta">{editorial.architecture}</span>
-            <span className="ed-meta" style={{ color: 'var(--ed-accent)' }}>{editorial.collaboration}</span>
+            <span className="ed-meta">{editorial.collaboration}</span>
           </div>
         </Reveal>
       </div>

@@ -16,8 +16,14 @@ export const manifestos = [
     number: '01',
     slug: 'living-thoughtfully-considered',
     title: 'Living, thoughtfully considered.',
+    // Line breaks are editorial: the home hero renders them literally
+    // (white-space: pre-line); elsewhere they collapse into flowing prose.
     standfirst:
-      'SOMA operates at the intersection of architecture, city, and lifestyle. Across projects, a clear language emerges. Not just of design, but of living.',
+      'For decades, SOMA has not simply developed residential projects.\n\n' +
+      'It has shaped the environments in which contemporary life in Mexico takes place.\n\n' +
+      'From the residential explorations of Juan Sordo Madaleno to the urban scale of Javier Sordo Madaleno Bringas,\n' +
+      'the work has consistently defined how architecture, city, and lifestyle intersect.\n\n' +
+      'Today, that role continues through SOMA’s residential developments.',
     image: 'AG_IMG_9713',
     blocks: [
       { type: 'paragraph', text: 'For decades, SOMA has not simply developed residential projects. It has shaped the environments in which contemporary life in Mexico takes place.' },

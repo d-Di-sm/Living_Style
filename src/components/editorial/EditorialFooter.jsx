@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 const NAV = [
   { to: '/living',        label: 'Living' },
-  { to: '/work',          label: 'Work' },
+  { to: '/work',          label: 'Project' },
   { to: '/journal',       label: 'Entries' },
   { to: '/conversations', label: 'Conversations' },
 ]

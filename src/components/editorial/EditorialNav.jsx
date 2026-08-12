@@ -6,9 +6,9 @@ import { useScrollShell } from './scrollShell'
 
 const LINKS = [
   { to: '/living',        label: 'Living' },
-  { to: '/work',          label: 'Work' },
   { to: '/journal',       label: 'Entries' },
   { to: '/conversations', label: 'Conversations' },
+  { to: '/work',          label: 'Project' },
 ]
 
 // ─────────────────────────────────────────────────────────────────────────────

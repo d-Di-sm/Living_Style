@@ -17,7 +17,8 @@ export default function ManifestoBlock({ manifesto, invert = false }) {
       <div className="ed-container">
         <Reveal amount={0.3}>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 20, marginBottom: 'clamp(32px, 5vw, 64px)' }}>
-            <span className="ed-number">{manifesto.number}</span>
+            {/* Same ink as the 'Manifesto' kicker across the rule */}
+            <span className="ed-number" style={{ color: 'var(--ed-ink-faint)' }}>{manifesto.number}</span>
             <hr className="ed-rule" style={{ flex: 1 }} />
             <span className="ed-kicker">Manifesto</span>
           </div>
