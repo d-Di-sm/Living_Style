@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 const NAV = [
   { to: '/living',        label: 'Living' },
-  { to: '/work',          label: 'Project' },
+  { to: '/work',          label: 'Projects' },
   { to: '/journal',       label: 'Entries' },
   { to: '/conversations', label: 'Conversations' },
 ]
@@ -32,7 +32,9 @@ export default function EditorialFooter() {
         {/* ── Masthead ── */}
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', gap: 48, alignItems: 'flex-start' }}>
           <div>
-            <img src="/logos/SOMA_blanco.png" alt="SOMA" style={{ height: 30, mixBlendMode: 'screen', display: 'block' }} />
+            <a href="https://soma.group/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block' }}>
+              <img src="/logos/SOMA_blanco.png" alt="SOMA" style={{ height: 30, mixBlendMode: 'screen', display: 'block' }} />
+            </a>
             <p className="ed-kicker" style={{ color: 'rgba(245,240,230,0.4)', marginTop: 18 }}>
               Editorial Platform
             </p>
@@ -67,7 +69,7 @@ export default function EditorialFooter() {
             </a>
           </div>
           <p style={{ fontFamily: 'var(--ed-sans)', fontSize: 10, fontWeight: 300, letterSpacing: '0.14em', color: 'rgba(245,240,230,0.3)' }}>
-            © {new Date().getFullYear()} SOMA Living — Mexico City · Los Cabos
+            © {new Date().getFullYear()} SOMA Living; Mexico City · Los Cabos
           </p>
         </div>
       </div>

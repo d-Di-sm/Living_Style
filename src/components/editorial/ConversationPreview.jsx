@@ -40,7 +40,7 @@ export default function ConversationPreview({ conversation, invert = false }) {
             {conversation.title}
           </h3>
           <p className="ed-meta" style={{ marginBottom: 24 }}>
-            {conversation.guest} — {conversation.role}
+            {conversation.guest}; {conversation.role}
           </p>
           <p className="ed-body" style={{ color: 'var(--ed-ink-soft)' }}>{conversation.intro}</p>
         </div>

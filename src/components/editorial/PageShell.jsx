@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 import { ScrollShellContext } from './scrollShell'
 
-// The document body is overflow:hidden (viewport app legacy) — every editorial
+// The document body is overflow:hidden (viewport app legacy); every editorial
 // page scrolls inside this shell. The ref is shared through context so
 // scroll-linked components (hero, reading progress, parallax) can bind to it.
 export default function PageShell({ dark = false, children }) {

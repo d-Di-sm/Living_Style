@@ -4,7 +4,7 @@ import { EASE } from './motion'
 
 // ─────────────────────────────────────────────────────────────────────────────
 // A project opens like a feature story: full-width photograph, then the
-// masthead facts — name, place, authorship, collaboration. Narrative first,
+// masthead facts; name, place, authorship, collaboration. Narrative first,
 // information later.
 // ─────────────────────────────────────────────────────────────────────────────
 export default function ProjectEditorialHeader({ editorial }) {

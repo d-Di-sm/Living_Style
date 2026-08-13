@@ -1,10 +1,10 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// CONVERSATIONS — interviews with architects, designers, and collaborators.
+// CONVERSATIONS; interviews with architects, designers, and collaborators.
 //
 // Questions are final (from the CONVERSATIONS_*.pdf drafts, Aug 2026).
 // Answers are pending: when a conversation is recorded, fill the `answers`
 // array (same index as its question) and the page renders the full dialogue
-// automatically — Interview-magazine style. An answer is either a string or an
+// automatically; Interview-magazine style. An answer is either a string or an
 // array of paragraphs. Set `comingSoon: false` once the answers land.
 //
 // `images` intersperses photography through the dialogue (Interview-magazine
@@ -23,10 +23,11 @@ export const conversations = [
     slug: 'when-art-leaves-the-plaza',
     title: 'When Art Leaves the Plaza',
     guest: 'Mónica de Haro',
-    role: 'Art & Curation — Arte Abierto',
+    role: 'Art & Curation; Arte Abierto',
     intro:
-      'What happens to art when it moves from public space into a private home — and where the line sits between a work and decoration.',
-    portrait: src('AG_IMG_9718'),
+      'What happens to art when it moves from public space into a private home, and where the line sits between a work and decoration.',
+    // Final photography; not from the curated /web set, so a literal path
+    portrait: '/lifestyle/AnimaPhoto.jpg',
     comingSoon: false,
     // Shown in place of the generic 'Conversation' label once published
     date: 'August 2026',
@@ -86,7 +87,7 @@ export const conversations = [
       ],
       [
         'For me, the difference is intention and the relationship you establish with the work.',
-        // The closing sentence is a fragment in the source draft — verify with the guest.
+        // The closing sentence is a fragment in the source draft; verify with the guest.
         'Decoration can certainly be beautiful, and there is nothing wrong with it. But art, at its best, asks something from you. It can challenge you, surprise you, make you uncomfortable, make you think, or simply make you see something differently. If it is chosen because it completes a room, or because it creates a relationship with the people and the place.',
       ],
       [
@@ -124,7 +125,7 @@ export const conversations = [
     answers: [],
     images: [
       { after: 3, name: 'AG_IMG_9862',          caption: 'Texture, carved by light' },
-      { after: 6, name: 'Villa_CDS_Terraza_05', caption: 'A room without walls — Cabo del Sol' },
+      { after: 6, name: 'Villa_CDS_Terraza_05', caption: 'A room without walls; Cabo del Sol' },
       { after: 8, name: 'AG_IMG_9819',          caption: 'The stair as sculpture', align: 'right' },
     ],
   },
@@ -159,7 +160,7 @@ export const conversations = [
     slug: 'what-the-site-remembers',
     title: 'What the Site Remembers',
     guest: 'A worker on site',
-    role: 'Park Hyatt Cabo del Sol — On Site',
+    role: 'Park Hyatt Cabo del Sol; On Site',
     intro:
       'A conversation from the construction site: on light, whales, wind, and what the land will keep after the building is finished.',
     portrait: src('AG_IMG_9577'),

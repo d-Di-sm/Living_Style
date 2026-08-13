@@ -49,7 +49,7 @@ export default function Header() {
           <img src="/logos/sordomadaleno_logoW.png" alt="Sordo Madaleno" style={{ height: 15, width: 'auto', mixBlendMode: 'screen', display: 'block' }} />
         </a>
 
-        {/* Hamburger button — mobile only */}
+        {/* Hamburger button; mobile only */}
         <button
           className="hamburger-btn"
           onClick={() => setMenuOpen(o => !o)}
@@ -74,7 +74,7 @@ export default function Header() {
         </button>
       </div>
 
-      {/* ── Dropdown menu — mobile only ── */}
+      {/* ── Dropdown menu; mobile only ── */}
       {menuOpen && (
         <div
           className="hamburger-menu"

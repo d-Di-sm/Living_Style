@@ -63,7 +63,7 @@ export const SECTION_CONFIG = {
     logo:         '/logos/PHP_Residences_Logo_W.png',
     pricingUrl:   'https://ad6urnxirdpnnnkw.public.blob.vercel-storage.com/PHP/PHMC%20Pricing%2010.06.26.pdf',
     brochureUrl:  'https://ad6urnxirdpnnnkw.public.blob.vercel-storage.com/PHP/Mobile_Brochure_PHMC.pdf',
-    description:  'In the heart of Polanco, Park Hyatt Mexico City Residences blends contemporary architecture, personalized service, and renowned hospitality—crafted by SOMA and Sordo Madaleno to elevate everyday living. Residences range from 260 - 440 sqm, with an 850 sqm Penthouse.',
+    description:  'In the heart of Polanco, Park Hyatt Mexico City Residences blends contemporary architecture, personalized service, and renowned hospitality;crafted by SOMA and Sordo Madaleno to elevate everyday living. Residences range from 260 - 440 sqm, with an 850 sqm Penthouse.',
     info: [
       ['Unit Types',  '6 types'],
       ['Units',       '27 units'],
@@ -446,7 +446,7 @@ export default function DetailView({ project, onClose }) {
             <div className="d-top">
               <div className="d-big-title">{config.bigTitle}</div>
               <div className="d-collection">
-                <span className="d-label">RESIDENCES — SOMA</span>
+                <span className="d-label">RESIDENCES; SOMA</span>
               </div>
               <div className="d-desc" style={{ display: 'flex', gap: 24 }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 6, minWidth: 220, flexShrink: 0, transform: 'translateX(-20px)' }}>

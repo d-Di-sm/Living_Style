@@ -1,14 +1,14 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// JOURNAL — editorial entries.
+// JOURNAL; editorial entries.
 //
-// DRAFT COPY — written in the voice of the SOMA Living strategic proposal.
+// DRAFT COPY; written in the voice of the SOMA Living strategic proposal.
 // Replace `excerpt` and block `text` values with final copy; layout adapts.
 //
 // Block types: 'paragraph' · 'quote' · 'image' ('h' | 'v') · 'note'
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const articles = [
-  // Formerly the second Living manifesto — moved to Entries
+  // Formerly the second Living manifesto; moved to Entries
   {
     slug: 'hospitality-taught-residential-design',
     category: 'Entries',
@@ -26,7 +26,7 @@ export const articles = [
       { type: 'paragraph', text: 'When hospitality entered the residential world, it brought its habits with it. Arrival became a sequence, not a door. Amenities became rituals, not lists. Maintenance became invisible. Service became architecture.' },
       { type: 'paragraph', text: 'The branded residence is often discussed as a financial instrument. That misses what actually changed. What changed is that someone finally asked, of a private home, the question hotels have always asked: how does this feel to the person inside it?' },
       { type: 'image', orientation: 'h', name: 'AnimaVillageA_0742', caption: 'Indoor and outdoor, without a seam' },
-      { type: 'paragraph', text: 'SOMA builds with the great hospitality houses — Park Hyatt, Soho House — not to borrow their names, but because they share the same discipline of attention to detail. The collaboration is the point. The name is not the evidence, the work is.' },
+      { type: 'paragraph', text: 'SOMA builds with great hospitality houses (Park Hyatt, Soho House), not to borrow their names, but because they share the same discipline of attention to detail. The collaboration is the point. The name is not the evidence; the work is.' },
       { type: 'note', text: 'Residential design, held to the standard of the guest. That is what hospitality taught it.' },
     ],
   },
@@ -38,14 +38,14 @@ export const articles = [
     readTime: '6 min read',
     cover: '2025_Park_Hyatt_CDMX_Drone_19',
     excerpt:
-      'The branded residence is usually explained as a premium. A name, a flag, a percentage over market. That explanation is convenient — and almost entirely wrong.',
+      'The branded residence is usually explained as a premium. A name, a flag, a percentage over market. That explanation is convenient; and almost entirely wrong.',
     blocks: [
       { type: 'paragraph', text: 'The branded residence is usually explained as a premium. A name above the door, a flag on the roof, a percentage over market at resale. That explanation is convenient. It is also almost entirely wrong.' },
       { type: 'paragraph', text: 'What a brand actually buys you is a standard that survives the sales gallery. Long after the renders are forgotten, the operating manual remains. The brand is a contract about how the building will behave in year twelve.' },
       { type: 'image', orientation: 'h', name: 'AG_IMG_9820', caption: 'The standard, maintained daily' },
       { type: 'quote', text: 'The brand is not the name on the building. It is the discipline inside it.' },
       { type: 'paragraph', text: 'Consider what a hospitality operator actually does. It trains people. It audits itself. It replaces what wears before the resident notices wear. It holds a service culture in place across decades and changes of staff. No homeowners association, however well-intentioned, is built to do this.' },
-      { type: 'paragraph', text: 'The market knows the brands. It does not always understand the author. Behind every serious branded residence stands a developer whose decisions — site, architect, program, proportions — precede the flag entirely. The brand certifies the standard. The developer creates the thing worth certifying.' },
+      { type: 'paragraph', text: 'The market knows the brands. It does not always understand the author. Behind every serious branded residence stands a developer whose decisions (site, architect, program, proportions) precede the flag entirely. The brand certifies the standard. The developer creates the thing worth certifying.' },
       { type: 'image', orientation: 'h', name: 'AG_IMG_9708', caption: 'Cabo del Sol' },
       { type: 'paragraph', text: 'This is why the same flag can mark a great building in one city and an ordinary one in another. The variable is not the brand. The variable is the author.' },
       { type: 'paragraph', text: 'So what does branded actually buy you? Not a name. A verdict, renewed daily, that the building must remain worthy of it.' },
@@ -60,14 +60,14 @@ export const articles = [
     readTime: '5 min read',
     cover: 'AG_IMG_9756',
     excerpt:
-      'The second home used to be an interruption of life — two weeks a year, shutters closed in between. A generation of owners is quietly retiring that idea.',
+      'The second home used to be an interruption of life; two weeks a year, shutters closed in between. A generation of owners is quietly retiring that idea.',
     blocks: [
       { type: 'paragraph', text: 'The second home used to be an interruption of life. Two weeks in summer, a week in winter, shutters closed in between. It was a place you visited, and a house that spent most of its year waiting.' },
       { type: 'paragraph', text: 'A generation of owners is quietly retiring that idea. Work moved into the laptop. School calendars loosened. The distance between a life in Mexico City and a morning on the Pacific stopped being a journey and became a schedule.' },
       { type: 'image', orientation: 'h', name: 'AG_IMG_9570', caption: 'The Pacific, on a weekday' },
       { type: 'quote', text: 'The question is no longer where to spend a holiday. It is where a life is allowed to happen.' },
-      { type: 'paragraph', text: 'The second home that emerges from this shift is not a vacation property. It is a second setting for an ongoing life — with real workdays, real routines, groceries rather than minibars. It must function on an ordinary Tuesday, which is a far higher standard than functioning in July.' },
-      { type: 'paragraph', text: 'This changes what the architecture must do. Storage becomes serious. Light matters in every month, not one season. The kitchen is no longer a prop. And service — the quiet, daily kind that hospitality perfected — becomes the difference between a house that works and a house that waits.' },
+      { type: 'paragraph', text: 'The second home that emerges from this shift is not a vacation property. It is a second setting for an ongoing life, with real workdays, real routines, groceries rather than minibars. It must function on an ordinary Tuesday, which is a far higher standard than functioning in July.' },
+      { type: 'paragraph', text: 'This changes what the architecture must do. Storage becomes serious. Light matters in every month, not one season. The kitchen is no longer a prop. And service (the quiet, daily kind that hospitality perfected) becomes the difference between a house that works and a house that waits.' },
       { type: 'image', orientation: 'v', name: 'AG_IMG_9892', caption: 'Rooms for ordinary days' },
       { type: 'paragraph', text: 'It also changes where. The new second home sits close to an airport with daily flights, inside a community that does not empty in the off-season, held by an operator who keeps the standard when the owner is away.' },
       { type: 'paragraph', text: 'A house that lives all year is a different asset, a different design problem, and a different promise. It is not a vacation. It is the rest of the life.' },
@@ -75,7 +75,7 @@ export const articles = [
     ],
   },
 
-  // ── Short-form field notes — one per project ───────────────────────────────
+  // ── Short-form field notes; one per project ───────────────────────────────
   {
     slug: 'how-to-use-a-firepit-correctly',
     category: 'Soho Residences Los Cabos',
@@ -86,7 +86,6 @@ export const articles = [
     excerpt:
       "Most people light a firepit at sunset and let it burn until they're tired. At Cabo del Sol, where the desert drops ten, sometimes fifteen degrees the moment the sun clears the ridge, the better instinct is to wait.",
     blocks: [
-      { type: 'paragraph', text: "Most people light a firepit at sunset and let it burn until they're tired. At Cabo del Sol, where the desert drops ten, sometimes fifteen degrees the moment the sun clears the ridge, the better instinct is to wait." },
       { type: 'paragraph', text: "Light it twenty minutes after the sky has gone dark, not before. The point isn't ambiance, it's timing, matching the fire to the moment the air actually turns, so the warmth means something instead of competing with a sun that's still doing the work for you." },
       { type: 'image', orientation: 'h', name: 'AG_IMG_9713', caption: 'The desert, the moment the air turns' },
       {
@@ -110,7 +109,6 @@ export const articles = [
     excerpt:
       'Between December and April, gray and humpback whales move close enough to this coastline to be visible from a villa without binoculars, though most people never learn when or where to look.',
     blocks: [
-      { type: 'paragraph', text: 'Between December and April, gray and humpback whales move close enough to this coastline to be visible from a villa without binoculars, though most people never learn when or where to look.' },
       { type: 'paragraph', text: 'The best hour is early, just after sunrise, before the wind picks up and the water loses its stillness. Coffee on the terrace facing the water, not the pool, and patience measured in minutes, not seconds. A whale surfacing rarely announces itself twice in the same place.' },
       { type: 'image', orientation: 'v', name: 'AG_IMG_9924', caption: 'The terrace facing the water' },
       { type: 'paragraph', text: 'This is a small thing, but it is, in its way, the entire argument for the house. A property built around a duality of land and sea only earns that description if someone is actually outside, facing the water, often enough to notice when the sea does something worth noticing.' },
@@ -126,7 +124,6 @@ export const articles = [
     excerpt:
       'Most people experience this neighborhood at night, restaurant to restaurant, engineered for it. The morning version is a different city, quieter, better lit, and almost entirely overlooked.',
     blocks: [
-      { type: 'paragraph', text: 'Most people experience this neighborhood at night, restaurant to restaurant, engineered for it. The morning version is a different city, quieter, better lit, and almost entirely overlooked.' },
       { type: 'paragraph', text: "Leave before eight. The jacaranda trees along Avenida Presidente Masaryk hold their color best in early light, before the heat flattens it by midday. Walk without a destination for the first twenty minutes. A neighborhood built for evenings rewards anyone willing to see it before it's performing." },
       { type: 'image', orientation: 'h', name: '2025_Park_Hyatt_CDMX_Drone_04', caption: 'Polanco, before eight' },
       { type: 'paragraph', text: 'Coffee last, not first. Everything tastes better as a reward for having already walked somewhere, rather than as fuel to start.' },

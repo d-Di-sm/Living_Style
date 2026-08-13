@@ -3,7 +3,7 @@ import Reveal from './Reveal'
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Discreet, Monocle-inspired. A headline, a field, a word. No marketing.
-// NOTE: submissions are held client-side only for now — wire `handleSubmit`
+// NOTE: submissions are held client-side only for now; wire `handleSubmit`
 // to a provider (Buttondown / Mailchimp / Resend) when one is chosen.
 // ─────────────────────────────────────────────────────────────────────────────
 export default function NewsletterSignup() {

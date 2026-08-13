@@ -2,9 +2,9 @@ import { motion } from 'framer-motion'
 import { EASE } from './motion'
 
 // Lazy editorial image with a slow reveal. The aspect-ratio box reserves
-// space before load — no CLS.
+// space before load; no CLS.
 export default function EditorialImage({
-  image,               // { src, orientation } from lifestyle.js — or plain src string
+  image,               // { src, orientation } from lifestyle.js; or plain src string
   src,
   ratio,               // css aspect-ratio, e.g. '3 / 2'
   caption,

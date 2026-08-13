@@ -1,5 +1,5 @@
 /* ─────────────────────────────────────────────────────────────────────────────
-   SOMA Living — Editorial design system
+   SOMA Living; Editorial design system
    Paper, ink, one restrained accent. Air above everything.
    ──────────────────────────────────────────────────────────────────────────── */
 
@@ -234,7 +234,7 @@
 .ed-newsletter-input::placeholder { color: var(--ed-ink-faint); }
 .ed-newsletter-input:focus { border-color: var(--ed-ink); }
 
-/* ── Staggered triptych — three photographs scattered editorially ── */
+/* ── Staggered triptych; three photographs scattered editorially ── */
 .ed-triptych {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -266,7 +266,7 @@
 }
 .ed-img-mono:hover img { filter: grayscale(0); }
 
-/* Touch devices never hover — they get the photographs in colour. */
+/* Touch devices never hover; they get the photographs in colour. */
 @media (hover: none) {
   .ed-img-mono img { filter: none; }
 }
@@ -302,7 +302,7 @@
   .ed-nav-menu-overlay { display: none !important; }
 }
 
-/* Reduced motion — editorial should degrade gracefully */
+/* Reduced motion; editorial should degrade gracefully */
 @media (prefers-reduced-motion: reduce) {
   .ed-img-hover img { transition: none; }
   .ed-img-mono img { transition: none; }

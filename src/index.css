@@ -221,12 +221,12 @@ body {
 /* ─── Mobile (≤ 767px) ─────────────────────────────────────────────── */
 @media (max-width: 767px) {
 
-  /* Header — hide nav text links, keep the Inquire CTA */
+  /* Header; hide nav text links, keep the Inquire CTA */
   .header-nav-link {
     display: none !important;
   }
 
-  /* Touch target — give the Inquire button a slightly larger tap area */
+  /* Touch target; give the Inquire button a slightly larger tap area */
   .header-inquire-btn {
     padding: 12px 20px !important;
   }
@@ -258,7 +258,7 @@ body {
     overflow: hidden;
   }
 
-  /* Scroll hint — smaller on mobile */
+  /* Scroll hint; smaller on mobile */
   .scroll-hint {
     bottom: 32px;
   }

@@ -9,7 +9,7 @@ import { projects } from '../data/projects'
 import { projectEditorial } from '../data/projectEditorial'
 
 // ─────────────────────────────────────────────────────────────────────────────
-// WORK — the residential portfolio, presented as a publication.
+// WORK; the residential portfolio, presented as a publication.
 // Each project opens as a feature: photograph, name, place, authorship.
 // ─────────────────────────────────────────────────────────────────────────────
 export default function WorkPage() {
@@ -19,7 +19,7 @@ export default function WorkPage() {
 
       <header className="ed-container" style={{ paddingTop: 'clamp(70px, 10vw, 160px)', paddingBottom: 'clamp(50px, 8vw, 120px)' }}>
         <Reveal>
-          <p className="ed-kicker" style={{ marginBottom: 'clamp(24px, 3vw, 42px)' }}>Section — Project</p>
+          <p className="ed-kicker" style={{ marginBottom: 'clamp(24px, 3vw, 42px)' }}>Section; Projects</p>
           <h1 className="ed-display" style={{ maxWidth: 1050 }}>
             Evidence of a way of thinking.
           </h1>
@@ -31,7 +31,7 @@ export default function WorkPage() {
         </Reveal>
       </header>
 
-      {/* Three columns across, one per project — the portfolio read as a
+      {/* Three columns across, one per project; the portfolio read as a
           spread rather than a scroll. Collapses to a single column below
           ~900px, where each project regains full width. */}
       <div
@@ -55,7 +55,7 @@ export default function WorkPage() {
                   <span className="ed-number" style={{ display: 'block', marginBottom: 14, color: 'var(--ed-ink-faint)' }}>
                     {String(i + 1).padStart(2, '0')}
                   </span>
-                  {/* Smaller than the old ed-headline — a three-column measure
+                  {/* Smaller than the old ed-headline; a three-column measure
                       cannot carry display sizes without breaking every name. */}
                   <h2 className="ed-title-sm" style={{ marginBottom: 12 }}>{ed.name}</h2>
                   <p className="ed-kicker" style={{ marginBottom: 18 }}>{ed.location}</p>

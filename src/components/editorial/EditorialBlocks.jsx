@@ -4,7 +4,7 @@ import QuoteBlock from './QuoteBlock'
 import { img, pickHorizontal, pickVertical } from '../../data/lifestyle'
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Shared block renderer — turns content blocks (paragraph / quote / image /
+// Shared block renderer; turns content blocks (paragraph / quote / image /
 // note) into magazine flow. Used by manifestos and journal articles.
 // Paragraphs alternate their horizontal position to create reading rhythm.
 // ─────────────────────────────────────────────────────────────────────────────
@@ -21,9 +21,11 @@ export default function EditorialBlocks({ blocks }) {
             return (
               <Reveal key={i} amount={0.3}>
                 <div className="ed-container" style={{ paddingTop: 'clamp(28px, 4vw, 56px)', paddingBottom: 'clamp(28px, 4vw, 56px)' }}>
-                  <p className="ed-body" style={{ marginLeft: alignRight ? 'auto' : 0, marginRight: alignRight ? 0 : 'auto' }}>
-                    {block.text}
-                  </p>
+                  <div style={{ maxWidth: 620, marginLeft: alignRight ? 'auto' : 0, marginRight: alignRight ? 0 : 'auto' }}>
+                    {/* Optional epigraph, same treatment as a list's title */}
+                    {block.title && <p className="ed-kicker" style={{ marginBottom: 20 }}>{block.title}</p>}
+                    <p className="ed-body">{block.text}</p>
+                  </div>
                 </div>
               </Reveal>
             )
@@ -57,7 +59,7 @@ export default function EditorialBlocks({ blocks }) {
 
           case 'triptych': {
             // Three photographs scattered across the column at staggered
-            // heights — an editorial pause between passages of text.
+            // heights; an editorial pause between passages of text.
             const cls = ['ed-triptych__a', 'ed-triptych__b', 'ed-triptych__c']
             return (
               <div key={i} className="ed-container" style={{ paddingTop: 'clamp(40px, 6vw, 90px)', paddingBottom: 'clamp(40px, 6vw, 90px)' }}>
@@ -73,7 +75,7 @@ export default function EditorialBlocks({ blocks }) {
           }
 
           case 'list':
-            // A short editorial list — numbered, hairline-ruled, never bullets
+            // A short editorial list; numbered, hairline-ruled, never bullets
             return (
               <Reveal key={i} amount={0.3}>
                 <div className="ed-container" style={{ paddingTop: 'clamp(28px, 4vw, 56px)', paddingBottom: 'clamp(28px, 4vw, 56px)' }}>

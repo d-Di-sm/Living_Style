@@ -1,6 +1,6 @@
 import Reveal from './Reveal'
 
-// A single oversized editorial line — used as punctuation between sections.
+// A single oversized editorial line; used as punctuation between sections.
 export default function LargeCaption({ children, align = 'left' }) {
   return (
     <Reveal amount={0.4}>

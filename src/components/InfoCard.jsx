@@ -86,7 +86,7 @@ export default function InfoCard({ card, scrollProgress }) {
   const isRight = card.align === 'right'
   const isCenter = card.align === 'center'
 
-  // Mobile-responsive video card sizes — desktop unchanged
+  // Mobile-responsive video card sizes; desktop unchanged
   const trioSize = isMobile ? 'clamp(80px, 28vw, 110px)' : 'clamp(110px, 15vw, 200px)'
   const trioGap  = isMobile ? '6px' : 'clamp(8px, 1.1vw, 16px)'
   const quadSize = isMobile ? 'clamp(70px, 20vw, 110px)' : 'clamp(110px, 15vw, 200px)'

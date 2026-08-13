@@ -4,15 +4,15 @@ import { useScrollShell } from './scrollShell'
 import { EASE } from './motion'
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Editorial cover. One dominant photograph at a time — no slider, no carousel.
+// Editorial cover. One dominant photograph at a time; no slider, no carousel.
 // The image changes as the reader scrolls through the cover's height, like
 // turning the first pages of an issue.
 // ─────────────────────────────────────────────────────────────────────────────
 export default function EditorialHero({
-  images = [],            // [{ src }] — horizontals from lifestyle.js
+  images = [],            // [{ src }]; horizontals from lifestyle.js
   kicker = 'The Residential Platform of SOMA',
   headline = 'Living,\nthoughtfully\nconsidered.',
-  issue = 'Issue Nº 01 — Mexico',
+  issue = 'Issue Nº 01; Mexico',
   children,              // optional atmospheric layer (e.g. the Three.js field)
 }) {
   const shell = useScrollShell()
@@ -107,7 +107,7 @@ export default function EditorialHero({
             style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginTop: 'clamp(24px, 4vh, 48px)' }}
           >
             <span className="ed-meta" style={{ color: 'rgba(245,240,230,0.55)' }}>{issue}</span>
-            {/* image index — a page number, not a carousel control */}
+            {/* image index; a page number, not a carousel control */}
             <span className="ed-meta" style={{ color: 'rgba(245,240,230,0.55)' }}>
               {String(index + 1).padStart(2, '0')} / {String(images.length).padStart(2, '0')}
             </span>

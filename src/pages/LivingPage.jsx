@@ -9,7 +9,7 @@ import EditorialFooter from '../components/editorial/EditorialFooter'
 import { manifestos } from '../data/manifestos'
 
 // ─────────────────────────────────────────────────────────────────────────────
-// LIVING — no projects here. Ideas. The two founding manifestos as
+// LIVING; no projects here. Ideas. The two founding manifestos as
 // magazine features, alternating composition, editorial numbering.
 // ─────────────────────────────────────────────────────────────────────────────
 export default function LivingPage() {
@@ -20,7 +20,7 @@ export default function LivingPage() {
       {/* ── Section opening ── */}
       <header className="ed-container" style={{ paddingTop: 'clamp(70px, 10vw, 160px)', paddingBottom: 'clamp(50px, 8vw, 120px)' }}>
         <Reveal>
-          <p className="ed-kicker" style={{ marginBottom: 'clamp(24px, 3vw, 42px)' }}>Section — Living</p>
+          <p className="ed-kicker" style={{ marginBottom: 'clamp(24px, 3vw, 42px)' }}>Section; Living</p>
           <h1 className="ed-display" style={{ maxWidth: 1000 }}>
             Living comes first. The building follows.
           </h1>

@@ -8,7 +8,7 @@ const LINKS = [
   { to: '/living',        label: 'Living' },
   { to: '/journal',       label: 'Entries' },
   { to: '/conversations', label: 'Conversations' },
-  { to: '/work',          label: 'Project' },
+  { to: '/work',          label: 'Projects' },
 ]
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -87,7 +87,7 @@ export default function EditorialNav({ variant = 'paper', darkUntilVh }) {
         </button>
       </nav>
 
-      {/* ── Mobile menu — a quiet full page, not a drawer ── */}
+      {/* ── Mobile menu; a quiet full page, not a drawer ── */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -124,7 +124,7 @@ export default function EditorialNav({ variant = 'paper', darkUntilVh }) {
                 </motion.div>
               ))}
             </div>
-            <div className="ed-kicker">SOMA Living — Editorial Platform</div>
+            <div className="ed-kicker">SOMA Living; Editorial Platform</div>
           </motion.div>
         )}
       </AnimatePresence>

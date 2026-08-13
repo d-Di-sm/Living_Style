@@ -7,8 +7,8 @@ import Reveal from '../components/editorial/Reveal'
 import { manifestos } from '../data/manifestos'
 
 // ─────────────────────────────────────────────────────────────────────────────
-// The issue opens on paper: a single typographic statement — kicker, title,
-// standfirst — and the way into the manifesto. Nothing below it.
+// The issue opens on paper: a single typographic statement; kicker, title,
+// standfirst; and the way into the manifesto. Nothing below it.
 // ─────────────────────────────────────────────────────────────────────────────
 export default function HomePage() {
   const [first] = manifestos
@@ -17,7 +17,7 @@ export default function HomePage() {
     <PageShell>
       <EditorialNav />
 
-      {/* ── Editorial intro — the manifesto, breathing ── */}
+      {/* ── Editorial intro; the manifesto, breathing ── */}
       <EditorialSection space="0">
         {/* Typographic hero: kicker, title, and standfirst hold the entire
             first window on their own (the sticky nav is ~82px tall). */}
@@ -31,7 +31,7 @@ export default function HomePage() {
             <div className="ed-container" style={{ textAlign: 'center', marginBottom: 'clamp(40px, 6vw, 90px)' }}>
               {/* Same face as the standfirst (serif), kicker size untouched */}
               <span className="ed-kicker" style={{ fontFamily: 'var(--ed-serif)', fontSize: '15px' }}>
-                SOMA Living — A Publication on How We Live
+                SOMA Living; A Publication on How We Live
               </span>
             </div>
           </Reveal>

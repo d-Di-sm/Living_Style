@@ -20,7 +20,7 @@ const local = {
 
 const blob = {
   // TODO: these two are not on Blob yet, so production serves them from
-  // /public — roughly 105 MB added to the deployment. Upload them and swap
+  // /public; roughly 105 MB added to the deployment. Upload them and swap
   // these paths for their Blob URLs.
   SR_Amenities:    '/video/videoSohoResidences/Amenities.mp4',
   PHP_Video_Intro: '/video/videoPHP/Video_Intro.mp4',

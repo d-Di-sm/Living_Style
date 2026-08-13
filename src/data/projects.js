@@ -3,7 +3,7 @@ export const projects = [
     id: 1,
     variant: 'proposal',
     title: 'Soho\nResidences\nLos Cabos',
-    cardLabel: 'SR — Los Cabos, Baja California Sur',
+    cardLabel: 'SR; Los Cabos, Baja California Sur',
     detailLines: ['Soho', 'Residences'],
     location: 'CABO DEL SOL',
     coords: '19.4284° N, 99.1277° W',
@@ -38,8 +38,8 @@ export const projects = [
     location: 'CABO DEL SOL, 2025',
     coords: '22.8905° N, 109.9167° W',
     image: '/images/c2photo.png',
-    label: 'RUE — CRAFTING THE FUTURE OF FASHION',
-    cardLabel: 'PHLC — Los Cabos, Baja California Sur',
+    label: 'RUE; CRAFTING THE FUTURE OF FASHION',
+    cardLabel: 'PHLC; Los Cabos, Baja California Sur',
     ghost: 'lc',
     caption: ['Park Hyatt', 'Cabo Del Sol', 'Residences'],
     shareIcons: [0, 1, 2],
@@ -58,7 +58,7 @@ export const projects = [
     coords: '19.4318° N, 99.1952° W',
     image: '/images/c3full.png',
     description:
-      'Each stage is approached with careful planning, creativity, and strategic execution — from discovery to final delivery.',
+      'Each stage is approached with careful planning, creativity, and strategic execution; from discovery to final delivery.',
     phases: [
       { num: 'Type 01', name: '3 Bedrooms',       date: 'JAN 01–31', image: '/images/phase1.png' },
       { num: 'Type 02', name: '4 Bedrooms',       date: 'FEB 01–28', image: '/images/phase2.png' },
@@ -66,7 +66,7 @@ export const projects = [
       { num: 'Type 04', name: 'Penthouse',        date: 'APR 01–30', image: '/images/phase4.png' },
     ],
     fullImage: '/images/c3full.png',
-    cardLabel: 'PHP — Polanco, Ciudad de México',
+    cardLabel: 'PHP; Polanco, Ciudad de México',
     shareIcons: [0, 1, 2],
     links: {
       web:       'https://www.parkhyattmexicocityresidences.com/',

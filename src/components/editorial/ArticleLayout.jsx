@@ -4,6 +4,7 @@ import ReadingProgress from './ReadingProgress'
 import ImageReveal from './ImageReveal'
 import EditorialBlocks from './EditorialBlocks'
 import { img, pickHorizontal } from '../../data/lifestyle'
+import { articles } from '../../data/articles'
 
 // ─────────────────────────────────────────────────────────────────────────────
 // A full journal entry, laid out as an editorial page: cover photograph,
@@ -47,9 +48,37 @@ export default function ArticleLayout({ article }) {
       </div>
 
       {/* ── Body ── */}
-      <div style={{ paddingTop: 'clamp(20px, 3vw, 40px)', paddingBottom: 'clamp(70px, 10vw, 150px)' }}>
+      <div style={{ paddingTop: 'clamp(20px, 3vw, 40px)', paddingBottom: 'clamp(30px, 4vw, 50px)' }}>
         <EditorialBlocks blocks={article.blocks} />
       </div>
+
+      {/* ── Next entry ── */}
+      <NextEntry currentSlug={article.slug} />
     </article>
+  )
+}
+
+// Mirrors the Next Conversation block at the foot of a conversation: the
+// following entry in the section, wrapping around at the end.
+function NextEntry({ currentSlug }) {
+  const idx = articles.findIndex(a => a.slug === currentSlug)
+  const next = articles[(idx + 1) % articles.length]
+  if (!next || next.slug === currentSlug) return null
+
+  return (
+    <Reveal amount={0.4}>
+      <div className="ed-container" style={{ paddingBottom: 'clamp(70px, 10vw, 150px)' }}>
+        <div style={{ borderTop: '1px solid var(--ed-rule)', paddingTop: 'clamp(40px, 6vw, 70px)' }}>
+          <Link to={`/journal/${next.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+            <p className="ed-kicker" style={{ marginBottom: 18 }}>Next Entry</p>
+            <h2 className="ed-headline" style={{ marginBottom: 14 }}>{next.title}</h2>
+            <div style={{ display: 'flex', gap: 28 }}>
+              <span className="ed-meta">{next.date}</span>
+              <span className="ed-meta">{next.readTime}</span>
+            </div>
+          </Link>
+        </div>
+      </div>
+    </Reveal>
   )
 }

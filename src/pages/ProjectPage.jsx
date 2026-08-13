@@ -30,7 +30,7 @@ export default function ProjectPage() {
 
       <ProjectEditorialHeader editorial={editorial} />
 
-      {/* ── Narrative — the story before the facts ── */}
+      {/* ── Narrative; the story before the facts ── */}
       <section className="ed-container" style={{ paddingBottom: 'clamp(50px, 8vw, 120px)' }}>
         <Reveal>
           <p className="ed-standfirst" style={{ maxWidth: 780, marginBottom: 'clamp(40px, 6vw, 80px)' }}>
@@ -45,7 +45,7 @@ export default function ProjectPage() {
           ))}
         </div>
 
-        {/* ── In brief — the technical sheet, discreet, after the narrative ── */}
+        {/* ── In brief; the technical sheet, discreet, after the narrative ── */}
         <Reveal amount={0.3}>
           <div style={{ marginTop: 'clamp(60px, 8vw, 110px)', maxWidth: 560 }}>
             <p className="ed-kicker" style={{ marginBottom: 22 }}>In Brief</p>
@@ -63,7 +63,7 @@ export default function ProjectPage() {
         </Reveal>
       </section>
 
-      {/* ── The film with the residence logo — the project's hero video fills
+      {/* ── The film with the residence logo; the project's hero video fills
              the frame the overlay image used to occupy, at the same size ── */}
       <div className="d-photo" style={{ height: 'min(72vh, 640px)' }}>
         <img src={config.heroImage ?? project.image} alt="" loading="lazy" />
@@ -84,7 +84,7 @@ export default function ProjectPage() {
         <img className={['d-villa-logo', config.logoClass].filter(Boolean).join(' ')} src={config.logo} alt="" />
       </div>
 
-      {/* Brochure, pricing and contact — kept after the Videos grid was removed */}
+      {/* Brochure, pricing and contact; kept after the Videos grid was removed */}
       <SectionSocialIcons
         links={{ ...project.links, pricing: config.pricingUrl, brochure: config.brochureUrl }}
         style={{ padding: 'clamp(50px, 7vw, 90px) var(--ed-pad)' }}

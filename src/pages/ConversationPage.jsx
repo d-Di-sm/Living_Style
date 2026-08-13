@@ -39,7 +39,7 @@ export default function ConversationPage() {
           <h1 className="ed-display" style={{ maxWidth: 1050, marginBottom: 'clamp(28px, 4vw, 48px)' }}>
             {c.title}
           </h1>
-          <p className="ed-meta" style={{ marginBottom: 22, fontSize: '19.25px' }}>{c.guest} — {c.role}</p>
+          <p className="ed-meta" style={{ marginBottom: 22, fontSize: '19.25px' }}>{c.guest}; {c.role}</p>
           <p className="ed-standfirst" style={{ maxWidth: 720 }}>{c.intro}</p>
         </Reveal>
       </header>
@@ -88,14 +88,14 @@ export default function ConversationPage() {
                       {q}
                     </p>
 
-                    {/* Answer slot — renders once answers[i] exists */}
+                    {/* Answer slot; renders once answers[i] exists */}
                     {c.answers?.[i] && (
                       <div style={{ marginTop: 'clamp(24px, 3vw, 40px)' }}>
                         {/* The answer mark: an em dash, transcript convention.
                             The guest is named once in the masthead, not on
                             every reply. */}
                         <p className="ed-kicker" aria-label={`${c.guest} answers`} style={{ marginBottom: 16 }}>
-                          —
+                          ;
                         </p>
                         {/* An answer is a string or an array of paragraphs */}
                         {[].concat(c.answers[i]).map((para, k) => (
@@ -112,7 +112,7 @@ export default function ConversationPage() {
                   </div>
                 </Reveal>
 
-                {/* Interspersed photograph — Interview-magazine rhythm */}
+                {/* Interspersed photograph; Interview-magazine rhythm */}
                 {image && (
                   <div style={{ padding: 'clamp(16px, 2vw, 28px) 0 clamp(48px, 7vw, 90px)' }}>
                     <EditorialImage
@@ -153,7 +153,7 @@ function NextConversation({ currentSlug }) {
         <Link to={`/conversations/${next.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
           <p className="ed-kicker" style={{ marginBottom: 18 }}>Next Conversation</p>
           <h2 className="ed-headline" style={{ marginBottom: 14 }}>{next.title}</h2>
-          <p className="ed-meta" style={{ fontSize: '19.25px' }}>{next.guest} — {next.role}</p>
+          <p className="ed-meta" style={{ fontSize: '19.25px' }}>{next.guest}; {next.role}</p>
         </Link>
       </div>
     </Reveal>

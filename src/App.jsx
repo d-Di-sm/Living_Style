@@ -9,7 +9,7 @@ import ConversationsPage from './pages/ConversationsPage'
 import ConversationPage from './pages/ConversationPage'
 
 // ─────────────────────────────────────────────────────────────────────────────
-// SOMA Living — Editorial Platform
+// SOMA Living; Editorial Platform
 //
 //   /                → the cover
 //   /living          → philosophy & manifestos

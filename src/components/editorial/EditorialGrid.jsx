@@ -1,4 +1,4 @@
-// Minimal editorial grid — generous gaps, no cards, no borders.
+// Minimal editorial grid; generous gaps, no cards, no borders.
 export default function EditorialGrid({ columns = 2, gap = 'clamp(28px, 5vw, 80px)', children, style }) {
   return (
     <div

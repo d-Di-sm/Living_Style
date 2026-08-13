@@ -1,17 +1,17 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// Editorial image system — /public/lifestyle
+// Editorial image system; /public/lifestyle
 //
 // CURATED SET (Aug 2026). The full archive holds ~245 photographs; only the
 // strongest 51 are published to /lifestyle/web/ (EXIF-corrected, max 1800px).
-// To change the selection, edit CURATED in scratchpad optimize.py — or ask —
+// To change the selection, edit CURATED in scratchpad optimize.py; or ask;
 // then update this manifest. Casual phone shots (people, cars, close-ups of
 // food) were deliberately excluded from the editorial surfaces.
 //
 // Collections:
-//   AG_IMG_*        — professional Cabo del Sol shoot (coast, pergolas, dusk palms)
-//   AnimaVillageA_* — timber corridors, aerial pools, stairways
-//   2025_*Drone_*   — Park Hyatt CDMX construction aerials
-//   Villa_CDS_*     — villa terraces
+//   AG_IMG_*        ; professional Cabo del Sol shoot (coast, pergolas, dusk palms)
+//   AnimaVillageA_*; timber corridors, aerial pools, stairways
+//   2025_*Drone_*   ; Park Hyatt CDMX construction aerials
+//   Villa_CDS_*     ; villa terraces
 // ─────────────────────────────────────────────────────────────────────────────
 
 const WEB = '/lifestyle/web'
@@ -93,7 +93,7 @@ export const lifestyleImages = [...HORIZONTAL, ...VERTICAL].map(img)
 export const horizontal = HORIZONTAL.map(img)
 export const vertical   = VERTICAL.map(img)
 
-// ── The cover sequence — one image per scroll “page” ─────────────────────────
+// ── The cover sequence; one image per scroll “page” ─────────────────────────
 export const heroImages = [
   img('AG_IMG_9725'),                    // dusk palm, the coast
   img('AnimaVillageA_0817'),             // the architecture
@@ -103,7 +103,7 @@ export const heroImages = [
 // ── Rotating selector ────────────────────────────────────────────────────────
 // Deterministic interleaved walk: consecutive calls never return the same
 // image, and a given seed always produces the same sequence (nothing random
-// at render time — no CLS between renders).
+// at render time; no CLS between renders).
 function coprimeStep(len) {
   for (const s of [7, 11, 13, 17, 19, 23]) if (len % s !== 0) return s
   return 1

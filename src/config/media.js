@@ -17,7 +17,7 @@ export const SR_02     = `${BASE}/v1780629929/SR_02_fh1edu.mp4`
 export const SR_03     = `${BASE}/v1780629956/SR_03_occosr.mp4`
 export const SR_04     = `${BASE}/v1780629982/SR_04_byyuie.mp4`
 
-// ─── Logos (served from Vercel — 48 KB total, no issue) ──────────────────────
+// ─── Logos (served from Vercel; 48 KB total, no issue) ──────────────────────
 export const LOGO_PHP  = '/logos/PHP_Residences_Logo.png'
 export const LOGO_PHLC = '/logos/PHLC_Residences_Logo.png'
 export const LOGO_SOHO = '/logos/Soho_Residences_Logo.png'

@@ -5,9 +5,9 @@ import {
   LOGO_PHP, LOGO_PHLC, LOGO_SOHO,
 } from '../config/media'
 
-// scroll 0     → 0.333 : hero.mp4   — Park Hyatt Polanco Residences
-// scroll 0.333 → 0.667 : hero2.mp4  — PHLC Residences
-// scroll 0.667 → 1.0   : hero3.mp4  — Soho Residences
+// scroll 0     → 0.333 : hero.mp4   ; Park Hyatt Polanco Residences
+// scroll 0.333 → 0.667 : hero2.mp4  ; PHLC Residences
+// scroll 0.667 → 1.0   : hero3.mp4  ; Soho Residences
 export const cards = [
 
   // ─── PHP SECTION (hero.mp4, 0 → 0.333) ──────────────────────────────
@@ -18,7 +18,7 @@ export const cards = [
     align: 'center',
     start: 0.00,
     end: 0.04,
-    label: 'Private Residences — Mexico City',
+    label: 'Private Residences; Mexico City',
     headline: 'SOMA\nLiving',
     subheadline: 'A new standard of residence\nin the heart of the city.',
   },
@@ -42,7 +42,7 @@ export const cards = [
     label: 'The Residences',
     headline: '36 Private\nHomes',
     body: 'Studios through four-bedroom residences,\neach composed to frame the city and sky\nwith uncommon precision.',
-    detail: 'From 580 — 4,200 sq ft',
+    detail: 'From 580; 4,200 sq ft',
   },
   {
     id: 'amenities',
@@ -65,7 +65,7 @@ export const cards = [
     label: 'Location',
     headline: 'Polanco,\nMexico City',
     body: 'Positioned between culture and commerce.\nWalking distance to everything that matters.\nEverything else is left behind.',
-    detail: '19°26\'N — 99°11\'W',
+    detail: '19°26\'N; 99°11\'W',
   },
   {
     id: 'cta',
@@ -170,7 +170,7 @@ export const cards = [
     label: 'The Residences',
     headline: 'Artful\nSpaces',
     body: 'Each residence designed as a canvas.\nHigh ceilings, open volumes, and light\nthat shifts with the hour.',
-    detail: 'Studios — Three Bedrooms',
+    detail: 'Studios; Three Bedrooms',
   },
   {
     id: 'sr-detail-2',

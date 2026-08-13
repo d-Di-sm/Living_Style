@@ -58,7 +58,7 @@ export default function ProjectCard({ project, onSelect }) {
   const CardContent = CARD_VARIANTS[project.variant]
   const [copied, setCopied] = useState(false)
 
-  // Native Web Share API — falls back to clipboard copy on unsupported browsers
+  // Native Web Share API; falls back to clipboard copy on unsupported browsers
   const handleShare = async (e, url) => {
     e.stopPropagation()
     try {
