@@ -78,7 +78,9 @@ const VERTICAL = [
   'AnimaVillageA_0776', // corridor perspective
   'AnimaVillageA_0854', // shaded entry steps
   'AnimaVillageA_0788', // pool from above, golf and palms
-  'Villa_CDS_Exterior_05', // stepped light passage
+  'Villa_CDS_Exterior_05',          // stepped light passage
+  'AnimaVillage_VirroyLola_0043',   // Ánima Village, Virrey & Lola
+  'AnimaVillage_VirroyLola_0012',   // Ánima Village, Virrey & Lola
 ]
 
 const ORIENTATION = Object.fromEntries([

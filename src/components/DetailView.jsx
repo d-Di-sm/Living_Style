@@ -41,8 +41,8 @@ export const SECTION_CONFIG = {
     brochureUrl:  'https://ad6urnxirdpnnnkw.public.blob.vercel-storage.com/PHLC/PHLC%20mobile%20brochure%20lr.pdf',
     description:  'Set within the coastal landscape of Cabo del Sol, these private residences express contemporary architecture, seamless indoor-outdoor living, and the signature hospitality of Park Hyatt.',
     info: [
-      ['Unit Types',  '3 types'],
-      ['Units',       '11 units'],
+      ['Unit Types',  '6 Types'],
+      ['Units',       '19 Residences (8 Apartments ; 11 Villas)'],
       ['Location',    'Cabo del Sol, Los Cabos, Mexico'],
       ['Developer',   'SOMA'],
       ['Design',      'Sordo Madaleno'],

@@ -25,7 +25,7 @@ export const manifestos = [
     image: 'AG_IMG_9713',
     blocks: [
       { type: 'paragraph', title: 'Legacy and Documentation', text: 'The work of Juan Sordo Madaleno and Javier Sordo Madaleno Bringas established an architectural lineage that continues today with the third generation, Javier Sordo Madaleno De Haro and his siblings are bringing this legacy to unprecedented heights. This platform becomes the infrastructure through which that legacy is documented and communicated for future generations.' },
-      { type: 'image', orientation: 'h', name: 'VOYV8653', caption: 'Cabo del Sol, Baja California Sur' },
+      { type: 'image', orientation: 'h', name: 'VOYV8653', caption: 'Baja California Sur' },
       { type: 'paragraph', text: 'A home is not a product. It is the setting of a life. The proportions of a room, the temperature of light in the late afternoon, the distance between a kitchen and a garden; these are not features. They are decisions about how a day should feel.' },
       { type: 'triptych', names: ['A_03', 'A_01', 'A_02'] },
       { type: 'paragraph', text: 'To consider living thoughtfully is to begin with the day, not the floor plan. It is to ask what a morning requires. Where silence should live. How a family gathers, and how a person is alone.' },

@@ -9,6 +9,7 @@ export const projectEditorial = {
   // Soho Residences Los Cabos
   1: {
     slug: 'soho-residences-los-cabos',
+    status: 'Delivering in 2029',
     name: 'Soho Residences Los Cabos',
     location: 'Cabo del Sol, Los Cabos',
     architecture: 'Architecture by Sordo Madaleno',
@@ -27,13 +28,14 @@ export const projectEditorial = {
   // Park Hyatt Cabo Del Sol Residences
   2: {
     slug: 'park-hyatt-cabo-del-sol',
+    status: 'Delivering in 2026',
     name: 'Park Hyatt Cabo Del Sol Residences',
     location: 'Cabo del Sol, Los Cabos',
     architecture: 'Architecture by Sordo Madaleno',
     development: 'Developed by SOMA',
     collaboration: 'In collaboration with Park Hyatt',
     // Space in the filename must stay percent-encoded in the URL
-    heroImage: '/lifestyle/Scene%201.png',
+    heroImage: '/lifestyle/renders/Scene%201.png',
     standfirst:
       'Eleven residences on the edge of the Pacific. A study in restraint, held to the quietest standard in hospitality.',
     paragraphs: [
@@ -46,6 +48,7 @@ export const projectEditorial = {
   // Park Hyatt Mexico City Polanco Residences
   3: {
     slug: 'park-hyatt-polanco',
+    status: 'Delivering in 2026',
     name: 'Park Hyatt Mexico City Polanco Residences',
     location: 'Polanco, Mexico City',
     architecture: 'Architecture by Sordo Madaleno',

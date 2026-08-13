@@ -59,7 +59,8 @@ export default function WorkPage() {
                       cannot carry display sizes without breaking every name. */}
                   <h2 className="ed-title-sm" style={{ marginBottom: 12 }}>{ed.name}</h2>
                   {/* Authorship lives on the project's own page, not here */}
-                  <p className="ed-kicker">{ed.location}</p>
+                  <p className="ed-kicker" style={{ marginBottom: 14 }}>{ed.location}</p>
+                  {ed.status && <span className="ed-meta">Status: {ed.status}</span>}
                 </div>
               </Link>
             </Reveal>

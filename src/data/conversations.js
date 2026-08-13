@@ -27,7 +27,7 @@ export const conversations = [
     intro:
       'What happens to art when it moves from public space into a private home, and where the line sits between a work and decoration.',
     // Final photography; not from the curated /web set, so a literal path
-    portrait: '/lifestyle/AnimaPhoto.jpg',
+    portrait: '/lifestyle/anima-village/AnimaPhoto.jpg',
     comingSoon: false,
     // Shown in place of the generic 'Conversation' label once published
     date: 'August 2026',
@@ -97,8 +97,8 @@ export const conversations = [
     ],
     images: [
       { after: 2, name: 'AG_IMG_9651',   caption: 'A boulder, placed like a work' },
-      { after: 5, name: 'AG_IMG_9684',   caption: 'Surface as composition' },
-      { after: 7, name: 'AG_IMG_9915-2', caption: 'Light through shutters', align: 'right' },
+      { after: 5, name: 'AnimaVillage_VirroyLola_0043', caption: 'Ánima Village, Cabo del Sol' },
+      { after: 7, name: 'AnimaVillage_VirroyLola_0012', caption: 'Ánima Village, Cabo del Sol', align: 'right' },
     ],
   },
   {
