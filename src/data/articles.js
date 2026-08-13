@@ -40,7 +40,6 @@ export const articles = [
     excerpt:
       'The branded residence is usually explained as a premium. A name, a flag, a percentage over market. That explanation is convenient; and almost entirely wrong.',
     blocks: [
-      { type: 'paragraph', text: 'The branded residence is usually explained as a premium. A name above the door, a flag on the roof, a percentage over market at resale. That explanation is convenient. It is also almost entirely wrong.' },
       { type: 'paragraph', text: 'What a brand actually buys you is a standard that survives the sales gallery. Long after the renders are forgotten, the operating manual remains. The brand is a contract about how the building will behave in year twelve.' },
       { type: 'image', orientation: 'h', name: 'AG_IMG_9820', caption: 'The standard, maintained daily' },
       { type: 'quote', text: 'The brand is not the name on the building. It is the discipline inside it.' },
@@ -62,7 +61,6 @@ export const articles = [
     excerpt:
       'The second home used to be an interruption of life; two weeks a year, shutters closed in between. A generation of owners is quietly retiring that idea.',
     blocks: [
-      { type: 'paragraph', text: 'The second home used to be an interruption of life. Two weeks in summer, a week in winter, shutters closed in between. It was a place you visited, and a house that spent most of its year waiting.' },
       { type: 'paragraph', text: 'A generation of owners is quietly retiring that idea. Work moved into the laptop. School calendars loosened. The distance between a life in Mexico City and a morning on the Pacific stopped being a journey and became a schedule.' },
       { type: 'image', orientation: 'h', name: 'AG_IMG_9570', caption: 'The Pacific, on a weekday' },
       { type: 'quote', text: 'The question is no longer where to spend a holiday. It is where a life is allowed to happen.' },
