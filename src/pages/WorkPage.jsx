@@ -58,11 +58,8 @@ export default function WorkPage() {
                   {/* Smaller than the old ed-headline; a three-column measure
                       cannot carry display sizes without breaking every name. */}
                   <h2 className="ed-title-sm" style={{ marginBottom: 12 }}>{ed.name}</h2>
-                  <p className="ed-kicker" style={{ marginBottom: 18 }}>{ed.location}</p>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                    <span className="ed-meta">{ed.architecture}</span>
-                    <span className="ed-meta">{ed.collaboration}</span>
-                  </div>
+                  {/* Authorship lives on the project's own page, not here */}
+                  <p className="ed-kicker">{ed.location}</p>
                 </div>
               </Link>
             </Reveal>

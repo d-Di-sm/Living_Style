@@ -16,7 +16,7 @@ export const SECTION_CONFIG = {
       ['Units',       '42 units'],
       ['Location',    'Cabo del Sol, Los Cabos, Mexico'],
       ['Developer',   'SOMA'],
-      ['Design',      'Sordo Madaleno'],
+      ['Design',      'Sordo Madaleno & Soho House'],
     ],
     heroVideo:  blobVideos.SR_Amenities,
     videos:     [
@@ -369,8 +369,9 @@ export function SectionSocialIcons({ links, style }) {
         { href: links.web, label: 'Website',
           path: <><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"/></>,
         },
+        // A square envelope: mitred corners, a single fold line across the top
         { href: links.email, label: 'Email',
-          path: <><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></>,
+          path: <><rect x="4" y="4" width="16" height="16" strokeLinejoin="miter"/><path d="M4 8h16M4 8l8 6 8-6" strokeLinejoin="miter"/></>,
         },
         { href: links.instagram, label: 'Instagram',
           path: <><rect x="2" y="2" width="20" height="20" rx="6"/><circle cx="12" cy="12" r="5"/><path d="M17.5 6.5h.01" strokeLinecap="round"/></>,
@@ -378,8 +379,11 @@ export function SectionSocialIcons({ links, style }) {
         ...(links.pricing ? [{ href: links.pricing, label: 'Pricing',
           path: <><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></>,
         }] : []),
+        // Two stacked square sheets, the back one offset; printed matter with
+        // no interior detail. (Alt: a single square split by a centre spine,
+        // <rect x="4" y="4" width="16" height="16"/><path d="M12 4v16"/>.)
         ...(links.brochure ? [{ href: links.brochure, label: 'Brochure',
-          path: <><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></>,
+          path: <><path d="M8 4h12v12" strokeLinejoin="miter"/><rect x="4" y="8" width="12" height="12" strokeLinejoin="miter"/></>,
         }] : []),
       ].map(({ href, label, path }, i) => (
         <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="ssi-link"

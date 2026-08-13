@@ -84,9 +84,9 @@ export default function ProjectPage() {
         <img className={['d-villa-logo', config.logoClass].filter(Boolean).join(' ')} src={config.logo} alt="" />
       </div>
 
-      {/* Brochure, pricing and contact; kept after the Videos grid was removed */}
+      {/* Brochure and contact; pricing is deliberately not surfaced here */}
       <SectionSocialIcons
-        links={{ ...project.links, pricing: config.pricingUrl, brochure: config.brochureUrl }}
+        links={{ ...project.links, brochure: config.brochureUrl }}
         style={{ padding: 'clamp(50px, 7vw, 90px) var(--ed-pad)' }}
       />
 

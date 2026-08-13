@@ -35,9 +35,6 @@ export default function EditorialFooter() {
             <a href="https://soma.group/" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block' }}>
               <img src="/logos/SOMA_blanco.png" alt="SOMA" style={{ height: 30, mixBlendMode: 'screen', display: 'block' }} />
             </a>
-            <p className="ed-kicker" style={{ color: 'rgba(245,240,230,0.4)', marginTop: 18 }}>
-              Editorial Platform
-            </p>
           </div>
 
           <nav style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
