@@ -19,11 +19,10 @@ const local = {
 }
 
 const blob = {
-  // TODO: these two are not on Blob yet, so production serves them from
-  // /public; roughly 105 MB added to the deployment. Upload them and swap
-  // these paths for their Blob URLs.
-  SR_Amenities:    '/video/videoSohoResidences/Amenities.mp4',
-  PHP_Video_Intro: '/video/videoPHP/Video_Intro_V02.mp4',
+  // Hero films. Amenities.mp4 was uploaded under the PHLC/ prefix, but it is
+  // the Soho Residences film; the Blob path is storage, not meaning.
+  SR_Amenities:    'https://ad6urnxirdpnnnkw.public.blob.vercel-storage.com/PHLC/Amenities.mp4',
+  PHP_Video_Intro: 'https://ad6urnxirdpnnnkw.public.blob.vercel-storage.com/PHP/Video_Intro_V02.mp4',
 
   PHP_Intro: 'https://ad6urnxirdpnnnkw.public.blob.vercel-storage.com/PHP/PHP_Intro.mp4',
   PHLC_01:   'https://ad6urnxirdpnnnkw.public.blob.vercel-storage.com/PHLC/PHLC_01.mp4',

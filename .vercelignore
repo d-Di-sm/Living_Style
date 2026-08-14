@@ -1,0 +1,20 @@
+# Keep the deployment to what the site actually serves.
+#
+# The photography archive and the source video files stay in the repo for
+# local work, but never reach Vercel:
+#   · public/lifestyle/* originals  →  only /lifestyle/web is published
+#   · public/video/*                →  production streams from Vercel Blob
+#                                      (see src/data/blobVideos.js) and the
+#                                      hero loops from Cloudinary
+#
+# Anything referenced by the running site must live in public/lifestyle/web.
+
+public/lifestyle/cabo-del-sol
+public/lifestyle/villas-cds
+public/lifestyle/anima-village
+public/lifestyle/park-hyatt-cdmx
+public/lifestyle/soho-residences
+public/lifestyle/renders
+public/lifestyle/unsorted
+
+public/video

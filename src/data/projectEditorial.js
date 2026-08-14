@@ -34,8 +34,7 @@ export const projectEditorial = {
     architecture: 'Architecture by Sordo Madaleno',
     development: 'Developed by SOMA',
     collaboration: 'In collaboration with Park Hyatt',
-    // Space in the filename must stay percent-encoded in the URL
-    heroImage: '/lifestyle/renders/Scene%201.png',
+    heroImage: '/lifestyle/web/Scene_1.jpg',
     standfirst:
       'Eleven residences on the edge of the Pacific. A study in restraint, held to the quietest standard in hospitality.',
     paragraphs: [

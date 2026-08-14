@@ -27,7 +27,7 @@ export const conversations = [
     intro:
       'What happens to art when it moves from public space into a private home, and where the line sits between a work and decoration.',
     // Final photography; not from the curated /web set, so a literal path
-    portrait: '/lifestyle/anima-village/AnimaPhoto.jpg',
+    portrait: '/lifestyle/web/AnimaPhoto.jpg',
     comingSoon: false,
     // Shown in place of the generic 'Conversation' label once published
     date: 'August 2026',
