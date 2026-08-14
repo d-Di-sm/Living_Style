@@ -96,9 +96,9 @@ export const conversations = [
       ],
     ],
     images: [
-      { after: 2, name: 'AG_IMG_9651',   caption: 'A boulder, placed like a work' },
-      { after: 5, name: 'AnimaVillage_VirroyLola_0043', caption: 'Ánima Village, Cabo del Sol' },
-      { after: 7, name: 'AnimaVillage_VirroyLola_0012', caption: 'Ánima Village, Cabo del Sol', align: 'right' },
+      { after: 2, name: 'AnimaVillageA_1105', caption: 'Ánima Village, Cabo del Sol', align: 'right' },
+      { after: 5, name: 'AnimaVillage_VirroyLola_0012', caption: 'Ánima Village, Cabo del Sol' },
+      { after: 7, name: 'AnimaVillage_VirroyLola_0043', caption: 'Ánima Village, Cabo del Sol', align: 'right' },
     ],
   },
   {

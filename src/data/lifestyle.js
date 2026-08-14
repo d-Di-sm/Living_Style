@@ -81,6 +81,7 @@ const VERTICAL = [
   'Villa_CDS_Exterior_05',          // stepped light passage
   'AnimaVillage_VirroyLola_0043',   // Ánima Village, Virrey & Lola
   'AnimaVillage_VirroyLola_0012',   // Ánima Village, Virrey & Lola
+  'AnimaVillageA_1105',             // Ánima Village
 ]
 
 const ORIENTATION = Object.fromEntries([

@@ -15,7 +15,7 @@ export const projectEditorial = {
     architecture: 'Architecture by Sordo Madaleno',
     development: 'Developed by SOMA',
     collaboration: 'In collaboration with Soho House',
-    heroImage: '/lifestyle/web/SR_Casita.jpg',
+    heroImage: '/lifestyle/web/SR_Casita_Terracota.jpg',
     standfirst:
       'The first residential offering by Soho House. A community conceived for people who carry their life with them; and expect the house to keep up.',
     paragraphs: [
