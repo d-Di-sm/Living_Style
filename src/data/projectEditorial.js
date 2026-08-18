@@ -36,11 +36,11 @@ export const projectEditorial = {
     collaboration: 'In collaboration with Park Hyatt',
     heroImage: '/lifestyle/web/Scene_1.jpg',
     standfirst:
-      'Eleven residences on the edge of the Pacific. A study in restraint, held to the quietest standard in hospitality.',
+      'Nineteen residences on the edge of the Pacific. A study in restraint, held to the quietest standard in hospitality.',
     paragraphs: [
-      'Park Hyatt has always been the least loud of the great luxury flags; a brand that trusts proportion, material, and service to speak for it. The residences at Cabo del Sol are composed in the same register.',
+      'Park Hyatt has always been the least loud of the sophisticated flagships; a brand that trusts proportion, material, and service to speak for it. The residences at Cabo del Sol are composed in the same register.',
       'Set within the coastal landscape, each home expresses contemporary architecture and seamless indoor-outdoor living, with the signature hospitality of Park Hyatt operating quietly underneath; present everywhere, visible almost nowhere.',
-      'A limited collection, by intention. Eleven residences, three typologies, one horizon.',
+      'A limited collection, by intention. Nineteen residences, six typologies, one horizon.',
     ],
   },
 
@@ -59,7 +59,7 @@ export const projectEditorial = {
     paragraphs: [
       'Polanco is where contemporary Mexico City concentrates; culture, commerce, and the long tradition of Sordo Madaleno architecture that shaped the district itself.',
       'Park Hyatt Mexico City Residences continues that lineage: contemporary architecture, personalized service, and renowned hospitality, crafted by SOMA and Sordo Madaleno to elevate the everyday. Residences range from 260 to 440 square meters, crowned by an 850-square-meter penthouse.',
-      'Twenty-seven homes above the city, held to the standard of the guest.',
+      'Twenty-seven homes above the city, held to the standard of the Park Hyatt guest.',
     ],
   },
 }

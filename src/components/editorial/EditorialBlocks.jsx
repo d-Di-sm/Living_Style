@@ -44,6 +44,35 @@ export default function EditorialBlocks({ blocks }) {
                   ? pickVertical(block.seed ?? i)
                   : pickHorizontal(block.seed ?? i)
             const vertical = (block.orientation ?? image.orientation) === 'v'
+
+            // `aside` sets prose beside the photograph instead of beneath it:
+            // image in the first column, body and note in the second.
+            if (block.aside) {
+              return (
+                <div key={i} className="ed-container" style={{ paddingTop: 'clamp(36px, 6vw, 80px)', paddingBottom: 'clamp(36px, 6vw, 80px)' }}>
+                  <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
+                    gap: 'clamp(32px, 5vw, 80px)',
+                    alignItems: 'center',
+                  }}>
+                    <EditorialImage image={image} caption={block.caption} style={{ maxWidth: 560, margin: 0 }} />
+                    <Reveal amount={0.3}>
+                      <div>
+                        {block.aside.text && <p className="ed-body">{block.aside.text}</p>}
+                        {block.aside.note && (
+                          <>
+                            <hr className="ed-rule ed-rule--short" style={{ margin: 'clamp(28px, 4vw, 44px) 0 24px' }} />
+                            <p className="ed-note" style={{ maxWidth: 520, fontSize: '13.2px' }}>{block.aside.note}</p>
+                          </>
+                        )}
+                      </div>
+                    </Reveal>
+                  </div>
+                </div>
+              )
+            }
+
             return (
               <div key={i} className="ed-container" style={{ paddingTop: 'clamp(36px, 6vw, 80px)', paddingBottom: 'clamp(36px, 6vw, 80px)' }}>
                 <EditorialImage

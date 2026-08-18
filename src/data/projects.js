@@ -13,8 +13,10 @@ export const projects = [
     caption: ['Park Hyatt', 'Cabo Del Sol', 'Residences'],
     shareIcons: [0, 1, 2],
     links: {
-      web:       'https://www.parkhyattloscabosresidences.com/',
-      email:     'https://www.parkhyattloscabosresidences.com/residences-and-villas',
+      web:       'https://www.parkhyattcabodelsolresidences.com/',
+      // Their site is an SPA that ignores the hash on load, so #contact does
+      // not scroll when arriving from outside; link to the home instead.
+      email:     'https://www.parkhyattcabodelsolresidences.com/',
       instagram: 'https://www.instagram.com/parkhyattcabodelsol?igsh=MTRkNDJvM25qb2ttMQ==',
     },
   },

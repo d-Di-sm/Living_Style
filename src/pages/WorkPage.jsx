@@ -24,9 +24,9 @@ export default function WorkPage() {
             Evidence of a way of thinking.
           </h1>
           <p className="ed-standfirst" style={{ maxWidth: 700, marginTop: 'clamp(30px, 4vw, 52px)' }}>
-            Evidence of a way of thinking. Three residential developments between Mexico City and
-            Los Cabos, each built alongside a hospitality partner, each one held to the same
-            discipline of attention to detail.
+            Three residential developments between Mexico City and Los Cabos, each built
+            alongside a hospitality partner, each one held to the same discipline of
+            attention to detail.
           </p>
         </Reveal>
       </header>

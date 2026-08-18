@@ -39,7 +39,7 @@ export default function ConversationPreview({ conversation, invert = false }) {
           <h3 className="ed-headline" style={{ marginBottom: 'clamp(22px, 3vw, 36px)' }}>
             {conversation.title}
           </h3>
-          <p className="ed-meta" style={{ marginBottom: 24 }}>
+          <p className="ed-meta" style={{ marginBottom: 24, fontSize: '13.2px' }}>
             {conversation.guest}; {conversation.role}
           </p>
           <p className="ed-body" style={{ color: 'var(--ed-ink-soft)' }}>{conversation.intro}</p>

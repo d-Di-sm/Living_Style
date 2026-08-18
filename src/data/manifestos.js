@@ -30,9 +30,14 @@ export const manifestos = [
       { type: 'triptych', names: ['A_03', 'A_01', 'A_02'] },
       { type: 'paragraph', text: 'To consider living thoughtfully is to begin with the day, not the floor plan. It is to ask what a morning requires. Where silence should live. How a family gathers, and how a person is alone.' },
       { type: 'paragraph', text: 'The answers become architecture. But they begin as observations about life.' },
-      { type: 'image', orientation: 'v', name: 'AG_IMG_9716', caption: 'Light, considered' },
-      { type: 'paragraph', text: 'This is the position SOMA Living formalizes. Not a catalogue of developments, but a record of a way of thinking; one in which every project is evidence of the same conviction.' },
-      { type: 'note', text: 'SOMA Living is the residential platform of SOMA. Projects are its evidence, not its premise.' },
+      // Closing spread: the vertical photograph with the last passage beside it
+      {
+        type: 'image', orientation: 'v', name: 'AG_IMG_9716', caption: 'Light, considered',
+        aside: {
+          text: 'This is the position SOMA Living formalizes. Not a catalogue of developments, but a record of a way of thinking; one in which every project is evidence of the same conviction.',
+          note: 'SOMA Living is the residential platform of SOMA. Projects are its evidence, not its premise.',
+        },
+      },
     ],
   },
 ]

@@ -108,7 +108,7 @@ export const conversations = [
     role: 'Interior Architecture',
     intro:
       'The designer on museography, rooms staged for a single viewer, and what it means to sculpt a space someone else has already poured.',
-    portrait: src('AG_IMG_9824'),
+    portrait: src('Villa_CDS_Det_01'),
     comingSoon: true,
     questions: [
       "When you walk into a space you designed years ago, unannounced, what do you think you'd notice first, before you noticed anything you'd want to change?",
