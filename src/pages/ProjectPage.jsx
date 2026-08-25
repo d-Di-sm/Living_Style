@@ -30,6 +30,10 @@ export default function ProjectPage() {
 
       <ProjectEditorialHeader editorial={editorial} />
 
+      {/* Everything past the masthead rides above the pinned photograph and
+          carries its own paper, so the image never shows through it. */}
+      <div style={{ position: 'relative', zIndex: 1, background: 'var(--ed-paper)' }}>
+
       {/* ── Narrative; the story before the facts ── */}
       <section className="ed-container" style={{ paddingBottom: 'clamp(50px, 8vw, 120px)' }}>
         <Reveal>
@@ -96,6 +100,7 @@ export default function ProjectPage() {
 
       <NewsletterSignup />
       <EditorialFooter />
+      </div>
     </PageShell>
   )
 }

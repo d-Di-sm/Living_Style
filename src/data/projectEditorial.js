@@ -49,6 +49,7 @@ export const projectEditorial = {
     slug: 'park-hyatt-polanco',
     status: 'Delivering in 2026',
     name: 'Park Hyatt Mexico City Polanco Residences',
+    nameLines: 'Park Hyatt Mexico City\nPolanco Residences',
     location: 'Polanco, Mexico City',
     architecture: 'Architecture by Sordo Madaleno',
     development: 'Developed by SOMA',
