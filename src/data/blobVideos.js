@@ -6,7 +6,9 @@ const dev = import.meta.env.DEV
 
 const local = {
   // Hero films played inside the project's photo frame
-  SR_Amenities:    '/video/videoSohoResidences/Amenities.mp4',
+  // No local copies of these two; dev streams them from Blob like prod
+  SR_Casona:       'https://ad6urnxirdpnnnkw.public.blob.vercel-storage.com/SR/SR_Casona.mp4',
+  PHLC_Villas:     'https://ad6urnxirdpnnnkw.public.blob.vercel-storage.com/PHLC/SOMA_PHLC_Villas.mp4',
   PHP_Video_Intro: '/video/videoPHP/Video_Intro_V02.mp4',
 
   PHP_Intro: '/video/videoPHP/PHP_Intro.mp4',
@@ -19,9 +21,8 @@ const local = {
 }
 
 const blob = {
-  // Hero films. Amenities.mp4 was uploaded under the PHLC/ prefix, but it is
-  // the Soho Residences film; the Blob path is storage, not meaning.
-  SR_Amenities:    'https://ad6urnxirdpnnnkw.public.blob.vercel-storage.com/PHLC/Amenities.mp4',
+  SR_Casona:       'https://ad6urnxirdpnnnkw.public.blob.vercel-storage.com/SR/SR_Casona.mp4',
+  PHLC_Villas:     'https://ad6urnxirdpnnnkw.public.blob.vercel-storage.com/PHLC/SOMA_PHLC_Villas.mp4',
   PHP_Video_Intro: 'https://ad6urnxirdpnnnkw.public.blob.vercel-storage.com/PHP/Video_Intro_V02.mp4',
 
   PHP_Intro: 'https://ad6urnxirdpnnnkw.public.blob.vercel-storage.com/PHP/PHP_Intro.mp4',

@@ -18,7 +18,7 @@ export const SECTION_CONFIG = {
       ['Developer',   'SOMA'],
       ['Design',      'Sordo Madaleno & Soho House'],
     ],
-    heroVideo:  blobVideos.SR_Amenities,
+    heroVideo:  blobVideos.SR_Casona,
     videos:     [
       { label: 'INTRO',      image: '/images_detail_view/SR/amenities.png',  video: blobVideos.SR_04 },
       { label: 'AMENITIES', image: '/images_detail_view/SR/amenities_2.png', video: blobVideos.SR_02 },
@@ -47,7 +47,7 @@ export const SECTION_CONFIG = {
       ['Developer',   'SOMA'],
       ['Design',      'Sordo Madaleno'],
     ],
-    heroVideo:  blobVideos.PHLC_02,
+    heroVideo:  blobVideos.PHLC_Villas,
     videos:     [
       { label: 'INTRO',      image: '/images_detail_view/PHLC/intro_2.png',   video: blobVideos.PHLC_01 },
       { label: 'AMENITIES', image: '/images_detail_view/PHLC/amenities.png', video: blobVideos.PHLC_02 },
