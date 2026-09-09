@@ -236,7 +236,7 @@ export const conversations = [
     ],
     images: [
       { after: 2, name: 'AG_IMG_9599', caption: 'The cove below the site' },
-      { after: 4, src: '/lifestyle/cabo-del-sol/AG_IMG_9667.jpg', orientation: 'v', caption: 'A palm, holding the last light', align: 'right' },
+      { after: 4, src: '/lifestyle/web/AG_IMG_9667.jpg', orientation: 'v', caption: 'A palm, holding the last light', align: 'right' },
       { after: 6, name: 'AG_IMG_9584', caption: 'What the land keeps' },
     ],
   },

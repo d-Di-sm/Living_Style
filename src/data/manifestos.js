@@ -21,7 +21,7 @@ export const manifestos = [
     standfirst:
       'For decades, SOMA has shaped the environments in which contemporary life in Mexico takes place.\n\n' +
       'Today, that role continues through SOMA\'s residential projects.',
-    image: { src: '/lifestyle/cabo-del-sol/Living_01.jpg', orientation: 'h' },
+    image: { src: '/lifestyle/web/Living_01.jpg', orientation: 'h' },
     blocks: [
       { type: 'paragraph', title: 'Legacy and Documentation', text: 'The work of Juan Sordo Madaleno and Javier Sordo Madaleno Bringas established an architectural lineage that continues today with the third generation, Javier Sordo Madaleno De Haro and his siblings are bringing this legacy to unprecedented heights. This platform becomes the infrastructure through which that legacy is documented and communicated for future generations.' },
       { type: 'image', orientation: 'h', name: 'VOYV8653', caption: 'Baja California Sur' },
@@ -40,7 +40,7 @@ export const manifestos = [
       { type: 'paragraph', text: 'The answers become architecture. But they begin as observations about life.' },
       // Closing spread: the vertical photograph with the last passage beside it
       {
-        type: 'image', orientation: 'v', src: '/lifestyle/cabo-del-sol/Living_02.jpg', caption: 'Light, considered',
+        type: 'image', orientation: 'v', src: '/lifestyle/web/Living_02.jpg', caption: 'Light, considered',
         aside: {
           text: 'This is the position SOMA Living formalizes. Not a catalogue of developments, but a record of a way of thinking; one in which every project is evidence of the same conviction.',
           note: 'SOMA Living is the residential platform of SOMA. Projects are its evidence, not its premise.',

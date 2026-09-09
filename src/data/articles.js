@@ -16,7 +16,7 @@ export const articles = [
     author: 'Alfredo Gómez',
     date: 'September 2026',
     readTime: '2 min read',
-    cover: { src: '/lifestyle/park-hyatt-cdmx/PHMC_IMG_Alfredo.JPG', orientation: 'v' },
+    cover: { src: '/lifestyle/web/PHMC_IMG_Alfredo.JPG', orientation: 'v' },
     excerpt:
       'Above the nineteenth floor, Mexico City takes on a different rhythm. A Polanco resident reflects on architecture, hospitality, and the rare perspective of life above the city.',
     blocks: [
@@ -138,12 +138,12 @@ export const articles = [
     title: 'How to Walk Polanco in the Morning, Not the Evening',
     date: 'August 2026',
     readTime: '2 min read',
-    cover: { src: '/lifestyle/park-hyatt-cdmx/PHMC_IMG_Tamayo.jpg', orientation: 'h' },
+    cover: { src: '/lifestyle/web/PHMC_IMG_Tamayo.jpg', orientation: 'h' },
     excerpt:
       'Most people experience this neighborhood at night, restaurant to restaurant, engineered for it. The morning version is a different city, quieter, better lit, and almost entirely overlooked.',
     blocks: [
       { type: 'paragraph', text: "Leave before eight. The jacaranda trees along Avenida Presidente Masaryk hold their color best in early light, before the heat flattens it by midday. Walk without a destination for the first twenty minutes. A neighborhood built for evenings rewards anyone willing to see it before it's performing." },
-      { type: 'image', orientation: 'h', src: '/lifestyle/park-hyatt-cdmx/PHMC_IMG_Aerea_01.jpg', caption: 'Polanco, before eight' },
+      { type: 'image', orientation: 'h', src: '/lifestyle/web/PHMC_IMG_Aerea_01.jpg', caption: 'Polanco, before eight' },
       { type: 'paragraph', text: 'Coffee last, not first. Everything tastes better as a reward for having already walked somewhere, rather than as fuel to start.' },
     ],
   },
