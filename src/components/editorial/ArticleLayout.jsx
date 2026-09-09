@@ -11,7 +11,9 @@ import { articles } from '../../data/articles'
 // title block with generous air, then the block flow.
 // ─────────────────────────────────────────────────────────────────────────────
 export default function ArticleLayout({ article }) {
-  const cover = article.cover ? img(article.cover) : pickHorizontal(article.coverSeed)
+  const cover = typeof article.cover === 'string'
+    ? img(article.cover)
+    : article.cover ?? pickHorizontal(article.coverSeed)
 
   return (
     <article>
@@ -30,7 +32,8 @@ export default function ArticleLayout({ article }) {
           <h1 className="ed-display" style={{ maxWidth: 1050, marginBottom: 'clamp(30px, 4vw, 52px)' }}>
             {article.title}
           </h1>
-          <div style={{ display: 'flex', gap: 28 }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 28 }}>
+            {article.author && <span className="ed-meta">By {article.author}</span>}
             <span className="ed-meta">{article.date}</span>
             <span className="ed-meta">{article.readTime}</span>
           </div>

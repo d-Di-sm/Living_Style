@@ -1,13 +1,33 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // JOURNAL; editorial entries.
 //
-// DRAFT COPY; written in the voice of the SOMA Living strategic proposal.
+// Ascent uses the supplied essay by Alfredo Gómez (ascent phmc.pdf).
+// Other entries: draft copy in the voice of the SOMA Living strategic proposal.
 // Replace `excerpt` and block `text` values with final copy; layout adapts.
 //
 // Block types: 'paragraph' · 'quote' · 'image' ('h' | 'v') · 'note'
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const articles = [
+  {
+    slug: 'ascent',
+    category: 'Park Hyatt Mexico City',
+    title: 'Ascent',
+    author: 'Alfredo Gómez',
+    date: 'September 2026',
+    readTime: '2 min read',
+    cover: { src: '/lifestyle/park-hyatt-cdmx/PHMC_IMG_Alfredo.JPG', orientation: 'v' },
+    excerpt:
+      'Above the nineteenth floor, Mexico City takes on a different rhythm. A Polanco resident reflects on architecture, hospitality, and the rare perspective of life above the city.',
+    blocks: [
+      { type: 'paragraph', text: 'There is a particular stillness that arrives above the nineteenth floor, the kind that only altitude and discretion can create together. Mexico City unfolds below in full view, its noise softened into something closer to texture, while inside, the light moves differently, unhurried, as if it too understood it had arrived somewhere rare.' },
+      { type: 'paragraph', text: "A few blocks from the Bosque de Chapultepec, that rarity takes architectural form. It was here that Sordo Madaleno first gave Mexico City a vocabulary of glass, light, and proportion. This lineage did not simply build in Polanco but helped write its character. The firm's name is inseparable from the neighborhood's own evolution, each subsequent structure another sentence in a conversation that began decades ago and has never really paused." },
+      { type: 'paragraph', text: "Park Hyatt Mexico City Polanco Residences continues that sentence. Conceived through the collaboration of SOMA and Sordo Madaleno, the building speaks a shared language of restraint and material honesty, contemporary in form yet unmistakably fluent in the district's own architectural dialect. Inside, personalized service and the hospitality the Park Hyatt name has long carried across the world are folded into daily life rather than reserved for special occasions." },
+      { type: 'paragraph', text: "The view offers its own quiet proof of how rare this vantage truly is. From certain residences, the eye drifts past the treeline of Chapultepec and finds, unexpectedly, the silhouettes of giraffes moving through the park's zoo below, a detail so improbable it borders on the surreal. It is the kind of sight that reminds a resident this is not simply an apartment above a city, but a window onto something closer to wilderness, framed by architecture rather than distance." },
+      { type: 'paragraph', text: "Twenty-seven homes rise above that view, each an expression of the same ambition. Residences range from 260 to 440 square meters, conceived with the generosity of space that Polanco's density rarely allows, culminating in an 850-square-meter penthouse that redefines scale itself in this part of the city. To live here is to be held to the same standard as the Park Hyatt guest: anticipated, understood, cared for before the need is spoken aloud." },
+      { type: 'quote', text: 'This is not simply a residence in Polanco. It is Polanco, distilled into twenty-seven homes above the city it helped define, with a view no one quite expects.' },
+    ],
+  },
   // Formerly the second Living manifesto; moved to Entries
   {
     slug: 'hospitality-taught-residential-design',
@@ -26,7 +46,7 @@ export const articles = [
       { type: 'paragraph', text: 'When hospitality entered the residential world, it brought its habits with it. Arrival became a sequence, not a door. Amenities became rituals, not lists. Maintenance became invisible. Service became architecture.' },
       { type: 'paragraph', text: 'The branded residence is often discussed as a financial instrument. That misses what actually changed. What changed is that someone finally asked, of a private home, the question hotels have always asked: how does this feel to the person inside it?' },
       { type: 'image', orientation: 'h', name: 'AnimaVillageA_0742', caption: 'Indoor and outdoor, without a seam' },
-      { type: 'paragraph', text: 'SOMA builds with great hospitality houses (Park Hyatt, Soho House), not to borrow their names, but because they share the same discipline of attention to detail. The collaboration is the point. The name is not the evidence; the work is.' },
+      { type: 'paragraph', layout: 'wide', text: 'SOMA builds with great hospitality houses because they share the same discipline of attention to detail. The collaboration is the point. The name is not the evidence; the work is.' },
       { type: 'note', text: 'Residential design, held to the standard of the guest. That is what hospitality taught it.' },
     ],
   },
@@ -118,12 +138,12 @@ export const articles = [
     title: 'How to Walk Polanco in the Morning, Not the Evening',
     date: 'August 2026',
     readTime: '2 min read',
-    cover: 'PHMC_IMG_2945',
+    cover: { src: '/lifestyle/park-hyatt-cdmx/PHMC_IMG_Tamayo.jpg', orientation: 'h' },
     excerpt:
       'Most people experience this neighborhood at night, restaurant to restaurant, engineered for it. The morning version is a different city, quieter, better lit, and almost entirely overlooked.',
     blocks: [
       { type: 'paragraph', text: "Leave before eight. The jacaranda trees along Avenida Presidente Masaryk hold their color best in early light, before the heat flattens it by midday. Walk without a destination for the first twenty minutes. A neighborhood built for evenings rewards anyone willing to see it before it's performing." },
-      { type: 'image', orientation: 'h', name: '2025_Park_Hyatt_CDMX_Drone_04', caption: 'Polanco, before eight' },
+      { type: 'image', orientation: 'h', src: '/lifestyle/park-hyatt-cdmx/PHMC_IMG_Aerea_01.jpg', caption: 'Polanco, before eight' },
       { type: 'paragraph', text: 'Coffee last, not first. Everything tastes better as a reward for having already walked somewhere, rather than as fuel to start.' },
     ],
   },

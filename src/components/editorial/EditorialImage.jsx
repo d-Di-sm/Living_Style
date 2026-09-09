@@ -17,7 +17,7 @@ export default function EditorialImage({
 
   return (
     <figure className={className} style={{ margin: 0, ...style }}>
-      <div style={{ overflow: 'hidden', aspectRatio: aspect, background: 'var(--ed-paper-deep)' }}>
+      <div style={{ position: 'relative', overflow: 'hidden', aspectRatio: aspect, background: 'var(--ed-paper-deep)' }}>
         <motion.img
           src={source}
           alt={caption ?? ''}
@@ -27,7 +27,7 @@ export default function EditorialImage({
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 1.6, ease: EASE }}
-          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
         />
       </div>
       {caption && (

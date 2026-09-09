@@ -53,22 +53,12 @@ export default function EditorialNav({ variant = 'paper', darkUntilVh }) {
         {/* ── Logo ── */}
         <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: ink }}>
           <img
-            src="/logos/SOMA_blanco.png"
-            alt="SOMA"
+            src="/logos/soma-living.svg"
+            alt="SOMA Living"
             style={{
-              height: 26, width: 'auto', display: 'block',
-              filter: dark ? 'none' : 'invert(1)',
-              mixBlendMode: dark ? 'screen' : 'multiply',
+              height: 32.5, width: 'auto', display: 'block',
             }}
           />
-          <span style={{
-            fontFamily: 'var(--ed-sans)', fontSize: 11, fontWeight: 300,
-            letterSpacing: '0.42em', textTransform: 'uppercase',
-            marginLeft: 14, paddingLeft: 12, opacity: 0.55,
-            borderLeft: `1px solid ${dark ? 'rgba(245,240,230,0.25)' : 'rgba(26,26,26,0.2)'}`,
-          }}>
-            Living
-          </span>
         </Link>
 
         {/* ── Desktop links ── */}
@@ -104,7 +94,7 @@ export default function EditorialNav({ variant = 'paper', darkUntilVh }) {
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <img src="/logos/SOMA_blanco.png" alt="SOMA" style={{ height: 24, filter: 'invert(1)', mixBlendMode: 'multiply' }} />
+              <img src="/logos/soma-living.svg" alt="SOMA Living" style={{ height: 30, width: 'auto', display: 'block' }} />
               <button aria-label="Close" onClick={() => setOpen(false)}
                 style={{ background: 'none', border: 'none', fontSize: 22, cursor: 'pointer', color: 'inherit', padding: 8 }}>
                 ✕

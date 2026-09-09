@@ -8,7 +8,9 @@ import { img, pickHorizontal } from '../../data/lifestyle'
 // and quiet metadata. The whole composition is the link.
 // ─────────────────────────────────────────────────────────────────────────────
 export default function ArticlePreview({ article, featured = false }) {
-  const cover = article.cover ? img(article.cover) : pickHorizontal(article.coverSeed)
+  const cover = typeof article.cover === 'string'
+    ? img(article.cover)
+    : article.cover ?? pickHorizontal(article.coverSeed)
 
   return (
     <Reveal amount={0.15}>
@@ -25,6 +27,9 @@ export default function ArticlePreview({ article, featured = false }) {
           <h3 className={featured ? 'ed-headline' : 'ed-title-sm'} style={{ marginBottom: 18 }}>
             {article.title}
           </h3>
+          {article.author && (
+            <p className="ed-meta" style={{ marginBottom: 18 }}>By {article.author}</p>
+          )}
           <p className="ed-body" style={{ color: 'var(--ed-ink-soft)', marginBottom: 22 }}>
             {article.excerpt}
           </p>

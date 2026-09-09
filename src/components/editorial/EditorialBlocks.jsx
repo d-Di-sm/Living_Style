@@ -17,14 +17,15 @@ export default function EditorialBlocks({ blocks }) {
         switch (block.type) {
           case 'paragraph': {
             const alignRight = paragraphCount % 2 === 1
+            const isWide = block.layout === 'wide'
             paragraphCount++
             return (
               <Reveal key={i} amount={0.3}>
                 <div className="ed-container" style={{ paddingTop: 'clamp(28px, 4vw, 56px)', paddingBottom: 'clamp(28px, 4vw, 56px)' }}>
-                  <div style={{ maxWidth: 620, marginLeft: alignRight ? 'auto' : 0, marginRight: alignRight ? 0 : 'auto' }}>
+                  <div style={{ maxWidth: isWide ? 1000 : 620, marginLeft: alignRight ? 'auto' : 0, marginRight: alignRight ? 0 : 'auto' }}>
                     {/* Optional epigraph, same treatment as a list's title */}
                     {block.title && <p className="ed-kicker" style={{ marginBottom: 20 }}>{block.title}</p>}
-                    <p className="ed-body">{block.text}</p>
+                    <p className="ed-body" style={isWide ? { maxWidth: 'none', textWrap: 'balance' } : undefined}>{block.text}</p>
                   </div>
                 </div>
               </Reveal>
@@ -86,18 +87,21 @@ export default function EditorialBlocks({ blocks }) {
             )
           }
 
-          case 'triptych': {
-            // Three photographs scattered across the column at staggered
-            // heights; an editorial pause between passages of text.
-            const cls = ['ed-triptych__a', 'ed-triptych__b', 'ed-triptych__c']
+          case 'collage': {
+            // Five photographs at staggered heights, with the final two
+            // layered behind the first three.
+            const cls = ['ed-collage__a', 'ed-collage__b', 'ed-collage__c', 'ed-collage__d', 'ed-collage__e']
             return (
               <div key={i} className="ed-container" style={{ paddingTop: 'clamp(40px, 6vw, 90px)', paddingBottom: 'clamp(40px, 6vw, 90px)' }}>
-                <div className="ed-triptych">
-                  {block.names.slice(0, 3).map((name, j) => (
-                    <div key={name} className={cls[j]}>
-                      <EditorialImage image={img(name)} ratio="3 / 4" />
-                    </div>
-                  ))}
+                <div className="ed-collage">
+                  {block.images.map((item, j) => {
+                    const image = typeof item === 'string' ? img(item) : item
+                    return (
+                      <div key={image.src} className={cls[j]}>
+                        <EditorialImage image={image} ratio="3 / 4" />
+                      </div>
+                    )
+                  })}
                 </div>
               </div>
             )

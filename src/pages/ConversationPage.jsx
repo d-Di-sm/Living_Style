@@ -67,7 +67,9 @@ export default function ConversationPage() {
         <div style={{ maxWidth: 880 }}>
           {c.questions.map((q, i) => {
             const interleaved = imagesAfter[i + 1]
-            const image = interleaved ? img(interleaved.name) : null
+            const image = interleaved?.src
+              ? { src: interleaved.src, orientation: interleaved.orientation ?? 'h' }
+              : interleaved ? img(interleaved.name) : null
             const vertical = image?.orientation === 'v'
             return (
               <div key={i}>

@@ -234,21 +234,47 @@
 .ed-newsletter-input::placeholder { color: var(--ed-ink-faint); }
 .ed-newsletter-input:focus { border-color: var(--ed-ink); }
 
-/* ── Staggered triptych; three photographs scattered editorially ── */
-.ed-triptych {
+/* ── Layered collage; the final two photographs sit behind the first three ── */
+.ed-collage {
+  --collage-offset-left: clamp(50px, 8vw, 150px);
+  --collage-offset-center: clamp(150px, 24vw, 380px);
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  isolation: isolate;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
   column-gap: clamp(16px, 3vw, 44px);
+  align-items: start;
 }
-.ed-triptych__a { grid-column: 1 / 5;  grid-row: 1; margin-top: clamp(50px, 8vw, 150px); }
-.ed-triptych__b { grid-column: 9 / 13; grid-row: 1; }
-.ed-triptych__c { grid-column: 5 / 9;  grid-row: 1; margin-top: clamp(150px, 24vw, 380px); }
+.ed-collage > div {
+  min-width: 0;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.ed-collage__a { grid-column: 1 / 5;  grid-row: 1; margin-top: var(--collage-offset-left); }
+.ed-collage__b { grid-column: 9 / 13; grid-row: 1; }
+.ed-collage__c { grid-column: 5 / 9;  grid-row: 1; margin-top: var(--collage-offset-center); }
+.ed-collage > .ed-collage__d { grid-column: 3 / 7; grid-row: 1; margin-top: clamp(12px, 2vw, 36px); z-index: 1; }
+.ed-collage > .ed-collage__e { grid-column: 7 / 11; grid-row: 1; margin-top: clamp(80px, 14vw, 220px); z-index: 1; }
+
+@media (hover: hover) and (pointer: fine) {
+  .ed-collage > div:hover {
+    z-index: 3;
+    transform: scale(1.025);
+    box-shadow: 0 16px 44px rgba(26, 26, 26, 0.22);
+  }
+}
 
 @media (max-width: 820px) {
-  .ed-triptych { display: flex; flex-direction: column; gap: clamp(32px, 7vw, 52px); }
-  .ed-triptych__a { width: 80%; margin-top: 0; }
-  .ed-triptych__b { width: 64%; align-self: flex-end; }
-  .ed-triptych__c { width: 86%; margin: 0 auto; }
+  .ed-collage {
+    --collage-offset-left: clamp(72px, 26vw, 180px);
+    --collage-offset-center: clamp(210px, 65vw, 500px);
+    column-gap: clamp(6px, 1.5vw, 12px);
+  }
+  .ed-collage__a { grid-column: 1 / 7; }
+  .ed-collage__b { grid-column: 7 / 13; }
+  .ed-collage__c { grid-column: 4 / 10; }
+  .ed-collage > .ed-collage__d { grid-column: 3 / 9; margin-top: clamp(12px, 5vw, 36px); }
+  .ed-collage > .ed-collage__e { grid-column: 6 / 12; margin-top: clamp(130px, 40vw, 310px); }
 }
 
 /* ── Gallery hover (editorial, restrained) ─────────── */
@@ -304,6 +330,8 @@
 
 /* Reduced motion; editorial should degrade gracefully */
 @media (prefers-reduced-motion: reduce) {
+  .ed-collage > div { transition: none; }
+  .ed-collage > div:hover { transform: none; }
   .ed-img-hover img { transition: none; }
   .ed-img-mono img { transition: none; }
   .ed-scroll-line { animation: none; }

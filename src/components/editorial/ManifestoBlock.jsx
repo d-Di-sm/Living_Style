@@ -9,7 +9,9 @@ import { img, pickHorizontal } from '../../data/lifestyle'
 // `invert` flips the opening composition for the second manifesto.
 // ─────────────────────────────────────────────────────────────────────────────
 export default function ManifestoBlock({ manifesto, invert = false }) {
-  const opener = manifesto.image ? img(manifesto.image) : pickHorizontal(manifesto.imageSeed)
+  const opener = typeof manifesto.image === 'string'
+    ? img(manifesto.image)
+    : manifesto.image ?? pickHorizontal(manifesto.imageSeed)
 
   return (
     <article>
@@ -38,8 +40,8 @@ export default function ManifestoBlock({ manifesto, invert = false }) {
             </h2>
             <p className="ed-standfirst">{manifesto.standfirst}</p>
           </Reveal>
-          <div style={{ order: invert ? 1 : 2 }}>
-            <EditorialImage image={opener} />
+          <div style={{ order: invert ? 1 : 2, minWidth: 0 }}>
+            <EditorialImage image={opener} ratio="3 / 2" />
           </div>
         </div>
       </div>
