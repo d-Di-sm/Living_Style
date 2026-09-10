@@ -80,7 +80,12 @@ export default function EditorialBlocks({ blocks }) {
                   image={image}
                   caption={block.caption}
                   style={vertical
-                    ? { maxWidth: 560, margin: i % 2 === 0 ? '0 auto 0 0' : '0 0 0 auto' }
+                    ? {
+                        maxWidth: 560,
+                        margin: block.align === 'center'
+                          ? '0 auto'
+                          : i % 2 === 0 ? '0 auto 0 0' : '0 0 0 auto',
+                      }
                     : undefined}
                 />
               </div>
@@ -89,7 +94,7 @@ export default function EditorialBlocks({ blocks }) {
 
           case 'collage': {
             // Five photographs at staggered heights, with the final two
-            // layered behind the first three.
+            // below the left and right photographs.
             const cls = ['ed-collage__a', 'ed-collage__b', 'ed-collage__c', 'ed-collage__d', 'ed-collage__e']
             return (
               <div key={i} className="ed-container" style={{ paddingTop: 'clamp(40px, 6vw, 90px)', paddingBottom: 'clamp(40px, 6vw, 90px)' }}>

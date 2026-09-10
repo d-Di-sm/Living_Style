@@ -42,8 +42,8 @@ export const manifestos = [
       {
         type: 'image', orientation: 'v', src: '/lifestyle/web/Living_02.jpg', caption: 'Light, considered',
         aside: {
-          text: 'This is the position SOMA Living formalizes. Not a catalogue of developments, but a record of a way of thinking; one in which every project is evidence of the same conviction.',
-          note: 'SOMA Living is the residential platform of SOMA. Projects are its evidence, not its premise.',
+          text: 'This is the position SOMA Living formalizes. Setting a record of a way of thinking; one in which every project is evidence of the same conviction.',
+          note: 'SOMA Living is our residential platform, a record of a way of thinking. Every project reflects the same conviction: life can be designed, not just accommodated.',
         },
       },
     ],
