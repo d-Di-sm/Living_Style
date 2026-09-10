@@ -7,6 +7,7 @@ export default function EditorialImage({
   image,               // { src, orientation } from lifestyle.js; or plain src string
   src,
   ratio,               // css aspect-ratio, e.g. '3 / 2'
+  objectPosition = 'center',
   caption,
   priority = false,
   style,
@@ -27,7 +28,7 @@ export default function EditorialImage({
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 1.6, ease: EASE }}
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition, display: 'block' }}
         />
       </div>
       {caption && (

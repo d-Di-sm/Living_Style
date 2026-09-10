@@ -120,6 +120,7 @@ export default function ConversationPage() {
                     <EditorialImage
                       image={image}
                       caption={interleaved.caption}
+                      objectPosition={interleaved.objectPosition}
                       style={vertical
                         ? {
                             maxWidth: 560,
