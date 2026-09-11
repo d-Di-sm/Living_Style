@@ -180,6 +180,8 @@
   position: absolute; right: 48px; bottom: 32px;
   width: 270px !important; height: auto !important; object-fit: contain !important;
 }
+/* Temporarily hide project overlays; remove this rule to restore the logos. */
+.d-photo .d-villa-logo { display: none; }
 
 /* ── Detail footer logo size (desktop) ─────────────── */
 .detail-footer-logo { height: 33px; }
