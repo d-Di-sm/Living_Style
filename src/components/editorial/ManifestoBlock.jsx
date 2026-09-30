@@ -12,6 +12,7 @@ export default function ManifestoBlock({ manifesto, invert = false }) {
   const opener = typeof manifesto.image === 'string'
     ? img(manifesto.image)
     : manifesto.image ?? pickHorizontal(manifesto.imageSeed)
+  const trio = manifesto.images?.length > 0
 
   return (
     <article>
@@ -29,19 +30,31 @@ export default function ManifestoBlock({ manifesto, invert = false }) {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 420px), 1fr))',
+            // The trio needs the full measure; the title then sits above it
+            gridTemplateColumns: trio ? '1fr' : 'repeat(auto-fit, minmax(min(100%, 420px), 1fr))',
             gap: 'clamp(36px, 6vw, 110px)',
             alignItems: 'center',
           }}
         >
-          <Reveal style={{ order: invert ? 2 : 1 }}>
+          <Reveal style={{ order: invert ? 2 : 1, maxWidth: trio ? 720 : undefined }}>
             <h2 className="ed-headline" style={{ marginBottom: 'clamp(24px, 3vw, 44px)' }}>
               {manifesto.title}
             </h2>
             <p className="ed-standfirst">{manifesto.standfirst}</p>
           </Reveal>
           <div style={{ order: invert ? 1 : 2, minWidth: 0 }}>
-            <EditorialImage image={opener} ratio="3 / 2" />
+            {trio ? (
+              // Three photographs at staggered heights, like the collage below
+              <div className="ed-trio">
+                {manifesto.images.slice(0, 3).map((image, j) => (
+                  <div key={image.src} className={['ed-trio__a', 'ed-trio__b', 'ed-trio__c'][j]}>
+                    <EditorialImage image={image} ratio="5 / 4" />
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <EditorialImage image={opener} ratio="3 / 2" />
+            )}
           </div>
         </div>
       </div>

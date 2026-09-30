@@ -21,10 +21,15 @@ export const manifestos = [
     standfirst:
       'For decades, SOMA has shaped the environments in which contemporary life in Mexico takes place.\n\n' +
       'Today, that role continues through SOMA\'s residential projects.',
-    image: { src: '/lifestyle/web/Living_01.jpg', orientation: 'h' },
+    // Opening spread: three archival photographs, staggered
+    // (scans with their borders live in /lifestyle/archive).
+    images: [
+      { src: '/lifestyle/web/Archive_02.jpg', orientation: 'h' },
+      { src: '/lifestyle/web/Archive_03.jpg', orientation: 'h' },
+      { src: '/lifestyle/web/Archive_01.jpg', orientation: 'h' },
+    ],
     blocks: [
       { type: 'paragraph', title: 'Legacy and Documentation', text: 'The work of Juan Sordo Madaleno and Javier Sordo Madaleno Bringas established an architectural lineage that continues today with the third generation, Javier Sordo Madaleno De Haro and his siblings are bringing this legacy to unprecedented heights. This platform becomes the infrastructure through which that legacy is documented and communicated for future generations.' },
-      { type: 'image', orientation: 'h', name: 'VOYV8653', caption: 'Baja California Sur' },
       { type: 'paragraph', text: 'A home is the setting of a life, not a product. The proportions of a room, the temperature of light in the late afternoon, the distance between a kitchen and a garden. These are decisions about how a day should feel, not features on a list.' },
       {
         type: 'collage',
