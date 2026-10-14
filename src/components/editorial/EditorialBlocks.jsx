@@ -100,6 +100,7 @@ export default function EditorialBlocks({ blocks }) {
               <div key={i} className="ed-container" style={{ paddingTop: 'clamp(40px, 6vw, 90px)', paddingBottom: 'clamp(40px, 6vw, 90px)' }}>
                 <div className="ed-collage">
                   {block.images.map((item, j) => {
+                    if (!item) return null // empty slot; keeps the others in place
                     const image = typeof item === 'string' ? img(item) : item
                     return (
                       <div key={image.src} className={cls[j]}>

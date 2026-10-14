@@ -19,7 +19,7 @@ export const manifestos = [
     // Line breaks are editorial: the home hero renders them literally
     // (white-space: pre-line); elsewhere they collapse into flowing prose.
     standfirst:
-      'For decades, SOMA has shaped the environments in which contemporary life in Mexico takes place.\n\n' +
+      'For decades, Sordo Madaleno has shaped the environments in which contemporary life in Mexico takes place.\n\n' +
       'Today, that role continues through SOMA\'s residential projects.',
     // Opening spread: three archival photographs, staggered
     // (scans with their borders live in /lifestyle/archive).
@@ -33,9 +33,11 @@ export const manifestos = [
       { type: 'paragraph', text: 'A home is the setting of a life, not a product. The proportions of a room, the temperature of light in the late afternoon, the distance between a kitchen and a garden. These are decisions about how a day should feel, not features on a list.' },
       {
         type: 'collage',
+        // Positions are fixed by index (left, right, centre, below-left,
+        // below-right); null leaves a slot empty without shifting the rest.
         images: [
           'A_03',
-          'A_01',
+          null,
           'A_02',
           { src: '/lifestyle/web/Living_03.jpg', orientation: 'v' },
           { src: '/lifestyle/web/Living_04.jpg', orientation: 'v' },

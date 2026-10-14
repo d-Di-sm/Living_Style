@@ -47,7 +47,7 @@ const VERTICAL = [
   'A_01',               // pebbles and coral, tide line
   'PHMC_IMG_2945',      // jacaranda in bloom against the PHMC tower
   'A_02',               // Sordo Madaleno tote and coffee on sand
-  'A_03',               // poolside daybed, raking shadow
+  'A_03',               // pool terrace under the pergola, palm and sea
   'AG_IMG_9716',        // pergola shadow, vertical
   'AG_IMG_9634',        // patio light, yucca
   'AG_IMG_9836',        // corridor opening to the ocean
